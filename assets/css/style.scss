@@ -3,7 +3,6 @@
 
 @import "{{ site.theme }}";
 
-/* Retain the site's default layout */
 html body .site {
     max-width: 100% !important;
     padding: 0 20px;
@@ -14,31 +13,41 @@ html body .page-content {
     margin: 0 auto;
 }
 
-/* Target only the graph container */
-.wide-container {
+iframe {
     width: 100% !important;
-    max-width: 2400px !important;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-.wide-container iframe {
-    width: 100% !important;
-    height: 800px !important; /* Fixed height for large screens */
+    height: 800px !important;
     border: none;
 }
 
-/* Responsive height for smaller screens */
-@media screen and (max-width: 768px) {
-    .wide-container iframe {
-        height: 60vh; /* Adjust for smaller screens */
+img, video {
+    max-width: 100% !important;
+    height: 800px !important;
+}
+
+html body .site,
+html body .page-content,
+html body .inner,
+html body #main_content,
+html body #main_content_wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 992px) {
+    html body .site,
+    html body .page-content,
+    html body .inner {
+        max-width: 100% !important;
     }
 }
 
-/* Images and videos stay responsive */
-img, video {
-    display: block;
-    max-width: 100%;
-    height: auto;
+@media screen and (max-width: 480px) {
+    html body .site,
+    html body .page-content,
+    html body .inner {
+        max-width: 100% !important;
+    }
 }
