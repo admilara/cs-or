@@ -1,11 +1,25 @@
 ---
 layout: default
-title: Interactive Graphs
+title: Navigacija
 ---
 
-# Interactive Plotly Graph
+# Obrada rezultata
 
-This is an interactive Plotly graph embedded using an iframe:
+Ovo je navigacijska stranica za rezultate obrade dostavljenih podataka nakon pokusa
+crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinice A, D, B i C u GHE Zakučac
+03.12. i 04.12.2024.
+
+Rezultati obrade uključuju:
+
+#### 03.12.2024. Crni start
+1. TBA
+2. TBA
+
+#### 04.12.2024. Otočni rad
+1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
+Dostavljeni podatci podijeljeni su na četiri dijela koja odgovaraju otočnom radu pojedinačnih agregata. Podatci su prema dostavljenim datotekama iz HOPS-ovog Network Managera.
+2. Graf sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.  
+
 <div class="wide-graph">
     <iframe src="konzum/htmls/TS_Dugopolje_OR_GEN_A.html" width="100%" height="600px" frameborder="0"></iframe>
 </div>
