@@ -6,3 +6,7 @@ plugins:
 - jekyll-remote-theme
 include:
   - assets/css
+collections:
+  pages:
+    output: true        # Makes pages render as actual output
+    permalink: /:name/  # Creates clean URLs based on file names

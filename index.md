@@ -18,5 +18,5 @@ Rezultati obrade uključuju:
 #### 04.12.2024. Otočni rad
 1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
 Dostavljeni podatci podijeljeni su na četiri dijela koja odgovaraju otočnom radu pojedinačnih agregata. Podatci su prema dostavljenim datotekama iz HOPS-ovog Network Managera.
-2. [Graf2]({{site.baseurl}}/page1/) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.
+2. [Graf2]({{ site.baseurl }}/page1/) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.
 
