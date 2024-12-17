@@ -35,3 +35,19 @@ html body #main_content_wrap {
     margin: 0 auto !important;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 992px) {
+    html body .site,
+    html body .page-content,
+    html body .inner {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html body .site,
+    html body .page-content,
+    html body .inner {
+        max-width: 100% !important;
+    }
+}
