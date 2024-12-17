@@ -18,8 +18,5 @@ Rezultati obrade uključuju:
 #### 04.12.2024. Otočni rad
 1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
 Dostavljeni podatci podijeljeni su na četiri dijela koja odgovaraju otočnom radu pojedinačnih agregata. Podatci su prema dostavljenim datotekama iz HOPS-ovog Network Managera.
-2. Graf sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.  
+2. [Graf2](./_pages/page1.md) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.
 
-<div class="wide-graph">
-    <iframe src="konzum/htmls/TS_Dugopolje_OR_GEN_A.html" width="100%" height="600px" frameborder="0"></iframe>
-</div>
