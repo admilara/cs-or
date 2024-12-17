@@ -3,6 +3,7 @@
 
 @import "{{ site.theme }}";
 
+/* General site styling */
 html body .site {
     max-width: 100% !important;
     padding: 0 20px;
@@ -13,43 +14,31 @@ html body .page-content {
     margin: 0 auto;
 }
 
+/* Graph/iframe container */
+.wide-container {
+    width: 100%;
+    max-width: 2400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    min-height: 800px; /* Ensures sufficient height */
+}
+
 iframe {
     width: 100% !important;
-    height: 100% !important;
+    height: 70vh; /* Responsive height */
     border: none;
 }
 
+/* Images and videos */
 img, video {
+    display: block;
     max-width: 100% !important;
     height: auto !important;
 }
 
-html body .site,
-html body .page-content,
-html body .inner,
-html body #main_content,
-html body #main_content_wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 auto !important;
-    box-sizing: border-box;
-    max-height: 100% !important;
-    height: 100% !important;
-}
-
-@media screen and (max-width: 992px) {
-    html body .site,
-    html body .page-content,
-    html body .inner {
-        max-width: 100% !important;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    html body .site,
-    html body .page-content,
-    html body .inner {
-        max-width: 100% !important;
+@media screen and (max-width: 768px) {
+    iframe {
+        height: 50vh; /* Adjusts height for smaller screens */
     }
 }
