@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Page 1
-permalink: page1
+permalink: /page1/
 ---
 
 <div class="wide-graph">
