@@ -15,7 +15,7 @@ html body .page-content {
 
 iframe {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     border: none;
 }
 
@@ -34,6 +34,8 @@ html body #main_content_wrap {
     padding: 0 !important;
     margin: 0 auto !important;
     box-sizing: border-box;
+    max-height: 100% !important;
+    height: 100% !important;
 }
 
 @media screen and (max-width: 992px) {
