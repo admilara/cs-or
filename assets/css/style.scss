@@ -3,7 +3,7 @@
 
 @import "{{ site.theme }}";
 
-/* Keep the site and page-content full width */
+/* Retain the site's default layout */
 html body .site {
     max-width: 100% !important;
     padding: 0 20px;
@@ -14,7 +14,7 @@ html body .page-content {
     margin: 0 auto;
 }
 
-/* Custom wide container for graphs */
+/* Target only the graph container */
 .wide-container {
     width: 100% !important;
     max-width: 2400px !important;
@@ -25,20 +25,20 @@ html body .page-content {
 
 .wide-container iframe {
     width: 100% !important;
-    height: 800px !important; /* Default height */
+    height: 800px !important; /* Fixed height for large screens */
     border: none;
 }
 
 /* Responsive height for smaller screens */
 @media screen and (max-width: 768px) {
     .wide-container iframe {
-        height: 60vh; /* Adjust height for smaller screens */
+        height: 60vh; /* Adjust for smaller screens */
     }
 }
 
-/* Images and videos remain responsive */
+/* Images and videos stay responsive */
 img, video {
     display: block;
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 100%;
+    height: auto;
 }
