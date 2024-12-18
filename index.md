@@ -25,9 +25,9 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 
 
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
-2. Crni start - proizvodna jedinica D
-3. Crni start - proizvodna jedinica B
-4. Crni start - proizvodna jedinica C
+2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
+3. Crni start - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-cs-gen-b/)
+4. Crni start - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-cs-gen-c/)
 
 ### 04.12.2024. Otočni rad
 1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
