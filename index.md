@@ -13,8 +13,8 @@ crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinic
 
 #### Podatci: Končar KET - PROCIS
 Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
-* Radna snaga generatora \P [MW\]
-* Jalova snaga generatora \Q [Mvar\]
+* Radna snaga generatora P [MW\]
+* Jalova snaga generatora Q [Mvar\]
 * Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
 * Struje genereatora IL1, IL2, IL3 \[A\]
 * Napon i struja uzbude
@@ -24,7 +24,7 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 * Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
 
 
-1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/prociscsgena/)
+1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D
 3. Crni start - proizvodna jedinica B
 4. Crni start - proizvodna jedinica C
