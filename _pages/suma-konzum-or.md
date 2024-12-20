@@ -9,6 +9,7 @@ title: Suma konzuma u otoku
 
 Na grafovima ispod prikazana je suma radnih i jalovih snaga po trasfostanicama za svaki od agregata. 
 Vrijeme detekcije OR preuzeto je iz Liste KDR za Regiju Split, koja je dostavljena od strane MC Split.
+Mjerenja za Zakučac, Meterize, Dugopolje i Kaštela bila su na 110 kV strani, dok su za Sinj i Vrboran mjerenja s 35 kV.
 
 | Agregat | Vrijeme detekcije OR | Lokacija            | Vrijeme sinkronizacije | Lokacija          |
 | ------- | -------------------- | ------------------- | -----------------------|-------------------|

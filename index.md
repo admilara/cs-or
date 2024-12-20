@@ -75,6 +75,20 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 
 * Sumarna karakteristika - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
 
+#### HOPS NM - mjesta odvajanja
 
-2. [Graf2]({{ site.baseurl }}/page1/) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.
+Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
+Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
+* Struja I [A\]
+* Radna snaga P [MW\]
+* Jalova snaga Q \[Mvar\]
+* Napon U \[kV\]
+
+Rezultati su prikazani odvojeno za sva četiri agregata:
+* [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
+* [GEN D - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-d/)
+* [GEN B - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-b/)
+* [GEN C - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-c/)
+
+
 
