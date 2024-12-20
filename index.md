@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Navigacija
+description: Navigacijska stranica za rezultate obrade
 ---
 
 # Obrada rezultata
@@ -16,7 +17,7 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 * Radna snaga generatora P [MW\]
 * Jalova snaga generatora Q [Mvar\]
 * Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
-* Struje genereatora IL1, IL2, IL3 \[A\]
+* Struje generatora IL1, IL2, IL3 \[A\]
 * Napon i struja uzbude
 * Brzina vrtnje, zadana brzina vrtnje, frekvencija \[%\]
 * Frekvencija f \[Hz\]
@@ -30,6 +31,45 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 4. Crni start - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-cs-gen-c/)
 
 ### 04.12.2024. Otočni rad
+
+#### HOPS NM - konzum
+Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
+Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
+
+Dostavljeni su podatci mjerenja svih trafostanica koje su bile uključene u pokuse otočnog rada, vizualizacija je dana za sva četiri agregata.
+ 
+* TS HE Zakučac - TR1
+    * [GEN A - OR]
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]     
+* TS Kaštela - TR2 
+    * [GEN A - OR]
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]
+* TS Sinj - TR1 i TR2
+    * [GEN A - OR]
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]
+* TS Dugopolje - TR1 i TR2
+    * [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/)
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]
+* TS Meterize - TR1 i TR2
+    * [GEN A - OR]
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]
+* TS Vrboran - TR1 i TR2
+    * [GEN A - OR]
+    * [GEN D - OR]
+    * [GEN B - OR]
+    * [GEN C - OR]
+
+
 1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
 Dostavljeni podatci podijeljeni su na četiri dijela koja odgovaraju otočnom radu pojedinačnih agregata. Podatci su prema dostavljenim datotekama iz HOPS-ovog Network Managera.
 2. [Graf2]({{ site.baseurl }}/page1/) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.

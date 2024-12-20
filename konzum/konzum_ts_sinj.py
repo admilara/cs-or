@@ -266,9 +266,7 @@ html_page = f"""
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>HOPS NM - mjerenja konzuma - TS 110/35 kV Sinj</h1>
-    <h1>Otočni rad proizvodne jedinice A u HE Zakučac</h1>
-    <h1>Promatrani interval: {intervals[0][0]} - {intervals[0][1]}</h1>
+    <h2>Promatrani interval: {intervals[0][0]} - {intervals[0][1]}</h2>
     <div>{html_list[0]}</div>
     <div>{html_list[1]}</div>
     <div>{html_list[2]}</div>
@@ -281,10 +279,10 @@ html_page = f"""
 """
 
 # Save the HTML page
-with open("TS_Sinj_OR_GEN_A.html", "w") as f:
+with open("ts-sinj-or-gen-a.html", "w") as f:
     f.write(html_page)
 
-print("Dashboard saved as TS_Sinj_OR_GEN_A.html")
+print("Dashboard saved as ts-sinj-or-gen-a.html")
 
 
 # ______________________________________________________________________________________________________________________
@@ -318,9 +316,7 @@ html_page = f"""
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>HOPS NM - mjerenja konzuma - TS 110/35 kV Sinj</h1>
-    <h1>Otočni rad proizvodne jedinice D u HE Zakučac</h1>
-    <h1>Promatrani interval: {intervals[1][0]} - {intervals[1][1]}</h1>
+    <h2>Promatrani interval: {intervals[1][0]} - {intervals[1][1]}</h2>
     <div>{html_list[0]}</div>
     <div>{html_list[1]}</div>
     <div>{html_list[2]}</div>
@@ -333,10 +329,10 @@ html_page = f"""
 """
 
 # Save the HTML page
-with open("TS_Sinj_OR_GEN_D.html", "w") as f:
+with open("ts-sinj-or-gen-d.html", "w") as f:
     f.write(html_page)
 
-print("Dashboard saved as TS_Sinj_OR_GEN_D.html")
+print("Dashboard saved as ts-sinj-or-gen-d.html")
 
 
 # ______________________________________________________________________________________________________________________
@@ -370,9 +366,7 @@ html_page = f"""
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>HOPS NM - mjerenja konzuma - TS 110/35 kV Sinj</h1>
-    <h1>Otočni rad proizvodne jedinice B u HE Zakučac</h1>
-    <h1>Promatrani interval: {intervals[2][0]} - {intervals[2][1]}</h1>
+    <h2>Promatrani interval: {intervals[2][0]} - {intervals[2][1]}</h2>
     <div>{html_list[0]}</div>
     <div>{html_list[1]}</div>
     <div>{html_list[2]}</div>
@@ -385,10 +379,10 @@ html_page = f"""
 """
 
 # Save the HTML page
-with open("TS_Sinj_OR_GEN_B.html", "w") as f:
+with open("ts-sinj-or-gen-b.html", "w") as f:
     f.write(html_page)
 
-print("Dashboard saved as TS_Sinj_OR_GEN_B.html")
+print("Dashboard saved as ts-sinj-or-gen-b.html")
 
 # ______________________________________________________________________________________________________________________
 
@@ -421,9 +415,7 @@ html_page = f"""
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>HOPS NM - mjerenja konzuma - TS 110/35 kV Sinj</h1>
-    <h1>Otočni rad proizvodne jedinice C u HE Zakučac</h1>
-    <h1>Promatrani interval: {intervals[3][0]} - {intervals[3][1]}</h1>
+    <h2>Promatrani interval: {intervals[3][0]} - {intervals[3][1]}</h2>
     <div>{html_list[0]}</div>
     <div>{html_list[1]}</div>
     <div>{html_list[2]}</div>
@@ -436,7 +428,7 @@ html_page = f"""
 """
 
 # Save the HTML page
-with open("TS_Sinj_OR_GEN_C.html", "w") as f:
+with open("ts-sinj-or-gen-c.html", "w") as f:
     f.write(html_page)
 
-print("Dashboard saved as TS_Sinj_OR_GEN_C.html")
+print("Dashboard saved as ts-sinj-or-gen-c.html")
