@@ -329,10 +329,10 @@ for i in range(4):
         (split_final_radna_dfs[i]["timestamp"]>=otocni_rad[i][0]) & 
         (split_final_radna_dfs[i]["timestamp"]<=otocni_rad[i][2])
         ]
-    max_value_p = filtered_temp_df["suma"].max()
-    max_index_p = filtered_temp_df["suma"].idxmax()
-    min_value_p = filtered_temp_df["suma"].min()
-    min_index_p = filtered_temp_df["suma"].idxmin()
+    max_value_p = round(filtered_temp_df["suma"].max(), 2)
+    max_index_p = round(filtered_temp_df["suma"].idxmax(), 2)
+    min_value_p = round(filtered_temp_df["suma"].min(), 2)
+    min_index_p = round(filtered_temp_df["suma"].idxmin(), 2)
     # print(max_value_p)
     # print(max_index_p)
     # print(min_value_p)
@@ -450,10 +450,10 @@ for i in range(4):
         (split_final_jalova_dfs[i]["timestamp"]>=otocni_rad[i][0]) & 
         (split_final_jalova_dfs[i]["timestamp"]<=otocni_rad[i][2])
         ]
-    max_value_q = filtered_temp_df["suma"].max()
-    max_index_q = filtered_temp_df["suma"].idxmax()
-    min_value_q = filtered_temp_df["suma"].min()
-    min_index_q = filtered_temp_df["suma"].idxmin()
+    max_value_q = round(filtered_temp_df["suma"].max(), 2)
+    max_index_q = round(filtered_temp_df["suma"].idxmax(), 2)
+    min_value_q = round(filtered_temp_df["suma"].min(), 2)
+    min_index_q = round(filtered_temp_df["suma"].idxmin(), 2)
     # print(max_value_p)
     # print(max_index_p)
     # print(min_value_p)
@@ -546,45 +546,13 @@ html_page = f"""
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Suma konzuma po trafostanicama koje su uključene u otočni rad HE Zakučac</h1>
     <h2>Suma radnih snaga</h2>
-    <p> Na grafovima ispod prikazana je suma radnih snaga po trafostanicama za svaki od agregata.
-    Vrijeme detekcije OR uzeto je iz Liste KRD za Regiju Split, koja je dostavljena od strane MC Split.
-    <ul>
-    <li><b>Agregat A</b>: promatrani interval 8:30 - 11:00
-  	<ul>
-      <li>Detektiran OR: 09:12:58:111 - HE ZAK 110 METERIZE/2 PREKIDAČ Q0 ISKLJUČEN</li>
-      <li>Sinkronizacija: 10:20:29:640 - HE ZAK 110 SP W12</li>
-    </ul>
-    </li>
-    <li><b>Agregat D</b>: promatrani interval 11:00 - 13:00
-    <ul>
-      <li>Detektiran OR: 11:48:26:860 - HE ZAK 110 METERIZE/2 PREKIDAČ Q0 ISKLJUČEN</li>
-      <li>Sinkronizacija: 12:46:48:974 - HE ZAK 110 SP W12</li>
-    </ul>
-    </li>
-    <li><b>Agregat B</b>: promatrani interval 14:00 - 15:30
-    <ul>
-    <li>Detektiran OR: 14:24:28:091 - HE ZAK 110 METERIZE/2 PREKIDAČ Q0 ISKLJUČEN</li>
-    <li>Sinkronizacija: 15:25:27:151 - HE ZAK 110 SP W12</li>
-    </ul>
-    </li>
-    <li><b>Agregat C</b>: promatrani interval 16:00 - 17:30
-    <ul>
-    <li>Detektiran OR: 16:27:27:280 - HE ZAK 110 METERIZE/2 PREKIDAČ Q0 ISKLJUČEN</li>
-    <li>Sinkronizacija: 17:03:18:231 - HE ZAK 220 SP W12</li>
-    </ul>
-    </li>
-    </p>
     <div>{html_list[0]}</div>
     <div>{html_list[1]}</div>
     <div>{html_list[2]}</div>
     <div>{html_list[3]}</div>
     
     <h2>Suma jalovih snaga</h2>
-    <p> Na grafovima ispod prikazana je suma jalovih snaga po trafostanicama za svaki od agregata.
-    Vrijeme detekcije OR uzeto je iz Liste KRD za Regiju Split, koja je dostavljena od strane MC Split.
-    </p>
     <div>{html_list[4]}</div>
     <div>{html_list[5]}</div>
     <div>{html_list[6]}</div>
@@ -595,10 +563,10 @@ html_page = f"""
 """
 
 # Save the HTML page
-with open("suma-konzum-test.html", "w") as f:
+with open("suma-konzum-or.html", "w") as f:
     f.write(html_page)
 
-print("Dashboard saved as suma-konzum-test.html")
+print("Dashboard saved as suma-konzum-or.html")
     
 
     

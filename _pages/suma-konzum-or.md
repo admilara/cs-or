@@ -19,5 +19,5 @@ Vrijeme detekcije OR preuzeto je iz Liste KDR za Regiju Split, koja je dostavlje
 
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/konzum/htmls/TS_Dugopolje_OR_GEN_A.html" width="100%" height="600px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/konzum/htmls/suma-konzum-or.html" width="100%" height="600px" frameborder="0"></iframe>
 </div>

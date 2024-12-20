@@ -52,25 +52,29 @@ Dostavljeni su podatci mjerenja svih trafostanica koje su bile uključene u poku
     * [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/)
     * [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/)
     * [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/)
 * TS Dugopolje - TR1 i TR2
     * [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/)
     * [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/)
     * [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/)
     * [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/)
 * TS Meterize - TR1 i TR2
-    * [GEN A - OR]
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]
+    * [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)
+    * [GEN D - OR]({{ site.baseurl }}/ts-meterize-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-meterize-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-meterize-or-gen-c/)
 * TS Vrboran - TR1 i TR2
-    * [GEN A - OR]
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]
+    * [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/)
+    * [GEN D - OR]({{ site.baseurl }}/ts-vrboran-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-vrboran-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-vrboran-or-gen-c/)
+
+Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
+dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
+Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
+
+* Sumarna karakteristika - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
 
 
-1. Grafovi mjerenih veličina po trafostanicama (P, Q, I, U, položaj regulacijske sklopke) za svaki transformator u trafostanicama koje su bile dio otoka.
-Dostavljeni podatci podijeljeni su na četiri dijela koja odgovaraju otočnom radu pojedinačnih agregata. Podatci su prema dostavljenim datotekama iz HOPS-ovog Network Managera.
 2. [Graf2]({{ site.baseurl }}/page1/) sume radne i jalove snage konzuma za svaki od četiri pokusa otočnog rada agregata A, D, B i C.
 
