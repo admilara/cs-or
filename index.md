@@ -10,9 +10,9 @@ Ovo je navigacijska stranica za rezultate obrade dostavljenih podataka nakon pok
 crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinice A, D, B i C u GHE Zakučac
 03.12. i 04.12.2024. Hyperlinkovi vode na grafove prema podatcima koji su navedeni. 
 
-### 03.12.2024. Crni start
+## 03.12.2024. Crni start
 
-#### Podatci: Končar KET - PROCIS
+### Podatci: Končar KET - PROCIS
 Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 * Radna snaga generatora P [MW\]
 * Jalova snaga generatora Q [Mvar\]
@@ -30,9 +30,9 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 3. Crni start - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-cs-gen-b/)
 4. Crni start - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-cs-gen-c/)
 
-### 04.12.2024. Otočni rad
+## 04.12.2024. Otočni rad
 
-#### HOPS NM - konzum
+### HOPS NM - konzum
 Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
 Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 

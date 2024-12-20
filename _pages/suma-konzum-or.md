@@ -26,5 +26,5 @@ table {
 
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/konzum/htmls/suma-konzum-or.html" width="100%" height="600px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/konzum/htmls/suma-konzum-or.html" width="100%" height="30000px" frameborder="0"></iframe>
 </div>
