@@ -39,25 +39,25 @@ Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 Dostavljeni su podatci mjerenja svih trafostanica koje su bile uključene u pokuse otočnog rada, vizualizacija je dana za sva četiri agregata.
  
 * TS HE Zakučac - TR1
-    * [GEN A - OR]
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]     
+    * [GEN A - OR]({{ site.baseurl }}/ts-zakucac-or-gen-a/)
+    * [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/)     
 * TS Kaštela - TR2 
-    * [GEN A - OR]
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]
+    * [GEN A - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-a/)
+    * [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/)
 * TS Sinj - TR1 i TR2
-    * [GEN A - OR]
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]
+    * [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/)
+    * [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/)
 * TS Dugopolje - TR1 i TR2
     * [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/)
-    * [GEN D - OR]
-    * [GEN B - OR]
-    * [GEN C - OR]
+    * [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/)
+    * [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/)
+    * [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/)
 * TS Meterize - TR1 i TR2
     * [GEN A - OR]
     * [GEN D - OR]
