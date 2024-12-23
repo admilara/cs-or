@@ -43,7 +43,7 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 * Frekvencija f \[Hz\]
 * Otvor privodnog kola y \[%]
 * Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
-* Protok u tlačnom cjevovodu \[m\u00B3/s]
+* Protok u tlačnom cjevovodu \[m³/s]
 
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
