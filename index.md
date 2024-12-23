@@ -13,12 +13,12 @@ crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinic
 ## 03.12.2024. Crni start
 
 ### Podatci: Končar KET - PROCIS
-Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
+Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
 * Radna snaga generatora P [MW\]
 * Jalova snaga generatora Q [Mvar\]
 * Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
 * Struje generatora IL1, IL2, IL3 \[A\]
-* Napon i struja uzbude
+* Napon i struja uzbude Uf, If
 * Brzina vrtnje, zadana brzina vrtnje, frekvencija \[%\]
 * Frekvencija f \[Hz\]
 * Otvor privodnog kola y \[%]
@@ -32,7 +32,25 @@ Za svaki pokus grafički su prikazane sljedeće mjerne veličine:
 
 ## 04.12.2024. Otočni rad
 
-### HOPS NM - konzum
+### Podatci: Končar KET - PROCIS
+Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
+* Radna snaga generatora P [MW\]
+* Jalova snaga generatora Q [Mvar\]
+* Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
+* Struje generatora IL1, IL2, IL3 \[A\]
+* Napon i struja uzbude Uf, If 
+* Brzina vrtnje, zadana brzina vrtnje, frekvencija \[%\]
+* Frekvencija f \[Hz\]
+* Otvor privodnog kola y \[%]
+* Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
+* Protok u tlačnom cjevovodu [m<sup>3</sup>/s]
+
+1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-A/)
+2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-D/)
+3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-B/)
+4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-C/)
+
+### Podatci: HOPS NM - konzum
 Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
 Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 
