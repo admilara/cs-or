@@ -10,5 +10,5 @@ description: Mjerenja iz PROCIS-a za otočni rad agregata A, 04.12.2024. u HE Za
 
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/ket-or/procis-or-gen-A.html" width="100%" height="600px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/ket-or/procis-or-gen-a.html" width="100%" height="600px" frameborder="0"></iframe>
 </div>

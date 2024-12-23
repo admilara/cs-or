@@ -45,10 +45,10 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 * Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
 * Protok u tlačnom cjevovodu [m<sup>3</sup>/s]
 
-1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-A/)
-2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-D/)
-3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-B/)
-4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-C/)
+1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
+2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
+3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-b/)
+4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-c/)
 
 ### Podatci: HOPS NM - konzum
 Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
