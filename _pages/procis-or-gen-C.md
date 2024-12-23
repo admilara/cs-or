@@ -3,6 +3,11 @@ layout: default
 title: PROCIS OR GEN C
 description: Mjerenja iz PROCIS-a za otočni rad agregata C, 04.12.2024. u HE Zakučac
 ---
+<style scoped>
+table {
+  font-size: 13px;
+}
+</style>
 
 | Agregat | Vrijeme detekcije OR |  Lokacija             | Vrijeme sinkronizacije | Lokacija          |
 | :------ | :------------------: | :------------------:  | :---------------------:|:-----------------:|
