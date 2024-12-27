@@ -17,6 +17,10 @@ from os.path import isfile, join
 
 import pandas as pd
 
+otocni_rad = {"A": ("2024-12-04 09:12:58", "HE ZAK 110 METERIZE/2", "2024-12-04 10:20:29", "HE ZAK 110 SP W12"),
+              "D": ("2024-12-04 11:48:26", "HE ZAK 110 METERIZE/2", "2024-12-04 12:46:48", "HE ZAK 110 SP W12"),
+              "B": ("2024-12-04 14:24:28", "HE ZAK 110 METERIZE/2", "2024-12-04 15:25:27", "HE ZAK 110 SP W12"),
+              "C": ("2024-12-04 16:27:27", "HE ZAK 110 METERIZE/2", "2024-12-04 17:03:18", "HE ZAK 220 SP W12")}
 
 def graf_radna_jalova(df, unit):
     fig = go.Figure()
@@ -38,9 +42,54 @@ def graf_radna_jalova(df, unit):
         yaxis="y2"
         ))
 
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=f"ODVAJANJE: {otocni_rad[unit][1]}",
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="magenta", size=12),
+        bordercolor="magenta",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=f"RESINKRONIZACIJA: {otocni_rad[unit][3]}",
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="magenta", size=12),
+        bordercolor="magenta",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+        
     fig.update_layout(
         title=f"Radna i jalova snaga generatora {unit}",
-        xaxis_title="Vrijeme",
         template="plotly_white",
         legend_title="Legenda",
         xaxis=dict(showgrid=True),
@@ -84,7 +133,6 @@ def graf_naponi_gen(df, unit):
 
     fig.update_layout(
         title=f"Naponi generatora {unit}",
-        xaxis_title="Timestamp",
         yaxis_title="Ug [V]",
         template="plotly_white",
         legend_title="Legenda",
@@ -120,7 +168,6 @@ def graf_struje_gen(df, unit):
 
     fig.update_layout(
         title=f"Struje generatora {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="Ig [V]",
         template="plotly_white",
         legend_title="Legenda",
@@ -151,7 +198,6 @@ def graf_uzbuda(df, unit):
 
     fig.update_layout(
         title=f"Napon i struja uzbude generatora {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="Napon i struja uzbude",
         template="plotly_white",
         legend_title="Legenda",
@@ -199,7 +245,6 @@ def graf_brzine(df, unit):
     
     fig.update_layout(
         title=f"Frekvencija, brzina vrtnje i zadana brzina vrtnje jedinice {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="f, n, nset [%]",
         template="plotly_white",
         legend_title="Legenda",
@@ -212,6 +257,52 @@ def graf_brzine(df, unit):
 def graf_frekvencija(df, unit):
     fig = go.Figure()
     
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=f"ODVAJANJE: {otocni_rad[unit][1]}",
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="magenta", size=12),
+        bordercolor="magenta",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=f"RESINKRONIZACIJA: {otocni_rad[unit][3]}",
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="magenta", size=12),
+        bordercolor="magenta",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
         y=df[f"{unit}_FREKVENCIJA_GENERATORA"],
@@ -222,7 +313,6 @@ def graf_frekvencija(df, unit):
     
     fig.update_layout(
         title=f"Frekvencija jedinice {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="f [Hz]",
         template="plotly_white",
         legend_title="Legenda",
@@ -245,7 +335,6 @@ def graf_otvor_pk(df, unit):
     
     fig.update_layout(
         title=f"Otvor privodnog kola jedinice {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="y [%]",
         template="plotly_white",
         legend_title="Legenda",
@@ -267,7 +356,6 @@ def graf_otvor_pk(df, unit):
     
     fig.update_layout(
         title=f"Otvor privodnog kola jedinice {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="y [%]",
         template="plotly_white",
         legend_title="Legenda",
@@ -297,7 +385,6 @@ def graf_tlak(df, unit):
     
     fig.update_layout(
         title=f"Tlakovi za vrijeme CS jedinice {unit}",
-        xaxis_title="Vrijeme",
         yaxis_title="p [bar]",
         template="plotly_white",
         legend_title="Legenda",
@@ -328,7 +415,6 @@ def graf_protok(df, unit):
     
     fig.update_layout(
         title=f"Protok u tlačnom cjevovodu i otvor privodnog kola {unit}",
-        xaxis_title="Vrijeme",
         template="plotly_white",
         legend_title="Legenda",
         xaxis=dict(showgrid=True),
