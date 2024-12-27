@@ -17,7 +17,7 @@ import numpy as np
 
 from scipy.interpolate import UnivariateSpline, interp1d
 
-mypath = r"""C:\Users\larab\Documents\GitHub\admilara.github.io\wams-or"""
+mypath = r"""D:\3_RADNO\_HOPS\2_ZAKUCAC_CS_OP\wams-or"""
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 dfs = []
@@ -25,19 +25,23 @@ dfs = []
 fdict = {"24-12-04-0812_to_24-12-04-0921_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318"],
                                                           "start": "2024-12-04 09:12:58",
                                                           "end": "2024-12-04 10:20:29",
-                                                          "unit": "A"},
+                                                          "unit": "A",
+                                                          "PMUS": 1},
          "24-12-04-1048_to_24-12-04-1147_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318", "PMU#323"],
                                                           "start": "2024-12-04 11:48:26",
                                                           "end": "2024-12-04 12:46:48",
-                                                          "unit": "D"},
+                                                          "unit": "D",
+                                                          "PMUS": 2},
          "24-12-04-1324_to_24-12-04-1426_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318", "PMU#324"],
                                                           "start": "2024-12-04 14:24:28",
                                                           "end": "2024-12-04 17:03:18",
-                                                          "unit": "B"},
+                                                          "unit": "B",
+                                                          "PMUS": 2},
          "24-12-04-1527_to_24-12-04-1603_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318"], 
                                                           "start": "2024-12-04 16:27:27", 
                                                           "end": "2024-12-04 17:03:18",
-                                                          "unit": "C"}}
+                                                          "unit": "C",
+                                                          "PMUS": 1}}
 
 
 # =============================================================================
@@ -59,10 +63,15 @@ for file in files:
     
     filtered_wams_df = wams_df[[col for col in wams_df.columns if any(s in col for s in search_strings)]]
     filtered_wams_df = filtered_wams_df[[col for col in filtered_wams_df.columns if any(s in col for s in col_strings)]]
-    dfs.append(wams_df)
+    fdict[file]["df"] = filtered_wams_df
     
 
-for df in dfs:
+for key, value in fdict.items():
+    for i in range(value["PMUS"]):
+        print(i)
+    
+    
+    
         
     
     
