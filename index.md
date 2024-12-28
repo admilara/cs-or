@@ -348,4 +348,4 @@ ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
         </tr>
     </tbody>
 </table>
-{% endrow %}
+{% endraw %}
