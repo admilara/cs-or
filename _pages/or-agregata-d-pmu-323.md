@@ -13,7 +13,8 @@ kojeg je proveden pokus otočnog rada agregata D u GHE Zakučac.
 Sve veličine su preuzete iz dostavljenog csv-a `24-12-04-1048_to_24-12-04-1147_v2.1.2975.csv`.
 
 Vrijeme detekcije OR preuzeto je iz Liste KDR za Regiju Split, koja je dostavljena od strane MC Split.
-Prema informacijama HOPS MC Split, GPS nije pouzdan te su moguća vremenska odstupanja od stvarnog događaja.
+Prema informacijama HOPS MC Split, GPS nije pouzdan - odstupanje iznosi 7 sekundi, što je vidljivo iz grafova i zabilježenog
+vremena prema listi KRD.
 
 <style scoped>
 table {
@@ -26,8 +27,8 @@ table {
 |Agregat D| 2024-12-04 11:48:26  | HE ZAK 110 METERIZE/2 | 2024-12-04 12:46:48    | HE ZAK 110 SP W12 |
 
 Iz dostavljene csv datoteke preuzete su veličine:
-* PMU#323 |IN| magn [A]
-* PMU#323 |UN| magn [pu]
+* PMU#323 &#124;IN&#124; magn [A]
+* PMU#323 &#124;UN&#124; magn [pu]
 * PMU#323 f(PMU) [Hz]
 * PMU#323 P [W]
 * PMU#323 Q [VAr]
