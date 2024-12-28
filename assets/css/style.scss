@@ -37,6 +37,16 @@ html body .page-content {
     }
 }
 
+.center-table {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.center-table table {
+    text-align: center;
+}
+
 /* Responsive Adjustments */
 @media screen and (max-width: 992px) {
     .wide-graph iframe {
