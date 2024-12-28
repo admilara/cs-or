@@ -188,6 +188,7 @@ table {
   font-size: 16px;
 }
 </style>
+
 {% capture raw_html %}
 <table>
     <thead>
@@ -218,6 +219,7 @@ table {
             <td style="text-align:center"><a href="{{ site.baseurl }}/ts-kastela-tr2-or-gen-c/">GEN C - OR</a></td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/ts-sinj-or-gen-c/">GEN C - OR</a></td>
         </tr>
+    </tbody>
     <thead>
         <tr>
             <th style="text-align:center">TS Dugopolje - TR1 i TR2</th>
@@ -256,6 +258,7 @@ dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u o
 Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 
 * **Sumarna karakteristika** - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
+
 
 <h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - mjesta odvajanja</h2>
 
