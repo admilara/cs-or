@@ -85,20 +85,6 @@ table {
     </tbody>
 </table>
 
-
-|                                                  | Oznaka               |  Mjerna jedinica     |
-| :----------------------------------------------  | :------------------: | :------------------: |
-| Radna snaga generatora                           | P                    | \[MW\]                |
-| Jalova snaga generatora                          | Q                    | \[Mvar\]              |
-| Naponi generatora                                | UL1L2, UL2L3, UL3L1  | \[V\]                |
-| Struje generatora                                | IL1, IL2, IL3        | \[A\]                |
-| Napon uzbude                                     | Uf                   | \[V\]                |
-| Struja uzbude                                    | If                   | \[A\]                |
-| Brzina vrtnje, zadana brzina vrtnje, frekvencija |                      | \[%\]                |
-| Frekvencija                                      | f                    | \[Hz\]                |
-| Otvor privodnog kola                             | y                    | \[%]                  |
-| Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
-
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
 3. Crni start - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-cs-gen-b/)
@@ -178,20 +164,6 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
     </tbody>
 </table>
 
-|                                                  | Oznaka               |  Mjerna jedinica     |
-| :----------------------------------------------  | :------------------: | :------------------: |
-| Radna snaga generatora                           | P                    | \[MW\]               |
-| Jalova snaga generatora                          | Q                    | \[Mvar\]             |
-| Naponi generatora                                | UL1L2, UL2L3, UL3L1  | \[V\]                |
-| Struje generatora                                | IL1, IL2, IL3        | \[A\]                |
-| Napon uzbude                                     | Uf                   | \[V\]                |
-| Struja uzbude                                    | If                   | \[A\]                |
-| Brzina vrtnje, zadana brzina vrtnje, frekvencija |                      | \[%\]                |
-| Frekvencija                                      | f                    | \[Hz\]               |
-| Otvor privodnog kola                             | y                    | \[%]                 |
-| Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
-| Protok u tlačnom cjevovodu                       | Q                    | \[m³/s]              |
-
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
 3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-b/)
@@ -210,6 +182,66 @@ table {
 }
 </style>
 
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:center">TS HE Zakučac - TR1</th>
+            <th style="text-align:center">TS Kaštela - TR2</th>
+            <th style="text-align:center">TS Sinj - TR1 i TR2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-zakucac-or-gen-a/">GEN A - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-kastela-tr2-or-gen-a/">GEN A - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-sinj-or-gen-a/">GEN A - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-zakucac-or-gen-d/">GEN D - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-kastela-tr2-or-gen-d/">GEN D - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-sinj-or-gen-d/">GEN D - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-zakucac-or-gen-b/">GEN B - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-kastela-tr2-or-gen-b/">GEN B - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-sinj-or-gen-b/">GEN B - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-zakucac-or-gen-c/">GEN C - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-kastela-tr2-or-gen-c/">GEN C - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-sinj-or-gen-c/">GEN C - OR</a></td>
+        </tr>
+    <thead>
+        <tr>
+            <th style="text-align:center">TS Dugopolje - TR1 i TR2</th>
+            <th style="text-align:center">TS Meterize - TR1 i TR2</th>
+            <th style="text-align:center">TS Vrboran - TR1 i TR2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-dugopolje-or-gen-a/">GEN A - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-meterize-or-gen-a/">GEN A - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-vrboran-or-gen-a/">GEN A - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-dugopolje-or-gen-d/">GEN D - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-meterize-or-gen-d/">GEN D - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-vrboran-or-gen-d/">GEN D - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-dugopolje-or-gen-b/">GEN B - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-meterize-or-gen-b/">GEN B - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-vrboran-or-gen-b/">GEN B - OR</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-dugopolje-or-gen-c/">GEN C - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-meterize-or-gen-c/">GEN C - OR</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/ts-vrboran-or-gen-c/">GEN C - OR</a></td>
+        </tr>
+    </tbody>
+</table>
+
 
 | TS HE Zakučac - TR1                                   |  TS Kaštela - TR2                                         |  TS Sinj - TR1 i TR2                               |
 | :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
@@ -217,7 +249,6 @@ table {
 | [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/) |
 | [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/) |
 | [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/) |
-
 | TS Dugopolje - TR1 i TR2                              |  TS Meterize - TR1 i TR2                                  |  TS Vrboran - TR1 i TR2                            |
 | :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
 | [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)  | [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/) |
