@@ -10,11 +10,11 @@ Ovo je navigacijska stranica za rezultate obrade dostavljenih podataka nakon pok
 crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinice A, D, B i C u GHE Zakučac
 03.12. i 04.12.2024. Hyperlinkovi vode na grafove prema podatcima koji su navedeni. 
 
-# 03.12.2024. Crni start
 
-<h1 style="text-align: center;">Test</h1>
+<h1 style="text-align: center; font-family: Helvetica; color: red">03.12.2024. Crni start</h1>
 
-### Podatci: Končar KET - PROCIS
+<h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar KET - PROCIS</h1>
+
 Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
 
 <style scoped>
@@ -41,9 +41,11 @@ table {
 3. Crni start - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-cs-gen-b/)
 4. Crni start - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-cs-gen-c/)
 
-## 04.12.2024. Otočni rad
 
-### Podatci: Končar KET - PROCIS
+<h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
+
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar KET - PROCIS</h1>
+
 Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 
 |                                                  | Oznaka               |  Mjerna jedinica     |
@@ -65,7 +67,8 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-b/)
 4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-c/)
 
-### Podatci: HOPS NM - konzum
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - konzum</h1>
+
 Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
 Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 
@@ -108,7 +111,7 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 
 * **Sumarna karakteristika** - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
 
-#### HOPS NM - mjesta odvajanja
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - mjesta odvajanja</h1>
 
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
@@ -127,7 +130,7 @@ Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN C - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-c/)
 
 
-#### HOPS - WAMS PODATCI
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS WAMS</h1>
 
 Od strane HOPS-a dostavljeni su i podatci za četiri PMU-a za četiri promatrana perioda - po 
 jedan za svaki obavljeni pokus otočnog rada. Vizualizacije su dostupne na hyperlinkovima ispod.
