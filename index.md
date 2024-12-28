@@ -14,16 +14,25 @@ crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinic
 
 ### Podatci: Končar KET - PROCIS
 Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
-* Radna snaga generatora P [MW\]
-* Jalova snaga generatora Q [Mvar\]
-* Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
-* Struje generatora IL1, IL2, IL3 \[A\]
-* Napon i struja uzbude Uf, If
-* Brzina vrtnje, zadana brzina vrtnje, frekvencija \[%\]
-* Frekvencija f \[Hz\]
-* Otvor privodnog kola y \[%]
-* Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
 
+<style scoped>
+table {
+  font-size: 13px;
+}
+</style>
+
+|                                                  | Oznaka               |  Mjerna jedinica     |
+| :----------------------------------------------  | :------------------: | :------------------: |
+| Radna snaga generatora                           | P                    | \[MW\]                |
+| Jalova snaga generatora                          | Q                    | \[Mvar\]              |
+| Naponi generatora                                | UL1L2, UL2L3, UL3L1  | \[V\]                |
+| Struje generatora                                | IL1, IL2, IL3        | \[A\]                |
+| Napon uzbude                                     | Uf                   | \[V\]                |
+| Struja uzbude                                    | If                   | \[A\]                |
+| Brzina vrtnje, zadana brzina vrtnje, frekvencija |                      | \[%\]                |
+| Frekvencija                                      | f                    | \[Hz\]                |
+| Otvor privodnog kola                             | y                    | \[%]                  |
+| Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
 
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
@@ -34,16 +43,20 @@ Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
 
 ### Podatci: Končar KET - PROCIS
 Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
-* Radna snaga generatora P [MW\]
-* Jalova snaga generatora Q [Mvar\]
-* Naponi generatora UL1L2, UL2L3, UL3L1 \[V\]
-* Struje generatora IL1, IL2, IL3 \[A\]
-* Napon i struja uzbude Uf, If 
-* Brzina vrtnje, zadana brzina vrtnje, frekvencija \[%\]
-* Frekvencija f \[Hz\]
-* Otvor privodnog kola y \[%]
-* Tlak u spirali turbine i tlak u tlačnom cjevovodu p \[bar\]
-* Protok u tlačnom cjevovodu \[m³/s]
+
+|                                                  | Oznaka               |  Mjerna jedinica     |
+| :----------------------------------------------  | :------------------: | :------------------: |
+| Radna snaga generatora                           | P                    | \[MW\]                |
+| Jalova snaga generatora                          | Q                    | \[Mvar\]              |
+| Naponi generatora                                | UL1L2, UL2L3, UL3L1  | \[V\]                |
+| Struje generatora                                | IL1, IL2, IL3        | \[A\]                |
+| Napon uzbude                                     | Uf                   | \[V\]                |
+| Struja uzbude                                    | If                   | \[A\]                |
+| Brzina vrtnje, zadana brzina vrtnje, frekvencija |                      | \[%\]                |
+| Frekvencija                                      | f                    | \[Hz\]                |
+| Otvor privodnog kola                             | y                    | \[%]                  |
+| Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
+| Protok u tlačnom cjevovodu                       | Q                    | \[m³/s]              |
 
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
@@ -91,16 +104,19 @@ Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku,
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
 Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 
-* Sumarna karakteristika - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
+* **Sumarna karakteristika** - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
 
 #### HOPS NM - mjesta odvajanja
 
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
-* Struja I [A\]
-* Radna snaga P [MW\]
-* Jalova snaga Q \[Mvar\]
-* Napon U \[kV\]
+
+|                        | Oznaka               |  Mjerna jedinica     |
+| :--------------------  | :------------------: | :------------------: |
+| Struja                 | I                    | \[A\]                |
+| Radna snaga            | P                    | \[MW\]               |
+| Jalova snaga           | Q                    | \[Mvar\]             |
+| Napon                  | U                    | \[kV\]               |
 
 Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
