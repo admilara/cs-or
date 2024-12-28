@@ -23,7 +23,7 @@ table {
 }
 </style>
 
-{% raw %}
+{% capture raw_html %}
 <table>
     <thead>
         <tr>
@@ -85,7 +85,7 @@ table {
         </tr>
     </tbody>
 </table>
-{% endraw %}
+{% endcapture %}
 
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
@@ -98,7 +98,7 @@ table {
 <h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar KET - PROCIS</h2>
 
 Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
-{% raw %}
+{% capture raw_html %}
 <table>
     <thead>
         <tr>
@@ -165,7 +165,7 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
         </tr>
     </tbody>
 </table>
-{% endraw %}
+{% endcapture %}
 
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
@@ -184,7 +184,7 @@ table {
   font-size: 16px;
 }
 </style>
-{% raw %}
+{% capture raw_html %}
 <table>
     <thead>
         <tr>
@@ -244,7 +244,7 @@ table {
         </tr>
     </tbody>
 </table>
-{% endraw %}
+{% endcapture %}
 
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
@@ -257,7 +257,7 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
 
-{% raw %}
+{% capture raw_html %}
 <table>
     <thead>
         <tr>
@@ -289,7 +289,7 @@ Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
         </tr>
     </tbody>
 </table>
-{% endraw %}
+{% endcapture %}
 
 Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
@@ -317,7 +317,7 @@ Za sva četiri agregata promatran je PMU #318, koji se nalazi u VP 220 kV Konjsk
 Od generatora u HE Zakučac, PMU je ugrađen na generatore B (220 kV) i D (110 kV) te je za otočni rad
 ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
 
-{% raw %}
+{% capture raw_html %}
 <table>
     <thead>
         <tr>
@@ -348,4 +348,4 @@ ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
         </tr>
     </tbody>
 </table>
-{% endraw %}
+{% endcapture %}
