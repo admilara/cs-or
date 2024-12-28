@@ -3,6 +3,8 @@
 
 @import "{{ site.theme }}";
 
+
+
 /* Default Theme Width for Header, Title, and Text */
 html body .site {
     max-width: 960px; /* Default narrow theme width */
@@ -13,6 +15,10 @@ html body .site {
 html body .page-content {
     max-width: 960px; /* Match theme's container width */
     margin: 0 auto;
+}
+
+html body .inner {
+    max-width: 75%;
 }
 
 /* Override for Wide Graphs */
