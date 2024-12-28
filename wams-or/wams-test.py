@@ -18,10 +18,10 @@ import numpy as np
 from scipy.interpolate import UnivariateSpline, interp1d
 
 
-def napon_graf(df, unit, pmu, start, end):
+def napon_graf(df, unit, pmu, start, end, voltage):
     filtered_columns = [col for col in df.columns if "|UN| magn [pu]" in col]
     y_values = df[filtered_columns].values.flatten()
-    y_values_kV = y_values*220
+    y_values_kV = y_values*voltage
     
     fig = go.Figure()
 
@@ -421,7 +421,10 @@ for key, value in fdict.items():
         
         fig1 = radna_jalova_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
         fig2 = frekvencija_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
-        fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
+        if i == 0:
+            fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"], 220)
+        else:
+            fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"], 14.4)
         fig4 = struja_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])            
         
         html1 = pio.to_html(fig1, full_html=False, include_plotlyjs="cdn")
