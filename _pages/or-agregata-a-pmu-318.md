@@ -25,8 +25,8 @@ table {
 |Agregat A| 2024-12-04 09:12:58  | HE ZAK 110 METERIZE/2 | 2024-12-04 10:20:29    | HE ZAK 110 SP W12 |
 
 Iz dostavljene csv datoteke preuzete su veličine:
-* PMU#318 |IN| magn [A]
-* PMU#318 |UN| magn [pu]
+* PMU#318 &#124;IN&#124; magn [A]
+* PMU#318 &#124;UN&#124; magn [pu]
 * PMU#318 f(PMU) [Hz]
 * PMU#318 P [W]
 * PMU#318 Q [VAr]
