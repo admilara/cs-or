@@ -13,7 +13,7 @@ crnog starta i otočnog rada koji su provedeni na sve četiri proizvodne jedinic
 
 <h1 style="text-align: center; font-family: Helvetica; color: red">03.12.2024. Crni start</h1>
 
-<h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar KET - PROCIS</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar KET - PROCIS</h2>
 
 Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
 
@@ -44,7 +44,7 @@ table {
 
 <h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 
-<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar KET - PROCIS</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar KET - PROCIS</h2>
 
 Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 
@@ -67,7 +67,7 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-b/)
 4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-c/)
 
-<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - konzum</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - konzum</h2>
 
 Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke. 
 Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
@@ -111,7 +111,7 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 
 * **Sumarna karakteristika** - [rezultati]({{ site.baseurl }}/suma-konzum-or/)
 
-<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - mjesta odvajanja</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - mjesta odvajanja</h2>
 
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
@@ -130,7 +130,7 @@ Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN C - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-c/)
 
 
-<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS WAMS</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS WAMS</h2>
 
 Od strane HOPS-a dostavljeni su i podatci za četiri PMU-a za četiri promatrana perioda - po 
 jedan za svaki obavljeni pokus otočnog rada. Vizualizacije su dostupne na hyperlinkovima ispod.
