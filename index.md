@@ -242,21 +242,6 @@ table {
     </tbody>
 </table>
 
-
-| TS HE Zakučac - TR1                                   |  TS Kaštela - TR2                                         |  TS Sinj - TR1 i TR2                               |
-| :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
-| [GEN A - OR]({{ site.baseurl }}/ts-zakucac-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/) |
-| [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/) |
-| [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/) |
-| [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/) |
-| TS Dugopolje - TR1 i TR2                              |  TS Meterize - TR1 i TR2                                  |  TS Vrboran - TR1 i TR2                            |
-| :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
-| [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)  | [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/) |
-| [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-meterize-or-gen-d/)  | [GEN D - OR]({{ site.baseurl }}/ts-vrboran-or-gen-d/) |
-| [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-meterize-or-gen-b/)  | [GEN B - OR]({{ site.baseurl }}/ts-vrboran-or-gen-b/) |
-| [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-meterize-or-gen-c/)  | [GEN C - OR]({{ site.baseurl }}/ts-vrboran-or-gen-c/) |
-
-
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
 Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
@@ -268,12 +253,37 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
 
-|                        | Oznaka               |  Mjerna jedinica     |
-| :--------------------  | :------------------: | :------------------: |
-| Struja                 | I                    | \[A\]                |
-| Radna snaga            | P                    | \[MW\]               |
-| Jalova snaga           | Q                    | \[Mvar\]             |
-| Napon                  | U                    | \[kV\]               |
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left"></th>
+            <th style="text-align:center">Oznaka</th>
+            <th style="text-align:center">Mjerna jedinica</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left">Struja</td>
+            <td style="text-align:center">I</td>
+            <td style="text-align:center">[A]</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Radna snaga</td>
+            <td style="text-align:center">P</td>
+            <td style="text-align:center">[MW]</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Jalova snaga</td>
+            <td style="text-align:center">Q</td>
+            <td style="text-align:center">[Mvar]</td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Napon</td>
+            <td style="text-align:center">U</td>
+            <td style="text-align:center">[kV]</td>
+        </tr>
+    </tbody>
+</table>
 
 Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
@@ -301,9 +311,34 @@ Za sva četiri agregata promatran je PMU #318, koji se nalazi u VP 220 kV Konjsk
 Od generatora u HE Zakučac, PMU je ugrađen na generatore B (220 kV) i D (110 kV) te je za otočni rad
 ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
 
-| Agregat | Rezultati                                                | Agregat | Rezultati                                                |
-| :------ |:-------------------------------------------------------: | :------ |:-------------------------------------------------------: | 
-|Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu-318/) |Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu-318/) |
-|Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu-318/) |Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu-318/) |
-|         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu-323/) |         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu-324/) |
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">Agregat</th>
+            <th style="text-align:center">Rezultati</th>
+            <th style="text-align:left">Agregat</th>
+            <th style="text-align:center">Rezultati</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left">Agregat A</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-a-pmu-318/">A - PMU#318</a></td>
+            <td style="text-align:left">Agregat C</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-c-pmu-318/">C - PMU#318</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:left">Agregat D</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-d-pmu-318/">D - PMU#318</a></td>
+            <td style="text-align:left">Agregat B</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-b-pmu-318/">B - PMU#318</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:left"></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-d-pmu-323/">D - PMU#323</a></td>
+            <td style="text-align:left"></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/or-agregata-b-pmu-324/">B - PMU#324</a></td>
+        </tr>
+    </tbody>
+</table>
 
