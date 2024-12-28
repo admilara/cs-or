@@ -50,15 +50,15 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 
 |                                                  | Oznaka               |  Mjerna jedinica     |
 | :----------------------------------------------  | :------------------: | :------------------: |
-| Radna snaga generatora                           | P                    | \[MW\]                |
-| Jalova snaga generatora                          | Q                    | \[Mvar\]              |
+| Radna snaga generatora                           | P                    | \[MW\]               |
+| Jalova snaga generatora                          | Q                    | \[Mvar\]             |
 | Naponi generatora                                | UL1L2, UL2L3, UL3L1  | \[V\]                |
 | Struje generatora                                | IL1, IL2, IL3        | \[A\]                |
 | Napon uzbude                                     | Uf                   | \[V\]                |
 | Struja uzbude                                    | If                   | \[A\]                |
 | Brzina vrtnje, zadana brzina vrtnje, frekvencija |                      | \[%\]                |
-| Frekvencija                                      | f                    | \[Hz\]                |
-| Otvor privodnog kola                             | y                    | \[%]                  |
+| Frekvencija                                      | f                    | \[Hz\]               |
+| Otvor privodnog kola                             | y                    | \[%]                 |
 | Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
 | Protok u tlačnom cjevovodu                       | Q                    | \[m³/s]              |
 
@@ -73,37 +73,25 @@ Dostupne su mjerne veličine P, Q, I, U i položaj regulacijske sklopke.
 Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 
 Dostavljeni su podatci mjerenja svih trafostanica koje su bile uključene u pokuse otočnog rada, vizualizacija je dana za sva četiri agregata.
+
+<style scoped>
+table {
+  font-size: 14px;
+}
+</style> 
  
-* TS HE Zakučac - TR1
-    * [GEN A - OR]({{ site.baseurl }}/ts-zakucac-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/)     
-* TS Kaštela - TR2 
-    * [GEN A - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/)
-* TS Sinj - TR1 i TR2
-    * [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/)
-* TS Dugopolje - TR1 i TR2
-    * [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/)
-* TS Meterize - TR1 i TR2
-    * [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-meterize-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-meterize-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-meterize-or-gen-c/)
-* TS Vrboran - TR1 i TR2
-    * [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/)
-    * [GEN D - OR]({{ site.baseurl }}/ts-vrboran-or-gen-d/)
-    * [GEN B - OR]({{ site.baseurl }}/ts-vrboran-or-gen-b/)
-    * [GEN C - OR]({{ site.baseurl }}/ts-vrboran-or-gen-c/)
+| TS HE Zakučac - TR1                                   |  TS Kaštela - TR2                                         |  TS Sinj - TR1 i TR2                               |
+| :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
+| [GEN A - OR]({{ site.baseurl }}/ts-zakucac-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/) |
+| [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/) |
+| [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/) |
+| [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/) |
+| TS Dugopolje - TR1 i TR2                              |  TS Meterize - TR1 i TR2                                  |  TS Vrboran - TR1 i TR2                            |
+| :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
+| [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)  | [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/) |
+| [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-meterize-or-gen-d/)  | [GEN D - OR]({{ site.baseurl }}/ts-vrboran-or-gen-d/) |
+| [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-meterize-or-gen-b/)  | [GEN B - OR]({{ site.baseurl }}/ts-vrboran-or-gen-b/) |
+| [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-meterize-or-gen-c/)  | [GEN C - OR]({{ site.baseurl }}/ts-vrboran-or-gen-c/) |
 
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
@@ -150,12 +138,10 @@ Od generatora u HE Zakučac, PMU je ugrađen na generatore B (220 kV) i D (110 k
 ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
 
 
-| Agregat | Rezultati                                                |
-| :------ |:-------------------------------------------------------: | 
-|Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu-318/) |
-|Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu-318/) |
-|         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu-323/) |
-|Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu-318/) |
-|         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu-324/) |
-|Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu-318/) |
+| Agregat | Rezultati                                                | Agregat | Rezultati                                                |
+| :------ |:-------------------------------------------------------: | :------ |:-------------------------------------------------------: | 
+|Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu-318/) |Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu-318/) |
+|Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu-318/) |Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu-318/) |
+|         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu-323/) |         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu-324/) |
+
 
