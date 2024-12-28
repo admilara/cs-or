@@ -86,6 +86,8 @@ table {
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
+
 
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
@@ -166,6 +168,8 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
+
 
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
@@ -245,6 +249,7 @@ table {
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
 
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
@@ -290,6 +295,7 @@ Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
 
 Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
@@ -349,3 +355,4 @@ ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
