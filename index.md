@@ -23,8 +23,6 @@ table {
 }
 </style>
 
-{% raw %}
-<div class="center-table">
 |                                                  | Oznaka               |  Mjerna jedinica     |
 | :----------------------------------------------  | :------------------: | :------------------: |
 | Radna snaga generatora                           | P                    | \[MW\]                |
@@ -37,8 +35,6 @@ table {
 | Frekvencija                                      | f                    | \[Hz\]                |
 | Otvor privodnog kola                             | y                    | \[%]                  |
 | Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
-</div>
-{% endraw %}
 
 1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
 2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
@@ -52,8 +48,6 @@ table {
 
 Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 
-{% raw %}
-<div class="center-table">
 |                                                  | Oznaka               |  Mjerna jedinica     |
 | :----------------------------------------------  | :------------------: | :------------------: |
 | Radna snaga generatora                           | P                    | \[MW\]               |
@@ -67,8 +61,6 @@ Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 | Otvor privodnog kola                             | y                    | \[%]                 |
 | Tlak u spirali turbine i tlak u tlačnom cjevovodu| p                    | \[bar\]              |
 | Protok u tlačnom cjevovodu                       | Q                    | \[m³/s]              |
-</div>
-{% endraw %}
 
 1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
 2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
@@ -88,22 +80,21 @@ table {
 }
 </style>
 
-{% raw %}
-<div class="center-table">
+
 | TS HE Zakučac - TR1                                   |  TS Kaštela - TR2                                         |  TS Sinj - TR1 i TR2                               |
 | :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
 | [GEN A - OR]({{ site.baseurl }}/ts-zakucac-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-sinj-or-gen-a/) |
 | [GEN D - OR]({{ site.baseurl }}/ts-zakucac-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-sinj-or-gen-d/) |
 | [GEN B - OR]({{ site.baseurl }}/ts-zakucac-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-sinj-or-gen-b/) |
 | [GEN C - OR]({{ site.baseurl }}/ts-zakucac-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-kastela-tr2-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-sinj-or-gen-c/) |
+
 | TS Dugopolje - TR1 i TR2                              |  TS Meterize - TR1 i TR2                                  |  TS Vrboran - TR1 i TR2                            |
 | :---------------------------------------------------: | :-------------------------------------------------------: | :------------------------------------------------: |
 | [GEN A - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-a/) | [GEN A - OR]({{ site.baseurl }}/ts-meterize-or-gen-a/)  | [GEN A - OR]({{ site.baseurl }}/ts-vrboran-or-gen-a/) |
 | [GEN D - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-d/) | [GEN D - OR]({{ site.baseurl }}/ts-meterize-or-gen-d/)  | [GEN D - OR]({{ site.baseurl }}/ts-vrboran-or-gen-d/) |
 | [GEN B - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-b/) | [GEN B - OR]({{ site.baseurl }}/ts-meterize-or-gen-b/)  | [GEN B - OR]({{ site.baseurl }}/ts-vrboran-or-gen-b/) |
 | [GEN C - OR]({{ site.baseurl }}/ts-dugopolje-or-gen-c/) | [GEN C - OR]({{ site.baseurl }}/ts-meterize-or-gen-c/)  | [GEN C - OR]({{ site.baseurl }}/ts-vrboran-or-gen-c/) |
-</div>
-{% endraw %}
+
 
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
@@ -116,16 +107,12 @@ Grafovi prikazuju odvojeno radnu snagu i jalovu snagu za svaki pojedini agregat.
 Mjesto odvajanja za sva četiri pokusa otočnog rada bio je DV 110 kV HE Zakučac - Meterize II.
 Na mjestu odvajanja, s obje strane dalekovoda, mjerene su sljedeće veličine:
 
-{% raw %}
-<div class="center-table">
 |                        | Oznaka               |  Mjerna jedinica     |
 | :--------------------  | :------------------: | :------------------: |
 | Struja                 | I                    | \[A\]                |
 | Radna snaga            | P                    | \[MW\]               |
 | Jalova snaga           | Q                    | \[Mvar\]             |
 | Napon                  | U                    | \[kV\]               |
-</div>
-{% endraw %}
 
 Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN A - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-a/)
@@ -153,13 +140,9 @@ Za sva četiri agregata promatran je PMU #318, koji se nalazi u VP 220 kV Konjsk
 Od generatora u HE Zakučac, PMU je ugrađen na generatore B (220 kV) i D (110 kV) te je za otočni rad
 ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
 
-{% raw %}
-<div class="center-table">
 | Agregat | Rezultati                                                | Agregat | Rezultati                                                |
 | :------ |:-------------------------------------------------------: | :------ |:-------------------------------------------------------: | 
 |Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu-318/) |Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu-318/) |
 |Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu-318/) |Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu-318/) |
 |         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu-323/) |         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu-324/) |
-</div>
-{% endraw %}
 
