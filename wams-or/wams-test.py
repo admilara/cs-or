@@ -421,10 +421,10 @@ for key, value in fdict.items():
         
         fig1 = radna_jalova_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
         fig2 = frekvencija_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
-        if value["search_strings"][i+1] == "PMU#324":
-            fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"], 220)
-        else:
+        if value["search_strings"][i+1] == "PMU#323":
             fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"], 110)
+        else:
+            fig3 = napon_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"], 220)
         fig4 = struja_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])            
         
         html1 = pio.to_html(fig1, full_html=False, include_plotlyjs="cdn")
