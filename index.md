@@ -131,10 +131,10 @@ ta dva agregata dostupna i vizualizacija njihovih pripadajućih PMU-ova.
 
 | Agregat | Rezultati                                                |
 | :------ |:-------------------------------------------------------: | 
-|Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu#318/) |
-|Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu#318/) |
-|         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu#323/) |
-|Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu#318/) |
-|         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu#324/) |
-|Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu#318/) |
+|Agregat A| [A - PMU#318]({{ site.baseurl }}/or-agregata-a-pmu-318/) |
+|Agregat D| [D - PMU#318]({{ site.baseurl }}/or-agregata-d-pmu-318/) |
+|         | [D - PMU#323]({{ site.baseurl }}/or-agregata-d-pmu-323/) |
+|Agregat B| [B - PMU#318]({{ site.baseurl }}/or-agregata-b-pmu-318/) |
+|         | [B - PMU#324]({{ site.baseurl }}/or-agregata-b-pmu-324/) |
+|Agregat C| [C - PMU#318]({{ site.baseurl }}/or-agregata-c-pmu-318/) |
 
