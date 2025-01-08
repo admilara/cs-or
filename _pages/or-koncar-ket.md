@@ -1,20 +1,14 @@
 ---
 layout: default
-title: CRNI START - REZULTATI KONČAR PROCIS
-description: Kratki pregled podataka Končar KET-a za pokuse crnog starta u HE Zakučac
+title: OTOČNI RAD - REZULTATI KONČAR KET - PROCIS
+description: Kratki pregled podataka Končar KET-a za pokuse otočnog rada u HE Zakučac
 ---
 
-<h1 style="text-align: center; font-family: Helvetica; color: red">03.12.2024. Crni start</h1>
-<h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar KET - PROCIS</h2>
+<h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 
-Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar KET - PROCIS</h2>
 
-<style scoped>
-table {
-  font-size: 13px;
-}
-</style>
-
+Za svaki pokus otočnog rada grafički su prikazane sljedeće mjerne veličine:
 {% capture raw_html %}
 <table>
     <thead>
@@ -75,13 +69,18 @@ table {
             <td style="text-align:center">p</td>
             <td style="text-align:center">[bar]</td>
         </tr>
+        <tr>
+            <td style="text-align:left">Protok u tlačnom cjevovodu</td>
+            <td style="text-align:center">Q</td>
+            <td style="text-align:center">[m³/s]</td>
+        </tr>
     </tbody>
 </table>
 {% endcapture %}
 {{ raw_html }}
 
 
-1. Crni start - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-cs-gen-a/)
-2. Crni start - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-cs-gen-d/)
-3. Crni start - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-cs-gen-b/)
-4. Crni start - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-cs-gen-c/)
+1. Otočni rad - proizvodna jedinica A - [rezultati]({{ site.baseurl }}/procis-or-gen-a/)
+2. Otočni rad - proizvodna jedinica D - [rezultati]({{ site.baseurl }}/procis-or-gen-d/)
+3. Otočni rad - proizvodna jedinica B - [rezultati]({{ site.baseurl }}/procis-or-gen-b/)
+4. Otočni rad - proizvodna jedinica C - [rezultati]({{ site.baseurl }}/procis-or-gen-c/)
