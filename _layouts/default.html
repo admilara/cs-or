@@ -22,68 +22,24 @@
         <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
         <div id="navigation">
-          <!-- Labels Row -->
-          <div class="row labels">
-            <div class="cell">Crni start</div>
-            <div class="cell">Otočni rad</div>
-          </div>
-          <!-- Links Row -->
-          <div class="row links">
-            <div class="cell">
-              <ul>
-                <li><a href="#">HOPS NM</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">HOPS WAMS</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">KONČAR PROCIS</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">GEPPERT</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">INEM</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">HOPS NM</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">HOPS WAMS</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">KONČAR PROCIS</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">GEPPERT</a></li>
-              </ul>
-            </div>
-            <div class="cell">
-              <ul>
-                <li><a href="#">INEM</a></li>
-              </ul>
-            </div>
-          </div>
+          <table>
+            <!-- First Row: Labels -->
+            <tr>
+              {% for section in site.header_sections %}
+                <th colspan="5">{{ section.label }}</th>
+              {% endfor %}
+            </tr>
+            <!-- Second Row: Links -->
+            <tr>
+              {% for section in site.header_sections %}
+                {% for link in section.links %}
+                  <td><a href="{{ link.url | relative_url }}">{{ link.title }}</a></td>
+                {% endfor %}
+              {% endfor %}
+            </tr>
+          </table>
         </div>
-      </header>
     </div>
-
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
