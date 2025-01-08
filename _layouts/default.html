@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
 
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
@@ -11,42 +11,77 @@
   </head>
 
   <body>
-
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
-        <header class="inner">
-          {% if site.github.is_project_page %}
-            <a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a>
-          {% endif %}
+      <header class="inner">
+        {% if site.github.is_project_page %}
+          <a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a>
+        {% endif %}
 
-          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+        <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
+        <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
-          <div id="header_sections">
-            <!-- Section 1 -->
-            <div class="header-section">
-              <h3>Crni start</h3>
-              <ul class="header-links">
-                <li><a href="{{ '/link1/' | relative_url }}">HOPS NM</a></li>
-                <li><a href="{{ '/link2/' | relative_url }}">HOPS WAMS</a></li>
-                <li><a href="{{ '/link3/' | relative_url }}">KONČAR PROCIS</a></li>
-                <li><a href="{{ '/link4/' | relative_url }}">GEPPERT</a></li>
-                <li><a href="{{ '/link4/' | relative_url }}">INEM</a></li>
+        <div id="navigation">
+          <!-- Labels Row -->
+          <div class="row labels">
+            <div class="cell">Crni start</div>
+            <div class="cell">Otočni rad</div>
+          </div>
+          <!-- Links Row -->
+          <div class="row links">
+            <div class="cell">
+              <ul>
+                <li><a href="#">HOPS NM</a></li>
               </ul>
             </div>
-            <!-- Section 2 -->
-            <div class="header-section">
-              <h3>Otočni rad</h3>
-              <ul class="header-links">
-                <li><a href="{{ '/link1/' | relative_url }}">HOPS NM</a></li>
-                <li><a href="{{ '/link2/' | relative_url }}">HOPS WAMS</a></li>
-                <li><a href="{{ '/link3/' | relative_url }}">KONČAR PROCIS</a></li>
-                <li><a href="{{ '/link4/' | relative_url }}">GEPPERT</a></li>
-                <li><a href="{{ '/link4/' | relative_url }}">INEM</a></li>
+            <div class="cell">
+              <ul>
+                <li><a href="#">HOPS WAMS</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">KONČAR PROCIS</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">GEPPERT</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">INEM</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">HOPS NM</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">HOPS WAMS</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">KONČAR PROCIS</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">GEPPERT</a></li>
+              </ul>
+            </div>
+            <div class="cell">
+              <ul>
+                <li><a href="#">INEM</a></li>
               </ul>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -60,7 +95,7 @@
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         {% if site.github.is_project_page %}
-        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+          <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
