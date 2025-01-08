@@ -9,12 +9,6 @@ description: Kratki pregled podataka Končar KET-a za pokuse crnog starta u HE Z
 
 Za svaki pokus crnog starta grafički su prikazane sljedeće mjerne veličine:
 
-<style scoped>
-table {
-  font-size: 13px;
-}
-</style>
-
 {% capture raw_html %}
 <table>
     <thead>

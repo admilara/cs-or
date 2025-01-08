@@ -13,11 +13,6 @@ Ovisno o stanici mjerenja snage su ili na 110 kV ili na 35 kV naponskoj razini.
 
 Dostavljeni su podatci mjerenja svih trafostanica koje su bile uključene u pokuse otočnog rada, vizualizacija je dana za sva četiri agregata.
 
-<style scoped>
-table {
-  font-size: 16px;
-}
-</style>
 
 {% capture raw_html %}
 <table>
@@ -82,6 +77,7 @@ table {
 </table>
 {% endcapture %}
 {{ raw_html }}
+
 
 Kako bi se snaga proizvodnje pojedinih agregata usporedila s konzumom u otoku, 
 dana je sumarna karakteristika radne i jalove snage konzuma u trafostanicama u otoku.
