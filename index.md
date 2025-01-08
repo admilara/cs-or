@@ -113,10 +113,11 @@ Vizualizacija je prilagođena te su uzeta u obzir vremenska odstupanja zapisa za
     <tbody>
         <tr>
             <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-d-pmu-323/">PMU#318</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-b-pmu-324/">PMU#324</a></td>
         </tr>
         <tr>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-b-pmu-324/">B - PMU#324</a></td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-b-pmu-318/">B - PMU#318</a></td>
+            <td style="text-align:center"></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-b-pmu-318/">PMU#318</a></td>
         </tr>
     </tbody>
 </table>
