@@ -10,3 +10,28 @@ collections:
   pages:
     output: true        # Makes pages render as actual output
     permalink: /:name/  # Creates clean URLs based on file names
+header_sections:
+  - label: "Crni start"
+    links:
+      - title: "HOPS NM"
+        url: "/link1/"
+      - title: "HOPS WAMS"
+        url: "/link2/"
+      - title: "KONČAR PROCIS"
+        url: "/link3/"
+      - title: "GEPPERT"
+        url: "/link4/"
+      - title: "INEM"
+        url: "/link5/"
+  - label: "Label 2"
+    links:
+      - title: "HOPS NM"
+        url: "/link6/"
+      - title: "HOPS WAMS"
+        url: "/link7/"
+      - title: "KONČAR PROCIS"
+        url: "/link8/"
+      - title: "GEPPERT"
+        url: "/link9/"
+      - title: "INEM"
+        url: "/link10/"
