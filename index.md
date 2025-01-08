@@ -121,6 +121,7 @@ Vizualizacija je prilagođena te su uzeta u obzir vremenska odstupanja zapisa za
     </tbody>
 </table>
 {% endcapture %}
+{{ raw_html }}
 
 Tijekom crnog starta agregata B dodatno je proveden pokus mogućnosti energizacije mrežnog transformatora
 AT3 u TS Konjsko, što je vidljivo na vizualizacijama za PMU #323 i #318.
