@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-{% seo %}
+    {% seo %}
     {% include head-custom.html %}
   </head>
 
@@ -22,12 +22,30 @@
           <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
           <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
-          {% if site.show_downloads %}
-            <section id="downloads">
-              <a class="zip_download_link" href="{{ site.github.zip_url }}">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="{{ site.github.tar_url }}">Download this project as a tar.gz file</a>
-            </section>
-          {% endif %}
+          <div id="header_sections">
+            <!-- Section 1 -->
+            <div class="header-section">
+              <h3>Crni start</h3>
+              <ul class="header-links">
+                <li><a href="{{ '/link1/' | relative_url }}">HOPS NM</a></li>
+                <li><a href="{{ '/link2/' | relative_url }}">HOPS WAMS</a></li>
+                <li><a href="{{ '/link3/' | relative_url }}">KONČAR PROCIS</a></li>
+                <li><a href="{{ '/link4/' | relative_url }}">GEPPERT</a></li>
+                <li><a href="{{ '/link4/' | relative_url }}">INEM</a></li>
+              </ul>
+            </div>
+            <!-- Section 2 -->
+            <div class="header-section">
+              <h3>Otočni rad</h3>
+              <ul class="header-links">
+                <li><a href="{{ '/link1/' | relative_url }}">HOPS NM</a></li>
+                <li><a href="{{ '/link2/' | relative_url }}">HOPS WAMS</a></li>
+                <li><a href="{{ '/link3/' | relative_url }}">KONČAR PROCIS</a></li>
+                <li><a href="{{ '/link4/' | relative_url }}">GEPPERT</a></li>
+                <li><a href="{{ '/link4/' | relative_url }}">INEM</a></li>
+              </ul>
+            </div>
+          </div>
         </header>
     </div>
 
@@ -38,7 +56,7 @@
       </section>
     </div>
 
-    <!-- FOOTER  -->
+    <!-- FOOTER -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         {% if site.github.is_project_page %}
