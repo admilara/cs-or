@@ -23,7 +23,7 @@ header_sections:
         url: "/link4/"
       - title: "INEM"
         url: "/link5/"
-  - label: "Label 2"
+  - label: "Otočni rad"
     links:
       - title: "HOPS NM"
         url: "/link6/"
