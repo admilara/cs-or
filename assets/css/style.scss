@@ -60,36 +60,31 @@ html body .page-content {
 }
 
 #navigation td {
-    position: relative; /* Enables absolute positioning for <a> */
     border: 1px solid #ddd;
     padding: 10px;
-    background-color: #f8f9fa; /* Light background for cells */
-    cursor: pointer; /* Make it clear the cell is clickable */
+    background-color: #f8f9fa; /* Light cell background */
+    cursor: pointer; /* Make the cell clickable */
+    text-align: center; /* Center text */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
 }
 
 #navigation td a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    line-height: 100%; /* Centers text vertically */
+    display: block; /* Make the link fill the cell */
+    width: 100%; /* Ensure the link spans the full width of the cell */
+    height: 100%; /* Ensure the link spans the full height of the cell */
     color: #007bff; /* Link color */
-    text-decoration: none; /* Removes underline */
+    text-decoration: none; /* No underline */
+    line-height: normal; /* Properly align text */
 }
 
 #navigation td:hover {
-    background-color: #007bff; /* Highlight cell on hover */
-    color: #ffffff; /* Change text color to white on hover */
+    background-color: #007bff; /* Highlight the cell on hover */
+    color: #ffffff; /* White text color on hover */
 }
 
 #navigation td:hover a {
-    color: #ffffff; /* Ensure link text matches hover color */
+    color: #ffffff; /* Ensure the link text matches the hover color */
 }
-
-
 
 /* Responsive Adjustments */
 @media screen and (max-width: 992px) {
