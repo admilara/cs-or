@@ -63,6 +63,7 @@ for start, end in intervals:
         mask = (full_df[time_col] >= start_time) & (full_df[time_col] <= end_time)
         split_data[time_col] = full_df[time_col][mask].reset_index(drop=True)
         split_data[value_col] = full_df[value_col][mask].reset_index(drop=True)
+    
     split_dfs.append(pd.DataFrame(split_data))
 
 yaxis_names = ["STRUJA - I[A]", "RADNA SNAGA - P[MW]", "JALOVA SNAGA Q[Mvar]", "NAPON - U[kV]"]
@@ -71,6 +72,10 @@ fig_list = []
 html_list = []
 
 for i, df in enumerate(split_dfs):  # Loop over each split_df
+    excel_filename = f"agregat_{agregati[i]}_{intervals[i][0].replace(':', '-')}_to_{intervals[i][1].replace(':', '-')}.xlsx"
+    df.to_excel(excel_filename, index=False)
+    print(f"Saved DataFrame for Agregat {agregati[i]} to {excel_filename}")
+
     print(f"Agregat: {agregati[i]}")
     
     # Generate 4 graphs for the current split_df

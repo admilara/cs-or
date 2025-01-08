@@ -428,9 +428,9 @@ for key, value in fdict.items():
         fig4 = struja_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])            
         
         html1 = pio.to_html(fig1, full_html=False, include_plotlyjs="cdn")
-        html2 = pio.to_html(fig2, full_html=False, include_plotlyjs="cdn")
-        html3 = pio.to_html(fig3, full_html=False, include_plotlyjs="cdn")
-        html4 = pio.to_html(fig4, full_html=False, include_plotlyjs="cdn")
+        html2 = pio.to_html(fig2, full_html=False, include_plotlyjs=False)
+        html3 = pio.to_html(fig3, full_html=False, include_plotlyjs=False)
+        html4 = pio.to_html(fig4, full_html=False, include_plotlyjs=False)
         
         html_content = f"""
         <!DOCTYPE html>
