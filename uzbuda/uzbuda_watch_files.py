@@ -326,9 +326,11 @@ for file_set in all_watch_files:
     """
     
     if file_set[0] == "CS":
+        file_name = file_name.split(".")[0]
         with open(f"{savepath}\\WATCH\\CS\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)
     else:
+        file_name = file_name.split(".")[0]
         with open(f"{savepath}\\WATCH\\OR\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)    
 
