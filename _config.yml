@@ -22,7 +22,7 @@ header_sections:
       - title: "GEPPERT"
         url: "/cs-geppert/"
       - title: "INEM"
-        url: "/cs-inem/"
+        url: "/cs-uzbuda/"
   - label: "Otočni rad"
     links:
       - title: "HOPS NM"
@@ -34,4 +34,4 @@ header_sections:
       - title: "GEPPERT"
         url: "/or-geppert/"
       - title: "INEM"
-        url: "/or-inem/"
+        url: "/or-uzbuda/"
