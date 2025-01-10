@@ -105,8 +105,8 @@ def draw(table_df, signal_name, signal_data, trigger_time):
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(
-        x=table_df_values["Datetime"],
-        y=table_df_values[signal_name],
+        x=table_df["Datetime"],
+        y=table_df[signal_name],
         mode="lines",
         name=signal_data['label'] + " [" + signal_data['unit']+ "]",
         line=dict(color="blue")
@@ -253,7 +253,7 @@ signali = {
 
 
 # =============================================================================
-#                           CRNI START - RECEX
+#                           START - RECEX
 # =============================================================================
 
 all_recex_files = []
@@ -315,14 +315,14 @@ for file_set in all_recex_files:
     sample_data = extract_sample_and_trigger_times(lines)
     
     # Output results
-    print("Header Data:")
-    print(header_data)
-    print("\nSignals Data:")
-    print(signals_df)
-    print("\nTable Data:")
-    print(table_df)
-    print("\nSample and trigger time:")
-    print(sample_data)
+    #print("Header Data:")
+    #print(header_data)
+    #print("\nSignals Data:")
+    #print(signals_df)
+    #print("\nTable Data:")
+    #print(table_df)
+    #print("\nSample and trigger time:")
+    #print(sample_data)
 
 
 # =============================================================================
@@ -365,7 +365,7 @@ for file_set in all_recex_files:
 
     column_skip = ['Addr', 'Datetime', 'DEINVERT', 'ACKGPON1']
     column_list = [column for column in table_df.columns if column not in column_skip]
-    print(column_list)
+    # print(column_list)
     table_df_values = pd.DataFrame()
     table_df_values["Addr"] = table_df["Addr"]
     table_df_values["Datetime"] = table_df["Datetime"]
@@ -419,9 +419,12 @@ for file_set in all_recex_files:
     else:
         with open(f"{savepath}\\OR\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)
-
-
-
+    print(file_set[0])
+    print(file_name)
+    print(table_df_values.iloc[0]["Datetime"])
+    print(table_df_values.iloc[-1]["Datetime"])
+    print(table_df_values.iloc[-1]["Datetime"] - table_df_values.iloc[0]["Datetime"])
+    print("\n")
 
 
 
