@@ -56,5 +56,18 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const iframes = document.querySelectorAll('iframe');
+        iframes.forEach((iframe) => {
+            iframe.addEventListener('load', function () {
+            const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+          });
+        });
+      });
+    </script>
+    
   </body>
 </html>
