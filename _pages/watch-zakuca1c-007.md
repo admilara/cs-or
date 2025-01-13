@@ -9,15 +9,15 @@ title: KONČAR INEM - WATCH GEN C
 
 Na grafovima niže prikazani su zapisi veličina dostavljeni od strane Končar INEM-a. 
 
-Sve veličine su preuzete iz dostavljene log datoteke `Watch_ZAKUCA1C_008.log`.
-Trajanje zapisa iznosi 03:31.128 minute.
+Sve veličine su preuzete iz dostavljene log datoteke `Watch_ZAKUCA1C_007.log`.
+Trajanje zapisa iznosi 03:29.419 minute.
 
 | Događaj        |      Vrijeme                |
 | :------------  | :-------------------------: |
-| Početak zapisa | 2024-12-03 16:12:49.270000  |
-| Kraj zapisa    | 2024-12-03 16:16:20.398000  |
+| Početak zapisa | 2024-12-03 16:09:18.240000  |
+| Kraj zapisa    | 2024-12-03 16:12:47.659000  |
                                
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/uzbuda/watch/cs/watch_zakuca1c_008.html" width="100%" height="800px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/uzbuda/watch/cs/watch-zakuca1c-007.html" width="100%" height="800px" frameborder="0"></iframe>
 </div>

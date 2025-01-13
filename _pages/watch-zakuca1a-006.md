@@ -19,5 +19,5 @@ Trajanje zapisa iznosi 02:45.652 minute.
                                
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/uzbuda/watch/cs/watch_zakuca1a_006.html" width="100%" height="800px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/uzbuda/watch/cs/watch-zakuca1a-006.html" width="100%" height="800px" frameborder="0"></iframe>
 </div>

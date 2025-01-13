@@ -19,5 +19,5 @@ Zapisi u datoteku pisani su s pravilnim vremenskim razmakom od 96 ms. Trajanje z
                                
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/uzbuda/or/recex_zakuca1d_002.html" width="100%" height="800px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/uzbuda/or/recex-zakuca1d-002.html" width="100%" height="800px" frameborder="0"></iframe>
 </div>
