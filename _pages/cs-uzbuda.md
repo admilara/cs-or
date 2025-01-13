@@ -27,29 +27,29 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
     <tbody>
         <tr>
             <td style="text-align:center">RECEX LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1a_003/">RecEx_ZAKUCA1A_003</a></td>
-            <td style="text-align:center">0:02:13.056000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1d_001/">RecEx_ZAKUCA1D_001</a></td>
-            <td style="text-align:center">0:02:13.056000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1a-003/">RecEx_ZAKUCA1A_003</a></td>
+            <td style="text-align:center">0:02:13.056</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1d-001/">RecEx_ZAKUCA1D_001</a></td>
+            <td style="text-align:center">0:02:13.056</td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1a_006/">Watch_ZAKUCA1A_006</a></td>
-            <td style="text-align:center">00:02:45.652000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1d_006/">Watch_ZAKUCA1D_006</a></td>            
-            <td style="text-align:center">00:03:50.937000</td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1a-006/">Watch_ZAKUCA1A_006</a></td>
+            <td style="text-align:center">00:02:45.652</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1d-006/">Watch_ZAKUCA1D_006</a></td>            
+            <td style="text-align:center">00:03:50.937</td>            
         </tr>
         <tr>
             <td style="text-align:center"></td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1a_007/">Watch_ZAKUCA1A_007</a></td>
-            <td style="text-align:center">00:03:54.593000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1d_007/">Watch_ZAKUCA1D_007</a></td>            
-            <td style="text-align:center">00:03:31.879000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1a-007/">Watch_ZAKUCA1A_007</a></td>
+            <td style="text-align:center">00:03:54.593</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1d-007/">Watch_ZAKUCA1D_007</a></td>            
+            <td style="text-align:center">00:03:31.879</td>
         </tr>
         <tr>
             <td style="text-align:center"></td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1a_008/">Watch_ZAKUCA1A_008</a></td>
-            <td style="text-align:center">00:03:03.001000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1a-008/">Watch_ZAKUCA1A_008</a></td>
+            <td style="text-align:center">00:03:03.001</td>
             <td style="text-align:center">-</td>
             <td style="text-align:center">-</td>
         </tr>
@@ -72,29 +72,29 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
     <tbody>
         <tr>
             <td style="text-align:center">RECEX LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1b_001/">RecEx_ZAKUCA1B_001.log</a></td>
-            <td style="text-align:center">0:02:13.056000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1c_034/">RecEx_ZAKUCA1C_034.log</a></td>
-            <td style="text-align:center">0:02:13.056000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1b-001/">RecEx_ZAKUCA1B_001</a></td>
+            <td style="text-align:center">0:02:13.056</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1c-034/">RecEx_ZAKUCA1C_034</a></td>
+            <td style="text-align:center">0:02:13.056</td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1b_001/">Watch_ZAKUCA1B_001.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-001/">Watch_ZAKUCA1B_001</a></td>            
             <td style="text-align:center">00:04:25.700000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_007/">Watch_ZAKUCA1C_007.log</a></td>            
-            <td style="text-align:center">00:03:29.419000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-007/">Watch_ZAKUCA1C_007</a></td>            
+            <td style="text-align:center">00:03:29.419</td>
         </tr>
         <tr>
             <td style="text-align:center"></td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1b_012/">Watch_ZAKUCA1B_012.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-012/">Watch_ZAKUCA1B_012</a></td>            
             <td style="text-align:center">00:03:47.137000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_008/">Watch_ZAKUCA1C_008.log</a></td>            
-            <td style="text-align:center">00:03:31.128000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-008/">Watch_ZAKUCA1C_008</a></td>            
+            <td style="text-align:center">00:03:31.128</td>
         </tr>
         <tr>
             <td style="text-align:center"></td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1b_013/">Watch_ZAKUCA1B_013.log</a></td>            
-            <td style="text-align:center">00:07:07.524000</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-013/">Watch_ZAKUCA1B_013</a></td>            
+            <td style="text-align:center">00:07:07.524</td>
             <td style="text-align:center">-</td>
             <td style="text-align:center">-</td>
         </tr>
