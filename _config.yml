@@ -10,6 +10,7 @@ collections:
   pages:
     output: true        # Makes pages render as actual output
     permalink: /:name/  # Creates clean URLs based on file names
+    
 header_sections:
   - label: "Crni start"
     links:
@@ -20,7 +21,7 @@ header_sections:
       - title: "KONČAR PROCIS"
         url: "/cs-koncar-ket/"
       - title: "GEPPERT"
-        url: "/cs-geppert/"
+        url: "/cs-geppert/"        
       - title: "INEM"
         url: "/cs-uzbuda/"
   - label: "Otočni rad"
