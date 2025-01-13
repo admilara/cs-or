@@ -1,9 +1,9 @@
 ---
 layout: default
-title: KONČAR INEM - WATCHS GEN A
+title: KONČAR INEM - WATCH GEN A
 ---
 
-## KONČAR INEM - WACTH LOG - AGREGAT A 
+## KONČAR INEM - WATCH LOG - AGREGAT A 
 
 #### Otočni rad
 
@@ -20,5 +20,5 @@ Trajanje zapisa iznosi 01:49.757 minuta.
                                
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/uzbuda/OR/watch_zakuca1a_031.html" width="100%" height="800px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/uzbuda/watch/or/watch_zakuca1a_031.html" width="100%" height="800px" frameborder="0"></iframe>
 </div>
