@@ -27,16 +27,16 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
     <tbody>
         <tr>
             <td style="text-align:center">RECEX LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1a_006/">RecEx_ZAKUCA1A_006.log</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1a_006/">RecEx_ZAKUCA1A_006</a></td>
             <td style="text-align:center">0:02:13.056000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1d_003/">RecEx_ZAKUCA1D_003.log</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1d_003/">RecEx_ZAKUCA1D_003</a></td>
             <td style="text-align:center">0:02:13.056000</td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1a_031/">Watch_ZAKUCA1A_031.log</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1a_031/">Watch_ZAKUCA1A_031</a></td>
             <td style="text-align:center">00:01:49.757000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1d_022/">Watch_ZAKUCA1D_022.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1d_022/">Watch_ZAKUCA1D_022</a></td>            
             <td style="text-align:center">00:04:30.850000</td>            
         </tr>
     </tbody>
@@ -58,23 +58,23 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
     <tbody>
         <tr>
             <td style="text-align:center">RECEX LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1b_002/">RecEx_ZAKUCA1B_002.log</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1b_002/">RecEx_ZAKUCA1B_002</a></td>
             <td style="text-align:center">0:02:13.056000</td>
             <td style="text-align:center">-</td>
             <td style="text-align:center">-</td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1b_031/">Watch_ZAKUCA1B_031.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1b_031/">Watch_ZAKUCA1B_031</a></td>            
             <td style="text-align:center">00:03:49.270000</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_013/">Watch_ZAKUCA1C_013.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_013/">Watch_ZAKUCA1C_013</a></td>            
             <td style="text-align:center">00:02:14.407000</td>
         </tr>
         <tr>
             <td style="text-align:center"></td>
             <td style="text-align:center">-</td>            
             <td style="text-align:center">-</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_022/">Watch_ZAKUCA1C_022.log</a></td>            
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch_zakuca1c_022/">Watch_ZAKUCA1C_022</a></td>            
             <td style="text-align:center">00:00:46.87700</td>
         </tr>
     </tbody>
