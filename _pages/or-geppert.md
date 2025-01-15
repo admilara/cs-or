@@ -18,9 +18,9 @@ Trenutak odvajanja nastupio je prije nego je GEPPERT bio spreman za odvajanje.
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Agregat</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Datoteka</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Napomena</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Agregat</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Datoteka</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Napomena</th>
         </tr>
     </thead>
     <tbody>
