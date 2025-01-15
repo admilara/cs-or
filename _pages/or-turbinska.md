@@ -14,11 +14,6 @@ Različit broj zapisa je dan ovisno o generatoru, ali za sve je dana vizualizaci
 Za pokuse otočnog rada agregata A ne postoji zapis u kojem je vidljiv sam trenutak odvajanja zbog grešaka u koordinaciji prilikom izvedenog pokusa.
 Trenutak odvajanja nastupio je prije nego je GEPPERT bio spreman za odvajanje. 
 
-
-* **PMU #318** = HE ZAK VP 220 KONJ
-* **PMU #323** = HE ZAK 110 GEN 4 (D)
-* **PMU #324** = HE ZAK 220 GEN 2 (B)
-
 {% capture raw_html %}
 <table>
     <thead>
