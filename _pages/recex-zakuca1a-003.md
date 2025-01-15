@@ -1,7 +1,6 @@
 ---
 layout: default
 title: KONČAR INEM - RECEX GEN A
-permalink: /recex_zakuca1a_003/
 ---
 
 ## KONČAR INEM - RECEX LOG - AGREGAT A 

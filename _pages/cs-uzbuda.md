@@ -80,14 +80,14 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
         <tr>
             <td style="text-align:center">WATCH LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-001/">Watch_ZAKUCA1B_001</a></td>            
-            <td style="text-align:center">00:04:25.700000</td>
+            <td style="text-align:center">00:04:25.700</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-007/">Watch_ZAKUCA1C_007</a></td>            
             <td style="text-align:center">00:03:29.419</td>
         </tr>
         <tr>
             <td style="text-align:center"></td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-012/">Watch_ZAKUCA1B_012</a></td>            
-            <td style="text-align:center">00:03:47.137000</td>
+            <td style="text-align:center">00:03:47.137</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-008/">Watch_ZAKUCA1C_008</a></td>            
             <td style="text-align:center">00:03:31.128</td>
         </tr>
