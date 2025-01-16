@@ -65,11 +65,25 @@ html body .page-content {
     text-align: center;
 }
 
-#navigation td a {
+
+
+#navigation td a.green-link{
+    color: #28a745; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+#navigation td a.blue-link{
     color: #007bff; /* Link color */
     text-decoration: none; /* Remove underline */
     font-weight: bold;
     transition: color 0.3s ease; /* Smooth color transition */
+}
+
+#navigation td a.green-link:hover {
+    color: #218838; /* Darker green */
+    text-decoration: underline;
 }
 
 #navigation td a:hover {

@@ -33,7 +33,7 @@
             <tr>
               {% for section in site.header_sections %}
                 {% for link in section.links %}
-                  <td><a href="{{ link.url | relative_url }}">{{ link.title }}</a></td>
+                  <td><a href="{{ link.url | relative_url }}" class="{{ link.class | default: '' }}">{{ link.title }}</a></td>
                 {% endfor %}
               {% endfor %}
             </tr>
