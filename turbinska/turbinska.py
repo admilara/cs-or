@@ -257,6 +257,11 @@ signali = {
         'label': 'f',
         'longtxt': 'Mrežna frekvencija',
         },
+    '11_freqinfl_out':{ # pravi signal detekcije OR - 12_islandmod_det je nešto drugo, ne znam šta
+        'unit': 'pu',
+        'label': 'Detekcija otočnog rada',
+        'longtxt': 'Signal detekcije otočnog rada'
+        },
     '12_islandmode_det': {
         'unit': 'pu',
         'label': 'Detekcija otočnog rada',
@@ -322,7 +327,8 @@ for key, value in all_asc_files.items():
     # Display the DataFrame
     #print(df.columns)
     df = df.rename(columns={"Gate_Servo_Feedb []": "02_Gate_Servo_Feedb []"})
-
+    df = df.drop(columns={"12: IslandMode_DET []"})
+    print(df.columns)
     # Chain za preimenovanje stupaca - nekonzistentno imenovanje
     # sve u lowercase, izbačene nepotrebne [] zagrade, svi spaceovi prebačeni u _, ali izbačen zadnji space tj. _
     df.columns = (
