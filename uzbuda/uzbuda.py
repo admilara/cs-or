@@ -101,7 +101,7 @@ def extract_table_data(lines):
         extracted.append(row)
     return extracted
 
-def draw(table_df, signal_name, signal_data, trigger_time):    
+def draw(table_df, signal_name, signal_data, trigger_time, timestamp):    
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(
@@ -146,6 +146,51 @@ def draw(table_df, signal_name, signal_data, trigger_time):
                    titlefont=dict(color="blue"),
                    tickfont=dict(color="blue"))
         )
+    
+    if table_df["Datetime"].min() <= timestamp["start"] <= table_df["Datetime"].max():
+        fig.add_vline(
+            x=timestamp["start"],
+            line_width=1,
+            line_dash="dash",
+            line_color="magenta"
+            )
+        
+        fig.add_annotation(
+            x=timestamp["start"],
+            y=1,
+            yref="paper",
+            text=f"ODVAJANJE: {timestamp['start']}",
+            showarrow=True,
+            arrowhead=2,
+            ax=20,
+            ay=-40,
+            font=dict(color="magenta", size=12),
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+    if table_df["Datetime"].min() <= timestamp["end"] <= table_df["Datetime"].max():
+        fig.add_vline(
+            x=timestamp["end"],
+            line_width=1,
+            line_dash="dash",
+            line_color="magenta"
+            )
+        
+        fig.add_annotation(
+            x=timestamp["end"],
+            y=1,
+            yref="paper",
+            text=f"SINKRONIZACIJA: {timestamp['end']}",
+            showarrow=True,
+            arrowhead=2,
+            ax=20,
+            ay=-40,
+            font=dict(color="magenta", size=12),
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+
     return fig
 
 savepath = r"""C:\Users\larab\Documents\GitHub\admilara.github.io\uzbuda"""
@@ -210,13 +255,13 @@ signali = {
         'label': 'GB on',
         'longtxt': 'Uključen generatorski prekidač'},
     'REFRDEC1': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref NIŽE',
         'longtxt': 'Impuls Vref niže'},
     'REFRINC1': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref VIŠE',
@@ -250,7 +295,23 @@ signali = {
         }
     }
 
+timestamps = {"Generator A": {'start': '2024-12-04 09:12:58.0',
+                        'end': '2024-12-04 10:20:29.0'},
+              "Generator B": {'start': '2024-12-04 14:24:28.0',
+                        'end': '2024-12-04 15:25:27.0'},
+              "Generator C": {'start': '2024-12-04 16:27:27.0',
+                        'end': '2024-12-04 17:03:18.0'},
+              "Generator D": {'start': '2024-12-04 11:48:26.0',
+                        'end': '2024-12-04 12:46:48.0'}}
 
+for key, value in timestamps.items():
+    value["start"] = datetime.strptime(value["start"], "%Y-%m-%d %H:%M:%S.%f")
+    value["end"] = datetime.strptime(value["end"], "%Y-%m-%d %H:%M:%S.%f")
+
+deltas = {"Generator A": {"start": timedelta(seconds=98, milliseconds=319)},
+          "Generator B": {"start": timedelta(seconds=25, milliseconds=887)},
+          "Generator C": {"start": timedelta(seconds=0, milliseconds=0)},
+          "Generator D": {"start": timedelta(seconds=17, milliseconds=654)}}
 
 # =============================================================================
 #                           START - RECEX
@@ -270,14 +331,14 @@ for gen in gens:
             continue
         else:
             path = datapath_cs + "\\" + gen + "\\" + file
-            all_recex_files.append(['CS', path])
+            all_recex_files.append(['CS', path, gen])
             
     for file in files_or:
         if 'Watch' in file:
             continue
         else:
             path = datapath_or + "\\" + gen + "\\" + file
-            all_recex_files.append(['OR', path])            
+            all_recex_files.append(['OR', path, gen])            
 
     #file = r"""D:\3_RADNO\_HOPS\2_ZAKUCAC_CS_OP\INEM\Zakucac_snimke\Crni_start\Generator A\RecEx_ZAKUCA1A_003.log"""
     #file_name = "RecEx_ZAKUCA1A_003"
@@ -331,6 +392,31 @@ for file_set in all_recex_files:
 
     datetime_str = sample_data["Trigger Time"]
     datetime_start = datetime.strptime(datetime_str, '%d.%m.%Y. %H:%M:%S.%f')
+    
+    # Za RecEx fileove agregata A i B - ostalo ljetno računanje vremena? 
+    # Za njih oduzimamo 1 sat minimalno kako bi se makar poklapala ta vremena, 
+    # naknadno će još biti usklađena odstupanja vremena u odnosu na timestamp
+    # sinkronizacije prema Listi KRD iz MC Split
+
+    # Za agregat D - odstupanje 15 minuta? Odvajanje zabilježeno u 11:48, RecEx
+    # odvajanje ima oko 11:33 - timedelta prilagođena tom odstupanju.
+    
+    # Agregat C se čini sinkroniziran?
+    
+    if file_set[-1] == "Generator A":
+        datetime_start = datetime_start - timedelta(hours=1)
+    elif file_set[-1] == "Generator B":
+        datetime_start = datetime_start - timedelta(hours=1)
+    elif file_set[-1] == "Generator D":
+        datetime_start = datetime_start + timedelta(minutes=15)
+    
+    # specificne delte koje nemaju veze s ovim odstupanjima od sat vremena ili 15 minuta
+    # radi se o sekundnim i milisekundnim odstupanjima koja su ručno očitana i potom ručno dodana za
+    # svaki recex file u otočnom radu
+    if file_set[0] == "OR":
+        datetime_start = datetime_start + deltas[file_set[-1]]["start"]
+    
+    #datetime_start = datetime_start - timedelta(hours=1)
     dt = timedelta(milliseconds = int(sample_data["Sample Time"]))
     
     table_df["Datetime"] = None 
@@ -385,7 +471,7 @@ for file_set in all_recex_files:
 
     fig_list = []
     for column in column_list:
-        fig = draw(table_df_values, column, signali[column], datetime_start)
+        fig = draw(table_df_values, column, signali[column], datetime_start, timestamps[file_set[-1]])
         fig_list.append(fig)
     
     html_list = []
@@ -407,7 +493,7 @@ for file_set in all_recex_files:
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body>
-        <h3>{gen} {file_set[0]} - {file_name}</h3>
+        <h3>{file_set[-1]} {file_set[0]} - {file_name}</h3>
         {divs_html}
         </body>
     </html>
@@ -415,10 +501,12 @@ for file_set in all_recex_files:
     
     if file_set[0] == "CS":
         file_name = file_name.split(".")[0]
+        file_name = file_name.replace("_", "-")
         with open(f"{savepath}\\CS\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)
     else:
         file_name = file_name.split(".")[0]
+        file_name = file_name.replace("_", "-")
         with open(f"{savepath}\\OR\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)
     print(file_set[0])
@@ -426,6 +514,8 @@ for file_set in all_recex_files:
     print(table_df_values.iloc[0]["Datetime"])
     print(table_df_values.iloc[-1]["Datetime"])
     print(table_df_values.iloc[-1]["Datetime"] - table_df_values.iloc[0]["Datetime"])
+    print("Trigger time:")
+    print(datetime_start)
     print("\n")
 
 

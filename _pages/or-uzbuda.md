@@ -17,10 +17,10 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Zapis</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Agregat A</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Zapis</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Agregat A</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Agregat D</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Agregat D</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>>            
         </tr>
     </thead>
@@ -48,10 +48,10 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Zapis</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Agregat B</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Zapis</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Agregat B</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>
-            <th style="text-align:center; font-family: Helvetica; color: blue">Agregat C</th>
+            <th style="text-align:center; font-family: Helvetica; color: white">Agregat C</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>            
         </tr>
     </thead>

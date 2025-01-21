@@ -17,7 +17,7 @@ import plotly
 import plotly.graph_objects as go
 import plotly.io as pio
 
-def draw(table_df, signal_name, signal_data):    
+def draw(table_df, signal_name, signal_data, timestamp):    
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(
@@ -38,6 +38,52 @@ def draw(table_df, signal_name, signal_data):
                    titlefont=dict(color="blue"),
                    tickfont=dict(color="blue"))
         )
+    
+    if table_df["Datetime"].min() <= timestamp["start"] <= table_df["Datetime"].max():
+        fig.add_vline(
+            x=timestamp["start"],
+            line_width=1,
+            line_dash="dash",
+            line_color="magenta"
+            )
+        
+        fig.add_annotation(
+            x=timestamp["start"],
+            y=1,
+            yref="paper",
+            text=f"ODVAJANJE: {timestamp['start']}",
+            showarrow=True,
+            arrowhead=2,
+            ax=20,
+            ay=-40,
+            font=dict(color="magenta", size=12),
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+    if table_df["Datetime"].min() <= timestamp["end"] <= table_df["Datetime"].max():
+        fig.add_vline(
+            x=timestamp["end"],
+            line_width=1,
+            line_dash="dash",
+            line_color="magenta"
+            )
+        
+        fig.add_annotation(
+            x=timestamp["end"],
+            y=1,
+            yref="paper",
+            text=f"SINKRONIZACIJA: {timestamp['end']}",
+            showarrow=True,
+            arrowhead=2,
+            ax=20,
+            ay=-40,
+            font=dict(color="magenta", size=12),
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    
+    
     return fig
 
 def extract_signals(lines):
@@ -134,13 +180,13 @@ signali = {
         'label': 'GB on',
         'longtxt': 'Uključen generatorski prekidač'},
     'REFRDEC1': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref NIŽE',
         'longtxt': 'Impuls Vref niže'},
     'REFRINC1': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref VIŠE',
@@ -156,14 +202,14 @@ signali = {
         'baseval': 1.0,
         'unit': 'logički signal',
         'label': 'Q reg on',
-        'longtxt': 'Q regulator ukljucen'
+        'longtxt': 'Q regulator ukljucen - nalog'
         },
     'QCONROF1': {
         'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'logički signal',
         'label': 'Q reg off',
-        'longtxt': 'Q regulator iskljucen'
+        'longtxt': 'Q regulator iskljucen - nalog'
         },
     'FGACT': {
         'intbase': 11703,
@@ -173,18 +219,44 @@ signali = {
         'longtxt': 'Frekvencija'
         },
     'VRINC': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref NIŽE',
         'longtxt': 'Impuls Vref niže'},
     'VRDEC': {
-        'intbase': 23405,
+        'intbase': 1.0,
         'baseval': 1.0,
         'unit': 'pu',
         'label': 'Vref VIŠE',
         'longtxt': 'Impuls Vref više'}
     }
+
+timestamps = {"Generator A": {'start': '2024-12-04 09:12:58.0',
+                        'end': '2024-12-04 10:20:29.0'},
+              "Generator B": {'start': '2024-12-04 14:24:28.0',
+                        'end': '2024-12-04 15:25:27.0'},
+              "Generator C": {'start': '2024-12-04 16:27:27.0',
+                        'end': '2024-12-04 17:03:18.0'},
+              "Generator D": {'start': '2024-12-04 11:48:26.0',
+                        'end': '2024-12-04 12:46:48.0'}}
+
+for key, value in timestamps.items():
+    value["start"] = datetime.strptime(value["start"], "%Y-%m-%d %H:%M:%S.%f")
+    value["end"] = datetime.strptime(value["end"], "%Y-%m-%d %H:%M:%S.%f")
+
+deltas = {"Generator A": {"end": timedelta(seconds=19, milliseconds=407)},
+          "Generator B": {"end": timedelta(seconds=21, milliseconds=693)},
+          "Generator C": {"start": timedelta(seconds=43, milliseconds=235),
+                          "end": timedelta(seconds=21, milliseconds=360)},
+          "Generator D": {"end": timedelta(seconds=20, milliseconds=400)}}
+
+#for key, value in deltas.items():
+#    if "start" in value:
+#        timestamps[key]["start"] -= value["start"]
+#    if "end" in value:
+#        timestamps[key]["end"] -= value["end"]
+
 
 # =============================================================================
 #                           START - WATCH
@@ -272,6 +344,19 @@ for file_set in all_watch_files:
     
     datetime_str = header_info['datetime']
     datetime_start = datetime.strptime(datetime_str, '%d.%m.%Y. %H:%M:%S')
+
+    if file_name == "Watch_ZAKUCA1C_022.log":
+        datetime_start = datetime_start + deltas[file_set[1]]["start"]
+    else:
+        datetime_start = datetime_start + deltas[file_set[1]]["end"]
+    
+#for key, value in deltas.items():
+#    if "start" in value:
+#        timestamps[key]["start"] -= value["start"]
+#    if "end" in value:
+#        timestamps[key]["end"] -= value["end"]    
+    
+    
     #dt = timedelta(milliseconds = int(sample_data["Sample Time"]))
     df['Timedelta'] = pd.to_timedelta(df['Time'], unit='s')
     
@@ -298,7 +383,7 @@ for file_set in all_watch_files:
 
     fig_list = []
     for column in column_list:
-        fig = draw(table_df, column, signali[column])
+        fig = draw(table_df, column, signali[column], timestamps[file_set[1]])
         fig_list.append(fig)
 
     html_list = []
@@ -319,7 +404,7 @@ for file_set in all_watch_files:
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </head>
     <body>
-        <h3>{gen} {file_set[0]} - {file_name}</h3>
+        <h3>{file_set[1]} {file_set[0]} - {file_name}</h3>
         {divs_html}
         </body>
     </html>
@@ -327,10 +412,12 @@ for file_set in all_watch_files:
     
     if file_set[0] == "CS":
         file_name = file_name.split(".")[0]
+        file_name = file_name.replace("_", "-")
         with open(f"{savepath}\\WATCH\\CS\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)
     else:
         file_name = file_name.split(".")[0]
+        file_name = file_name.replace("_", "-")
         with open(f"{savepath}\\WATCH\\OR\\{file_name.lower()}.html", "w") as file:
             file.write(html_content)    
 
