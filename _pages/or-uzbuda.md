@@ -29,7 +29,7 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
             <td style="text-align:center">RECEX LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1a-006/">RecEx_ZAKUCA1A_006</a></td>
             <td style="text-align:center">0:02:13.056</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex_zakuca1d_002/">RecEx_ZAKUCA1D_002</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1d-002/">RecEx_ZAKUCA1D_002</a></td>
             <td style="text-align:center">0:02:13.056</td>
         </tr>
         <tr>
