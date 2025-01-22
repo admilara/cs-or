@@ -3,11 +3,7 @@ layout: default
 title: OTOČNI RAD - REZULTATI HOPS WAMS
 description: Kratki pregled podataka iz WAMS-a za pokuse otočnog rada u HE Zakučac
 ---
-<style scoped>
-table {
-  font-size: 80%;
-}
-</style>
+
 
 <h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 

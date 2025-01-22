@@ -4,11 +4,6 @@ title: CRNI START - REZULTATI KONČAR PROCIS
 description: Kratki pregled podataka Končar KET-a za pokuse crnog starta u HE Zakučac
 ---
 
-<style scoped>
-table {
-  font-size: 80%;
-}
-</style>
 
 <h1 style="text-align: center; font-family: Helvetica; color: red">03.12.2024. Crni start</h1>
 <h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar KET - PROCIS</h2>

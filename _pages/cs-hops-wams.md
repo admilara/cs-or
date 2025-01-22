@@ -3,11 +3,6 @@ layout: default
 title: CRNI START - REZULTATI HOPS WAMS
 description: Kratki pregled podataka iz WAMS-a za pokuse crnog starta u HE Zakučac
 ---
-<style scoped>
-table {
-  font-size: 80%;
-}
-</style>
 
 <h1 style="text-align: center; font-family: Helvetica; color: red">03.12.2024. Crni start</h1>
 
