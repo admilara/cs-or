@@ -3,11 +3,7 @@ layout: default
 title: OTOČNI RAD - VELIČINE IZ TURBINSKOG REGULATORA
 description: Kratki pregled podataka iz turbinskog za pokuse otočnog rada u HE Zakučac
 ---
-<style scoped>
-table {
-  font-size: 13px;
-}
-</style>
+
 
 <h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 
