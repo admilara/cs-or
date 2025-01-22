@@ -143,102 +143,104 @@ nalazi se ispod linkova i u svakoj datoteci zasebno.
 
 
 {% capture raw_html %}
-<table>
-    <thead>
-        <tr>
-            <th style="text-align:center; font-family: Helvetica; font-size:70%">Signal</th>
-            <th style="text-align:center; font-family: Helvetica; font-size:70%">Opis signala</th>
-            <th style="text-align:center; font-family: Helvetica; font-size:70%">Oznaka signala</th>
-            <th style="text-align:center; font-family: Helvetica; font-size:70%">Bazna vrijednost</th>
-            <th style="text-align:center; font-family: Helvetica; font-size:70%">Mjerna jedinica</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="text-align:center; font-size:70%">VGACTINV, VGACT</td>
-            <td style="text-align:center; font-size:70%">Napon generatora</td>
-            <td style="text-align:center; font-size:70%">Ug</td>
-            <td style="text-align:center; font-size:70%">16.0</td>
-            <td style="text-align:center; font-size:70%">kV</td>            
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">IGACTINV, IGACT</td>
-            <td style="text-align:center; font-size:70%">Struja generatora - inverz</td>
-            <td style="text-align:center; font-size:70%">Ig</td>
-            <td style="text-align:center; font-size:70%">5774.0</td>
-            <td style="text-align:center; font-size:70%">A</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">UFACT</td>
-            <td style="text-align:center; font-size:70%">Napon uzbude</td>
-            <td style="text-align:center; font-size:70%">Uf</td>
-            <td style="text-align:center; font-size:70%">74</td>
-            <td style="text-align:center; font-size:70%">V</td>            
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">IFACT</td>
-            <td style="text-align:center; font-size:70%">Struja uzbude</td>
-            <td style="text-align:center; font-size:70%">If</td>
-            <td style="text-align:center; font-size:70%">725.0</td>
-            <td style="text-align:center; font-size:70%">A</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">PACT</td>
-            <td style="text-align:center; font-size:70%">Radna snaga generatora</td>
-            <td style="text-align:center; font-size:70%">Pg</td>
-            <td style="text-align:center; font-size:70%">160.0</td>
-            <td style="text-align:center; font-size:70%">MW</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">QACT</td>
-            <td style="text-align:center; font-size:70%">Jalova snaga generatora</td>
-            <td style="text-align:center; font-size:70%">Qg</td>
-            <td style="text-align:center; font-size:70%">160.0</td>
-            <td style="text-align:center; font-size:70%">MVAr</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">FGACT</td>
-            <td style="text-align:center; font-size:70%">Frekvencija</td>
-            <td style="text-align:center; font-size:70%">f</td>
-            <td style="text-align:center; font-size:70%">50.0</td>
-            <td style="text-align:center; font-size:70%">Hz</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">VGREF</td>
-            <td style="text-align:center; font-size:70%">Referenca Ug</td>
-            <td style="text-align:center; font-size:70%">Ug ref</td>
-            <td style="text-align:center; font-size:70%">1.0</td>
-            <td style="text-align:center; font-size:70%">p.u.</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">QCONRON1</td>
-            <td style="text-align:center; font-size:70%">Nalog za uključenje Q regulatora - logički signal</td>
-            <td style="text-align:center; font-size:70%">Q reg on</td>
-            <td style="text-align:center; font-size:70%">1.0</td>
-            <td style="text-align:center; font-size:70%">p.u.</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">QCONROF1</td>
-            <td style="text-align:center; font-size:70%">Nalog za isključenje Q regulatora - logički signal</td>
-            <td style="text-align:center; font-size:70%">Q reg off</td>
-            <td style="text-align:center; font-size:70%">1.0</td>
-            <td style="text-align:center; font-size:70%">p.u.</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">REFINC1, VRINC</td>
-            <td style="text-align:center; font-size:70%">Nalog za povećanje reference napona - logički signal</td>
-            <td style="text-align:center; font-size:70%">Vref VIŠE</td>
-            <td style="text-align:center; font-size:70%">1.0</td>
-            <td style="text-align:center; font-size:70%">p.u.</td>
-        </tr>
-        <tr>
-            <td style="text-align:center; font-size:70%">REFDEC1, VRDEC</td>
-            <td style="text-align:center; font-size:70%">Nalog za smanjenje reference napona - logički signal</td>
-            <td style="text-align:center; font-size:70%">Vref NIŽE</td>
-            <td style="text-align:center; font-size:70%">1.0</td>
-            <td style="text-align:center; font-size:70%">p.u.</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align:center; font-family: Helvetica; font-size:85%">Signal</th>
+                <th style="text-align:center; font-family: Helvetica; font-size:85%">Opis signala</th>
+                <th style="text-align:center; font-family: Helvetica; font-size:85%">Oznaka signala</th>
+                <th style="text-align:center; font-family: Helvetica; font-size:85%">Bazna vrijednost</th>
+                <th style="text-align:center; font-family: Helvetica; font-size:85%">Mjerna jedinica</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:center; font-size:85%">VGACTINV, VGACT</td>
+                <td style="text-align:center; font-size:85%">Napon generatora</td>
+                <td style="text-align:center; font-size:85%">Ug</td>
+                <td style="text-align:center; font-size:85%">16.0</td>
+                <td style="text-align:center; font-size:85%">kV</td>            
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">IGACTINV, IGACT</td>
+                <td style="text-align:center; font-size:85%">Struja generatora - inverz</td>
+                <td style="text-align:center; font-size:85%">Ig</td>
+                <td style="text-align:center; font-size:85%">5774.0</td>
+                <td style="text-align:center; font-size:85%">A</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">UFACT</td>
+                <td style="text-align:center; font-size:85%">Napon uzbude</td>
+                <td style="text-align:center; font-size:85%">Uf</td>
+                <td style="text-align:center; font-size:85%">74</td>
+                <td style="text-align:center; font-size:85%">V</td>            
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">IFACT</td>
+                <td style="text-align:center; font-size:85%">Struja uzbude</td>
+                <td style="text-align:center; font-size:85%">If</td>
+                <td style="text-align:center; font-size:85%">725.0</td>
+                <td style="text-align:center; font-size:85%">A</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">PACT</td>
+                <td style="text-align:center; font-size:85%">Radna snaga generatora</td>
+                <td style="text-align:center; font-size:85%">Pg</td>
+                <td style="text-align:center; font-size:85%">160.0</td>
+                <td style="text-align:center; font-size:85%">MW</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">QACT</td>
+                <td style="text-align:center; font-size:85%">Jalova snaga generatora</td>
+                <td style="text-align:center; font-size:85%">Qg</td>
+                <td style="text-align:center; font-size:85%">160.0</td>
+                <td style="text-align:center; font-size:85%">MVAr</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">FGACT</td>
+                <td style="text-align:center; font-size:85%">Frekvencija</td>
+                <td style="text-align:center; font-size:85%">f</td>
+                <td style="text-align:center; font-size:85%">50.0</td>
+                <td style="text-align:center; font-size:85%">Hz</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">VGREF</td>
+                <td style="text-align:center; font-size:85%">Referenca Ug</td>
+                <td style="text-align:center; font-size:85%">Ug ref</td>
+                <td style="text-align:center; font-size:85%">1.0</td>
+                <td style="text-align:center; font-size:85%">p.u.</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">QCONRON1</td>
+                <td style="text-align:center; font-size:85%">Nalog za uključenje Q regulatora - logički signal</td>
+                <td style="text-align:center; font-size:85%">Q reg on</td>
+                <td style="text-align:center; font-size:85%">1.0</td>
+                <td style="text-align:center; font-size:85%">p.u.</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">QCONROF1</td>
+                <td style="text-align:center; font-size:85%">Nalog za isključenje Q regulatora - logički signal</td>
+                <td style="text-align:center; font-size:85%">Q reg off</td>
+                <td style="text-align:center; font-size:85%">1.0</td>
+                <td style="text-align:center; font-size:85%">p.u.</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">REFINC1, VRINC</td>
+                <td style="text-align:center; font-size:85%">Nalog za povećanje reference napona - logički signal</td>
+                <td style="text-align:center; font-size:85%">Vref VIŠE</td>
+                <td style="text-align:center; font-size:85%">1.0</td>
+                <td style="text-align:center; font-size:85%">p.u.</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; font-size:85%">REFDEC1, VRDEC</td>
+                <td style="text-align:center; font-size:85%">Nalog za smanjenje reference napona - logički signal</td>
+                <td style="text-align:center; font-size:85%">Vref NIŽE</td>
+                <td style="text-align:center; font-size:85%">1.0</td>
+                <td style="text-align:center; font-size:85%">p.u.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 {% endcapture %}
 {{ raw_html }}
