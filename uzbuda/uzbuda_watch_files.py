@@ -247,8 +247,8 @@ for key, value in timestamps.items():
 
 deltas = {"Generator A": {"end": timedelta(seconds=19, milliseconds=407)},
           "Generator B": {"end": timedelta(seconds=21, milliseconds=693)},
-          "Generator C": {"start": timedelta(seconds=43, milliseconds=235),
-                          "end": timedelta(seconds=21, milliseconds=360)},
+          "Generator C": {"start": timedelta(seconds=21, milliseconds=360),
+                          "end": timedelta(seconds=43, milliseconds=235)},
           "Generator D": {"end": timedelta(seconds=20, milliseconds=400)}}
 
 #for key, value in deltas.items():
@@ -345,7 +345,7 @@ for file_set in all_watch_files:
     datetime_str = header_info['datetime']
     datetime_start = datetime.strptime(datetime_str, '%d.%m.%Y. %H:%M:%S')
 
-    if file_name == "Watch_ZAKUCA1C_022.log":
+    if file_name == "Watch_ZAKUCA1C_013.log":
         datetime_start = datetime_start + deltas[file_set[1]]["start"]
     else:
         datetime_start = datetime_start + deltas[file_set[1]]["end"]

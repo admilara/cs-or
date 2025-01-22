@@ -19,6 +19,8 @@ Watch logovi različite su duljine te su one navedene u tablici ispod.
 
 Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjernih jedinica i baznih vrijednosti veličina koje se mogu naći u datotekama nalazi se ispod tablice. 
 
+
+
 {% capture raw_html %}
 <table>
     <thead>
@@ -34,13 +36,13 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
             <td style="text-align:center">RECEX LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1a-006/">RecEx_ZAKUCA1A_006</a></td>
             <td style="text-align:center">02:13.056</td>
-            <td style="text-align:center">Zapis odvajanja u otok. Vremensko odstupanje originalnog zapisa od utvrđenog trenutka odvajanja 58 minuta i 21.681 sekundi.</td>
+            <td style="text-align:center">Zapis odvajanja u otok. <br>Vremensko odstupanje originalnog zapisa od utvrđenog trenutka odvajanja:  <b>-00:58:21.681</b></td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1a-031/">Watch_ZAKUCA1A_031</a></td>
             <td style="text-align:center">01:49.757</td>
-            <td style="text-align:center">Sinkronizacija na mrežu. Odstupanje zapisa 19.407 sekundi.</td>                      
+            <td style="text-align:center">Sinkronizacija na mrežu. <br>Odstupanje zapisa: <b>19.407 sekundi</b></td>                      
         </tr>
     </tbody>
 </table>
@@ -64,13 +66,42 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
             <td style="text-align:center">RECEX LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1d-002/">RecEx_ZAKUCA1D_002</a></td>
             <td style="text-align:center">02:13.056</td>
-            <td style="text-align:center">Zapis odvajanja u otok. Vremensko odstupanje zapisa od utvrđenog trenutka odvajanja 15 minuta i 17.654 sekunde.</td>
+            <td style="text-align:center">Zapis odvajanja u otok. <br>Vremensko odstupanje zapisa od utvrđenog trenutka odvajanja: <b>+00:15:17.654</b></td>
         </tr>
         <tr>
             <td style="text-align:center">WATCH LOG</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1d-022/">Watch_ZAKUCA1D_022</a></td>            
             <td style="text-align:center">04:30.850</td> 
-            <td style="text-align:center">Sinkronizacija na mrežu. Odstupanje zapisa: 20.400 sekunde.</td>         
+            <td style="text-align:center">Sinkronizacija na mrežu. <br>Odstupanje zapisa: <b>20.400 sekunde</b></td>         
+        </tr>
+    </tbody>
+</table>
+{% endcapture %}
+{{ raw_html }}
+
+
+{% capture raw_html %}
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:center; font-family: Helvetica">Zapis</th>
+            <th style="text-align:center; font-family: Helvetica">Agregat B</th>
+            <th style="text-align:center; font-family: Helvetica">Trajanje zapisa [min]</th>
+            <th style="text-align:center; font-family: Helvetica">Napomena</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center">RECEX LOG</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1b-002/">RecEx_ZAKUCA1B_002</a></td>
+            <td style="text-align:center">02:13.056</td>
+            <td style="text-align:center">Zapis odvajanja u otok. <br>Vremensko odstupanje zapisa od utvrđenog trenutka odvajanja: <b>-00:59:34.113</b></td>
+        </tr>
+        <tr>
+            <td style="text-align:center">WATCH LOG</td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-031/">Watch_ZAKUCA1B_031</a></td>            
+            <td style="text-align:center">03:49.270</td>
+            <td style="text-align:center">Sinkronizacija na mrežu. <br> Odstupanje zapisa: <b>21.693 sekunde</b></td>
         </tr>
     </tbody>
 </table>
@@ -83,42 +114,28 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: white">Zapis</th>
-            <th style="text-align:center; font-family: Helvetica; color: white">Agregat B</th>
+            <th style="text-align:center; font-family: Helvetica">Zapis</th> 
+            <th style="text-align:center; font-family: Helvetica">Agregat C</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa [min]</th>
-            <th style="text-align:center; font-family: Helvetica; color: white">Agregat C</th>
-            <th style="text-align:center; font-family: Helvetica">Trajanje zapisa [min]</th>            
+            <th style="text-align:center; font-family: Helvetica">Napomena</th>             
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td style="text-align:center">RECEX LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/recex-zakuca1b-002/">RecEx_ZAKUCA1B_002</a></td>
-            <td style="text-align:center">02:13.056</td>
-            <td style="text-align:center">-</td>
-            <td style="text-align:center">-</td>
-        </tr>
-        <tr>
             <td style="text-align:center">WATCH LOG</td>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1b-031/">Watch_ZAKUCA1B_031</a></td>            
-            <td style="text-align:center">03:49.270</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-013/">Watch_ZAKUCA1C_013</a></td>            
             <td style="text-align:center">02:14.407</td>
+            <td style="text-align:center">Zapis odvajanja u otok. <br>Odstupanje zapisa: <b>21.360 sekundi</b></td>
         </tr>
         <tr>
-            <td style="text-align:center"></td>
-            <td style="text-align:center">-</td>            
-            <td style="text-align:center">-</td>
+            <td style="text-align:center"></td>            
             <td style="text-align:center"><a href="{{ site.baseurl }}/watch-zakuca1c-022/">Watch_ZAKUCA1C_022</a></td>            
             <td style="text-align:center">00:46.877</td>
+            <td style="text-align:center">Sinkronizacija na mrežu. <br>Odstupanje zapisa: <b>43.235 sekundi</b></td>
         </tr>
     </tbody>
 </table>
 {% endcapture %}
 {{ raw_html }}
-
-
-
-
 
 
