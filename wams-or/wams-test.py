@@ -370,22 +370,26 @@ fdict = {"24-12-04-0812_to_24-12-04-0921_v2.1.2975.csv": {"search_strings": ["Ph
                                                           "start": "2024-12-04 09:12:58",
                                                           "end": "2024-12-04 10:20:29",
                                                           "unit": "A",
-                                                          "PMUS": 1},
+                                                          "PMUS": 1,
+                                                          "delay": timedelta(seconds=7, milliseconds=400)},
          "24-12-04-1048_to_24-12-04-1147_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318", "PMU#323"],
                                                           "start": "2024-12-04 11:48:26",
                                                           "end": "2024-12-04 12:46:48",
                                                           "unit": "D",
-                                                          "PMUS": 2},
+                                                          "PMUS": 2,
+                                                          "delay": timedelta(seconds=6, milliseconds=160)},
          "24-12-04-1324_to_24-12-04-1426_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318", "PMU#324"],
                                                           "start": "2024-12-04 14:24:28",
                                                           "end": "2024-12-04 15:25:27",
                                                           "unit": "B",
-                                                          "PMUS": 2},
+                                                          "PMUS": 2,
+                                                          "delay": timedelta(seconds=7, milliseconds=400)},
          "24-12-04-1527_to_24-12-04-1603_v2.1.2975.csv": {"search_strings": ["Phasor", "PMU#318"], 
                                                           "start": "2024-12-04 16:27:27", 
                                                           "end": "2024-12-04 17:03:18",
                                                           "unit": "C",
-                                                          "PMUS": 1}}
+                                                          "PMUS": 1,
+                                                          "delay": timedelta(seconds=7, milliseconds=620)}}
 
 
 # =============================================================================
@@ -419,6 +423,9 @@ for key, value in fdict.items():
         filtered_df = value["df"][filtered_columns].copy()
         filtered_df.loc[:, "PhasorDatetime"] = value["df"]["PhasorDatetime"]
         
+        if i == 0:
+            filtered_df["PhasorDatetime"] = filtered_df["PhasorDatetime"] - value["delay"]
+        
         fig1 = radna_jalova_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
         fig2 = frekvencija_graf(filtered_df, value["unit"], value["search_strings"][i+1], value["start"], value["end"])
         if value["search_strings"][i+1] == "PMU#323":
@@ -448,7 +455,9 @@ for key, value in fdict.items():
             </body>
         </html>
         """
-        with open(f"{savepath}\\or-agregata-{value['unit'].lower()}-{value['search_strings'][i+1].lower()}.html", "w") as file:
+        file_name = f"or-agregata-{value['unit'].lower()}-{value['search_strings'][i+1].lower()}.html"
+        file_name = file_name.replace("#", "-")
+        with open(f"{savepath}\\{file_name}", "w") as file:
             file.write(html_content)
     
     
