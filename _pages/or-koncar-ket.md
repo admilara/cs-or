@@ -3,6 +3,11 @@ layout: default
 title: OTOČNI RAD - REZULTATI KONČAR KET - PROCIS
 description: Kratki pregled podataka Končar KET-a za pokuse otočnog rada u HE Zakučac
 ---
+<style scoped>
+table {
+  font-size: 80%;
+}
+</style>
 
 <h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 

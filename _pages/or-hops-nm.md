@@ -3,6 +3,11 @@ layout: default
 title: OTOČNI RAD - REZULTATI HOPS NM
 description: Kratki pregled podataka dostavljenih iz MC Split za pokuse otočnog rada u HE Zakučac
 ---
+<style scoped>
+table {
+  font-size: 80%;
+}
+</style>
 
 <h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
 
