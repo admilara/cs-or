@@ -17,6 +17,8 @@ Trajanje zapisa iznosi 01:49.757 minuta.
 | :------------  | :-------------------------: |
 | Početak zapisa | 2024-12-04 10:19:06.366000  |
 | Kraj zapisa    | 2024-12-04 10:20:56.123000  |
+
+**Grafovi prikazuju trenutak sinkronizacije agregata A na mrežu.**
                                
 
 <div class="wide-graph">

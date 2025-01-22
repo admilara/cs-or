@@ -18,6 +18,7 @@ Trajanje zapisa iznosi 02:14.407 minuta.
 | Početak zapisa | 2024-12-04 16:26:07.439000  |
 | Kraj zapisa    | 2024-12-04 16:28:21.846000  |
                                
+**Grafovi prikazuju trenutak prelaska agregata C u otočni rad.**
 
 <div class="wide-graph">
     <iframe src="{{ site.baseurl }}/uzbuda/watch/or/watch-zakuca1c-013.html" width="100%" height="800px" frameborder="0"></iframe>

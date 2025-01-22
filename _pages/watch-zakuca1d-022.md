@@ -18,6 +18,7 @@ Trajanje zapisa iznosi 04:30.850 minuta.
 | Početak zapisa | 2024-12-04 12:43:41.469000  |
 | Kraj zapisa    | 2024-12-04 12:48:12.319000  |
                                
+**Grafovi prikazuju trenutak sinkronizacije agregata D na mrežu.**
 
 <div class="wide-graph">
     <iframe src="{{ site.baseurl }}/uzbuda/watch/or/watch-zakuca1d-022.html" width="100%" height="800px" frameborder="0"></iframe>

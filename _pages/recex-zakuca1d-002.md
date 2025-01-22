@@ -17,6 +17,7 @@ Zapisi u datoteku pisani su s pravilnim vremenskim razmakom od 96 ms. Trajanje z
 | Početak zapisa | 2024-12-04 11:32:32.058000  |
 | Kraj zapisa    | 2024-12-04 11:34:45.114000  |
                                
+**Grafovi prikazuju trenutak prelaska agregata D u otočni rad.**
 
 <div class="wide-graph">
     <iframe src="{{ site.baseurl }}/uzbuda/or/recex-zakuca1d-002.html" width="100%" height="800px" frameborder="0"></iframe>

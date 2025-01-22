@@ -17,10 +17,10 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: red">Zapis</th>
-            <th style="text-align:center; font-family: Helvetica; color: red">Agregat A</th>
+            <th style="text-align:center; font-family: Helvetica">Zapis</th>
+            <th style="text-align:center; font-family: Helvetica">Agregat A</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>
-            <th style="text-align:center; font-family: Helvetica; color: red">Agregat D</th>
+            <th style="text-align:center; font-family: Helvetica">Agregat D</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>>            
         </tr>
     </thead>
@@ -62,10 +62,10 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 <table>
     <thead>
         <tr>
-            <th style="text-align:center; font-family: Helvetica; color: red">Zapis</th>
-            <th style="text-align:center; font-family: Helvetica; color: red">Agregat B</th>
+            <th style="text-align:center; font-family: Helvetica">Zapis</th>
+            <th style="text-align:center; font-family: Helvetica">Agregat B</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>
-            <th style="text-align:center; font-family: Helvetica; color: red">Agregat C</th>
+            <th style="text-align:center; font-family: Helvetica">Agregat C</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>            
         </tr>
     </thead>
@@ -102,9 +102,6 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
 </table>
 {% endcapture %}
 {{ raw_html }}
-
-
-
 
 
 
