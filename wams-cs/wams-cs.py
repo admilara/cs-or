@@ -603,7 +603,7 @@ def radna_jalova_graf(unit, df, pmu, annotations):
             )
     
     fig.update_layout(
-        title=f"Radna i jalova snaga tijekom CS agregata {unit} - mjerenje na PMU#{pmu}",
+        title=f"Radna i jalova snaga tijekom CS agregata {unit} - izračunate vrijednosti",
         template="plotly",
         legend_title="Legenda",
         xaxis=dict(showgrid=True),
@@ -618,6 +618,7 @@ def radna_jalova_graf(unit, df, pmu, annotations):
                     overlaying="y",
                     side="right"),
         )
+    
     return fig 
 
 def radna_jalova(df, pmu):

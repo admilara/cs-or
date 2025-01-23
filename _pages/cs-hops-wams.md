@@ -16,6 +16,9 @@ Vizualizacija je prilagođena te su uzeta u obzir vremenska odstupanja zapisa za
 * **PMU #323** = HE ZAK 110 GEN 4 (D)
 * **PMU #324** = HE ZAK 220 GEN 2 (B)
 
+S obzirom da nisu dostavljena mjerenja radne i jalove snage, iste su izračunate 
+iz faznih vrijednosti napona i struje te pripadajućih im kuteva.
+
 {% capture raw_html %}
 <table>
     <thead>
@@ -26,7 +29,7 @@ Vizualizacija je prilagođena te su uzeta u obzir vremenska odstupanja zapisa za
     </thead>
     <tbody>
         <tr>
-            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-d-pmu-323/">PMU#318</a></td>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-d-pmu-323/">PMU#323</a></td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/cs-agregata-b-pmu-324/">PMU#324</a></td>
         </tr>
         <tr>
@@ -39,6 +42,6 @@ Vizualizacija je prilagođena te su uzeta u obzir vremenska odstupanja zapisa za
 {{ raw_html }}
 
 Tijekom crnog starta agregata B dodatno je proveden pokus mogućnosti energizacije mrežnog transformatora
-AT3 u TS Konjsko, što je vidljivo na vizualizacijama za PMU #323 i #318.
+AT3 u TS Konjsko, što je vidljivo na vizualizacijama za PMU #324 i #318.
 
 
