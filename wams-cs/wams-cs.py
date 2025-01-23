@@ -485,10 +485,161 @@ def frekvencija_graf(unit, df, pmu, annotations):
         )
     return fig 
 
+def radna_jalova_graf(unit, df, pmu, annotations):
+    df["PhasorDatetime"] = pd.to_datetime(df["PhasorDatetime"], errors="coerce")
+    if df["PhasorDatetime"].isnull().sum() > 0:
+        print("Error: Invalid datetime values found.")
+        return
+    
+    fig = go.Figure()
+    
+    fig.add_trace(go.Scatter(
+        x=df["PhasorDatetime"],
+        y=df["P_total"]/1000000,
+        mode="lines",
+        name="P [MW]",
+        line=dict(color="red"),
+        ))
+
+    fig.add_trace(go.Scatter(
+        x=df["PhasorDatetime"],
+        y=df["Q_total"]/1000000,
+        mode="lines",
+        name="Q [MVAr]",
+        line=dict(color="blue"),
+        yaxis="y2"
+        ))
+    
+    fig.add_vline(
+        x=pd.to_datetime(annotations[1]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="#754FC5"
+        )
+    
+    fig.add_vline(
+        x=pd.to_datetime(annotations[3]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="#754FC5"
+        )
+    
+    fig.add_vline(
+        x=pd.to_datetime(annotations[5]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="#754FC5"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(annotations[1]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=annotations[0],
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="#754FC5", size=12),
+        bordercolor="#754FC5",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(annotations[3]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=annotations[2],
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-60,  # Arrow shift in y direction
+        font=dict(color="#754FC5", size=12),
+        bordercolor="#754FC5",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
+    fig.add_annotation(
+        x=pd.to_datetime(annotations[5]).to_pydatetime(),
+        y=0.9,  # Set a relevant y-axis value
+        xref="x",
+        yref="paper",
+        text=annotations[4],
+        showarrow=True,
+        arrowhead=2,
+        ax=20,  # Arrow shift in x direction
+        ay=-40,  # Arrow shift in y direction
+        font=dict(color="#754FC5", size=12),
+        bordercolor="#754FC5",
+        borderwidth=1,
+        bgcolor="rgba(255,255,255,0.7)"
+        )
+    
+    if unit == "B": 
+        fig.add_vline(
+            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[6],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-40,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    
+    fig.update_layout(
+        title=f"Radna i jalova snaga tijekom CS agregata {unit} - mjerenje na PMU#{pmu}",
+        template="plotly",
+        legend_title="Legenda",
+        xaxis=dict(showgrid=True),
+        yaxis=dict(showgrid=True,
+                   title="P [MW]",
+                   titlefont=dict(color="red"),
+                   tickfont=dict(color="red")),
+        yaxis2=dict(showgrid=True,
+                    title="Q [MVAr]",
+                    titlefont=dict(color="blue"),
+                    tickfont=dict(color="blue"),
+                    overlaying="y",
+                    side="right"),
+        )
+    return fig 
+
+def radna_jalova(df, pmu):
+    for phase in ['1', '2', '3']:
+
+        voltage = f'PMU#{pmu} UPhase{phase}abs'
+        current = f'PMU#{pmu} IPhase{phase}abs'
+        voltage_phase = f'PMU#{pmu} UPhase{phase}phase'
+        current_phase = f'PMU#{pmu} IPhase{phase}phase'
+
+        df[f'P{phase}'] = df[voltage] * df[current] * np.cos(df[voltage_phase] - df[current_phase])
+        df[f'Q{phase}'] = df[voltage] * df[current] * np.sin(df[voltage_phase] - df[current_phase])
+        
+    df['P_total'] = df['P1'] + df['P2'] + df['P3']
+    df['Q_total'] = df['Q1'] + df['Q2'] + df['Q3']
+    
+
+
 mypath = r"""D:\3_RADNO\_HOPS\2_ZAKUCAC_CS_OP\wams-cs"""
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-for file in files:
-    print(file)
+#for file in files:
+#    print(file)
     
 savepath = r"""C:\Users\larab\Documents\GitHub\admilara.github.io\wams-cs"""
 
@@ -515,9 +666,9 @@ for index, file in enumerate(files):
 
 for key, value in dfs.items():
     agregat = key[0]
-    print(agregat)
+    #print(agregat)
     pmu = key[-3:]
-    print(pmu)
+    #print(pmu)
     if agregat == "0":
         unit="D"
         line_volt_txt = "Stavljanje DV 110 kV Zakučac - Meterize 3 pod napon"
@@ -558,13 +709,21 @@ for key, value in dfs.items():
         annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, 
                        off_txt, off_dt, at3_txt, at3_dt]
     
+    
     fig1 = naponi_graf(unit, value, pmu, annotations)
     fig2 = struje_graf(unit, value, pmu, annotations)     
     fig3 = frekvencija_graf(unit, value, pmu, annotations)
     
+    radna_jalova(value, pmu)
+    
+    fig4 = radna_jalova_graf(unit, value, pmu, annotations)
+    
+    print(value.columns)
+    
     html1 = pio.to_html(fig1, full_html=False, include_plotlyjs="cdn")
     html2 = pio.to_html(fig2, full_html=False, include_plotlyjs=False)
     html3 = pio.to_html(fig3, full_html=False, include_plotlyjs=False)
+    html4 = pio.to_html(fig4, full_html=False, include_plotlyjs=False)    
     
     html_content = f"""
     <!DOCTYPE html>
@@ -578,6 +737,7 @@ for key, value in dfs.items():
         <div>{html1}</div>
         <div>{html2}</div>
         <div>{html3}</div>
+        <div>{html4}</div>
         </body>
     </html>
     """
