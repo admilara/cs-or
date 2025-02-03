@@ -24,7 +24,7 @@ header_sections:
         class: "green-link"
       - title: "GEPPERT"
         url: "/cs-geppert/"
-        class: "blue-link"        
+        class: "green-link"        
       - title: "INEM"
         url: "/cs-uzbuda/"
         class: "green-link"
