@@ -175,6 +175,3 @@ Trenutak odvajanja nastupio je prije nego je GEPPERT bio spreman za odvajanje.
 </table>
 {% endcapture %}
 {{ raw_html }}
-
-
-

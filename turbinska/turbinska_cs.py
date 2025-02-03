@@ -28,7 +28,7 @@ from io import StringIO
 #                   FUNKCIJE
 # =============================================================================
 
-def draw(df, name, values): #, timestamp):
+def draw(df, name, values, annotations):
     # Group columns by their 'longtxt'
     # name = longtxt
     # values = list of columns
@@ -152,51 +152,40 @@ def draw(df, name, values): #, timestamp):
                         tickfont=dict(color="green"),
                         overlaying="y",
                         side="right"))
-    #TODO - CHANGE TO CS TIMESTAMPS - 5 of them?
-    # if df["Datetime"].min() <= timestamp["start"] <= df["Datetime"].max():
-    #     fig.add_vline(
-    #         x=timestamp["start"],
-    #         line_width=1,
-    #         line_dash="dash",
-    #         line_color="magenta"
-    #         )
-        
-    #     fig.add_annotation(
-    #         x=timestamp["start"],
-    #         y=1,
-    #         yref="paper",
-    #         text="ODVAJANJE",
-    #         showarrow=True,
-    #         arrowhead=2,
-    #         ax=20,
-    #         ay=-40,
-    #         font=dict(color="magenta", size=12),
-    #         borderwidth=1,
-    #         bgcolor="rgba(255,255,255,0.7)"
-    #         )
-        
-    # if df["Datetime"].min() <= timestamp["end"] <= df["Datetime"].max():
-    #     fig.add_vline(
-    #         x=timestamp["end"],
-    #         line_width=1,
-    #         line_dash="dash",
-    #         line_color="magenta"
-    #         )
-        
-    #     fig.add_annotation(
-    #         x=timestamp["end"],
-    #         y=1,
-    #         yref="paper",
-    #         text="SINKRONIZACIJA",
-    #         showarrow=True,
-    #         arrowhead=2,
-    #         ax=20,
-    #         ay=-40,
-    #         font=dict(color="magenta", size=12),
-    #         borderwidth=1,
-    #         bgcolor="rgba(255,255,255,0.7)"
-    #         )
     
+    for i in range(0, len(annotations), 2):
+        if df["Datetime"].min() <= annotations[i+1] <= df["Datetime"].max(): 
+            fig.add_vline(
+                x=pd.to_datetime(annotations[i+1]).to_pydatetime(),
+                line_width=1,
+                line_dash="dash",
+                line_color="#754FC5"
+                )
+            if i==2 :
+                ay_set = -60
+            else:
+                ay_set = -40
+                
+            if i == 6:
+                ax_set = 80
+            else:
+                ax_set = 20
+                
+            fig.add_annotation(
+                x=pd.to_datetime(annotations[i+1]).to_pydatetime(),
+                y=0.9,  # Set a relevant y-axis value
+                xref="x",
+                yref="paper",
+                text=annotations[i],
+                showarrow=True,
+                arrowhead=2,
+                ax=ax_set,  # Arrow shift in x direction
+                ay=ay_set,  # Arrow shift in y direction
+                font=dict(color="#754FC5", size=12),
+                bordercolor="#754FC5",
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.7)"
+                )    
     return fig
 
 # =============================================================================
@@ -256,15 +245,10 @@ signali = {
         'label': 'f',
         'longtxt': 'Mrežna frekvencija',
         },
-    '11_freqinfl_out':{ # pravi signal detekcije OR - 12_islandmod_det je nešto drugo, ne znam šta
+    '11_blackstart_on':{ # pravi signal detekcije OR - 12_islandmod_det je nešto drugo, ne znam šta
         'unit': 'pu',
-        'label': 'Detekcija otočnog rada',
-        'longtxt': 'Signal detekcije otočnog rada'
-        },
-    '12_islandmode_det': {
-        'unit': 'pu',
-        'label': 'Detekcija otočnog rada',
-        'longtxt': 'Signal detekcije otočnog rada',
+        'label': 'Crni start',
+        'longtxt': 'Nalog početka crnog starta'
         },
     '13_actualspeed': {
         'unit': '%',
@@ -280,26 +264,94 @@ signali = {
 
 gens = ["AGR-A", "AGR-B", "AGR-C", "AGR-D"]
 
-# TODO - ADD CORRECT TIMESTAMPS FOR EACH CS
-# vrijeme pocetka i kraja pokusa crnog starta 
-# timestamps = {"AGR-A": {'start': '2024-12-04 09:12:58.0',
-#                         'end': '2024-12-04 10:20:29.0'},
-#               "AGR-B": {'start': '2024-12-04 14:24:28.0',
-#                         'end': '2024-12-04 15:25:27.0'},
-#               "AGR-C": {'start': '2024-12-04 16:27:27.0',
-#                         'end': '2024-12-04 17:03:18.0'},
-#               "AGR-D": {'start': '2024-12-04 11:48:26.0',
-#                         'end': '2024-12-04 12:46:48.0'}}
+timestamps = {"AGR-A": [],
+              "AGR-B": [],
+              "AGR-C": [],
+              "AGR-D": []}
 
-# for key, value in timestamps.items():
-#     value["start"] = datetime.strptime(value["start"], "%Y-%m-%d %H:%M:%S.%f")
-#     value["end"] = datetime.strptime(value["end"], "%Y-%m-%d %H:%M:%S.%f")
-    
+# =============================================================================
+#                   ANOTACIJE ZA GRAFOVE
+# =============================================================================
+
+line_volt_txt = "Stavljanje DV 110 kV Zakučac - Meterize 3 pod napon"
+line_volt_dt_str = "2024-12-03 11:46:54"
+line_volt_dt = datetime.strptime(line_volt_dt_str, '%Y-%m-%d %H:%M:%S')
+        
+switch_txt = "Uklop sabirničkog rastavljača u polju blok trafoa D"
+switch_dt_str = "2024-12-03 11:44:35"
+switch_dt = datetime.strptime(switch_dt_str, '%Y-%m-%d %H:%M:%S')
+        
+off_txt = "Nalog za isključenje DV Zakučac - Meterize 3"
+off_dt_str = "2024-12-03 12:18:59"
+off_dt = datetime.strptime(off_dt_str, '%Y-%m-%d %H:%M:%S')
+annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, 
+                       off_txt, off_dt]
+timestamps["AGR-D"] = annotations
+
+# ---------------------------------------------------------------------------
+
+line_volt_txt = "Stavljanje DV 220 kV Zakučac - Konjsko pod napon"
+line_volt_dt_str = "2024-12-03 14:09:30"
+line_volt_dt = datetime.strptime(line_volt_dt_str, '%Y-%m-%d %H:%M:%S')
+
+switch_txt = "Uklop sabirničkog rastavljača u polju blok trafoa B"
+switch_dt_str = "2024-12-03 14:07:30"
+switch_dt = datetime.strptime(switch_dt_str, '%Y-%m-%d %H:%M:%S')
+
+off_txt = "Nalog za isključenje DV Zakučac - Konjsko"
+off_dt_str = "2024-12-03 14:55:29"
+off_dt = datetime.strptime(off_dt_str, '%Y-%m-%d %H:%M:%S')  
+
+at3_txt = "Energizacija AT3"
+at3_dt_str = "2024-12-03 14:20:25.394"
+at3_dt = datetime.strptime(at3_dt_str, '%Y-%m-%d %H:%M:%S.%f')
+
+annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, 
+               off_txt, off_dt, at3_txt, at3_dt]
+
+timestamps["AGR-B"] = annotations
+
+# ---------------------------------------------------------------------------
+
+line_volt_txt = "Stavljanje DV 110 kV Zakučac - Meterize 3 pod napon"
+line_volt_dt_str = "2024-12-03 09:43:06"
+line_volt_dt = datetime.strptime(line_volt_dt_str, "%Y-%m-%d %H:%M:%S")
+
+switch_txt = "Uklop sabirničkog rastavljača u polju blok trafoa A"
+switch_dt_str = "2024-12-03 09:38:32"
+switch_dt = datetime.strptime(switch_dt_str, "%Y-%m-%d %H:%M:%S")
+
+off_txt = "Nalog za isključenje DV Zakučac - Meterize 3"
+off_dt_str = "2024-12-03 10:32:02"
+off_dt = datetime.strptime(off_dt_str, "%Y-%m-%d %H:%M:%S")
+
+annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, off_txt, off_dt]
+
+timestamps["AGR-A"] = annotations
+
+# ---------------------------------------------------------------------------
+
+line_volt_txt = "Stavljanje DV 220 kV Zakučac - Konjsko pod napon"
+line_volt_dt_str = "2024-12-03 15:54:29"
+line_volt_dt = datetime.strptime(line_volt_dt_str, "%Y-%m-%d %H:%M:%S")
+
+switch_txt = "Uklop sabirničkoj rastavljača u polju blok trafoa C"
+switch_dt_str = "2024-12-03 15:49:49"
+switch_dt = datetime.strptime(switch_dt_str, "%Y-%m-%d %H:%M:%S")
+
+off_txt = "Nalog za isključenje DV 220 kV Zakučac - Konjsko"
+off_dt_str = "2024-12-03 16:17:52"
+off_dt = datetime.strptime(off_dt_str, "%Y-%m-%d %H:%M:%S")
+
+annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, off_txt, off_dt]
+timestamps["AGR-C"] = annotations
+
+# ---------------------------------------------------------------------------
 
 all_asc_files = {}
-files_or = [f for f in listdir(datapath_cs) if f.endswith('.ASC')]
+files_cs = [f for f in listdir(datapath_cs) if f.endswith('.ASC')]
     
-for file in files_or:
+for file in files_cs:
     path = datapath_cs + '\\' + file
     all_asc_files[file] = {}
     all_asc_files[file]["path"] = path
@@ -329,7 +381,7 @@ for key, value in all_asc_files.items():
     #print(df.columns)
     df = df.rename(columns={"Gate_Servo_Feedb []": "02_Gate_Servo_Feedb []"})
     df = df.drop(columns={"12: IslandMode_DET []"})
-    print(df.columns)
+    #print(df.columns)
     # Chain za preimenovanje stupaca - nekonzistentno imenovanje
     # sve u lowercase, izbačene nepotrebne [] zagrade, svi spaceovi prebačeni u _, ali izbačen zadnji space tj. _
     df.columns = (
@@ -371,9 +423,10 @@ for key, fileset in all_asc_files.items():
         if longtxt not in grouped_signals:
             grouped_signals[longtxt] = []
         grouped_signals[longtxt].append(signal)
+    print(grouped_signals)
     
     for key, value in grouped_signals.items():        
-        fig = draw(df, key, value) #timestamps[gen_name])
+        fig = draw(df, key, value, timestamps[gen_name])
         figs.append(fig)
 
     
