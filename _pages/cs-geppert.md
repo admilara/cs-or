@@ -30,17 +30,17 @@ Prikazani su samo zapisi koji prikazuju sam pokus, testni zapisi nisu prikazani.
         <tr>
             <td style="text-align:center">Agregat D</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/blackstart-agr-d-04/">blackstart-agr-d-04</a></td>
-            <td style="text-align:center">Testiranje, od 11:37:26.5 do 12:23:39.9</td>
+            <td style="text-align:center">Pokus crnog starta, od 11:37:26.5 do 12:23:39.9</td>
         </tr>
         <tr>
             <td style="text-align:center">Agregat B</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/blackstart-agr-b-02/">blackstart-agr-b-02</a></td>
-            <td style="text-align:center">Pokus otočnog rada, od 14:02:05.2 do 15:18:00.9</td>
+            <td style="text-align:center">Pokus crnog starta, od 14:02:05.2 do 15:18:00.9</td>
         </tr> 
         <tr>
             <td style="text-align:center">Agregat C</td>
             <td style="text-align:center"><a href="{{ site.baseurl }}/blackstart-agr-c-01/">blackstart-agr-c-01</a></td>
-            <td style="text-align:center">Pokus otočnog rada, od 15:26:29.7 do 16:21:59.6</td>
+            <td style="text-align:center">Pokus crnog starta, od 15:26:29.7 do 16:21:59.6</td>
         </tr>        
     </tbody>
 </table>
@@ -126,10 +126,10 @@ Prikazani su samo zapisi koji prikazuju sam pokus, testni zapisi nisu prikazani.
             <td style="text-align:center">Mrežna frekvencija</td>
         </tr>
         <tr>
-            <td style="text-align:center">11_freqinfl_out</td>
-            <td style="text-align:center">OR</td>
+            <td style="text-align:center">11_blackstart_on</td>
+            <td style="text-align:center">CS</td>
             <td style="text-align:center">pu</td>
-            <td style="text-align:center">Signal detekcije otočnog rada (krivo imenovan u datotekama)</td>
+            <td style="text-align:center">Signal crnog starta</td>
         </tr>
         <tr>
             <td style="text-align:center">13_actual_speed</td>
