@@ -873,7 +873,7 @@ def graf_tlak(df, unit):
         )
     
     fig.update_layout(
-        title=f"Tlakovi za vrijeme CS jedinice {unit}",
+        title=f"Tlakovi za vrijeme OR jedinice {unit}",
         yaxis_title="p [bar]",
         template="plotly_white",
         legend_title="Legenda",
