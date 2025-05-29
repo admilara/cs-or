@@ -11,10 +11,10 @@ import plotly.io as pio
 #import plotly.dashboard_objs as dashboard_objs
 import IPython.display
 #from IPyhton.display import Image
-
+import re
 from os import listdir
 from os.path import isfile, join
-
+from datetime import timedelta
 import pandas as pd
 
 otocni_rad = {"A": ("2024-12-04 09:12:58", "HE ZAK 110 METERIZE/2", "2024-12-04 10:20:29", "HE ZAK 110 SP W12"),
@@ -24,6 +24,9 @@ otocni_rad = {"A": ("2024-12-04 09:12:58", "HE ZAK 110 METERIZE/2", "2024-12-04 
 
 def graf_radna_jalova(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
 
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -104,11 +107,59 @@ def graf_radna_jalova(df, unit):
                     overlaying="y",
                     side="right")
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 
 def graf_naponi_gen(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
 
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -131,6 +182,20 @@ def graf_naponi_gen(df, unit):
         name=f"NAPON GENERATORA {unit} - UL3L1 [V]",
         line=dict(color="green")))
 
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
     fig.update_layout(
         title=f"Naponi generatora {unit}",
         yaxis_title="Ug [V]",
@@ -139,11 +204,59 @@ def graf_naponi_gen(df, unit):
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True, range=[14000,17500])
+    )
+    
     return fig
 
 
 def graf_struje_gen(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
 
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -166,6 +279,20 @@ def graf_struje_gen(df, unit):
         name=f"STRUJA GENERATORA {unit} - IL3 [A]",
         line=dict(color="green")))
 
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
     fig.update_layout(
         title=f"Struje generatora {unit}",
         yaxis_title="Ig [V]",
@@ -175,11 +302,58 @@ def graf_struje_gen(df, unit):
         yaxis=dict(showgrid=True)
         )
     
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 
 def graf_uzbuda(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
 
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -195,6 +369,20 @@ def graf_uzbuda(df, unit):
         name=f"STRUJA UZBUDE GENERATORA {unit} [A]",
         line=dict(color="red"),
         yaxis="y2"))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
 
     fig.update_layout(
         title=f"Napon i struja uzbude generatora {unit}",
@@ -213,12 +401,60 @@ def graf_uzbuda(df, unit):
                     overlaying="y",
                     side="right")
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 
 def graf_brzine(df, unit):
     fig = go.Figure()
-        
+    
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
+    
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
         y=df[f"{unit}_FREKVENCIJA_GENERATORA"]/50*100,
@@ -242,6 +478,20 @@ def graf_brzine(df, unit):
         name=f"BRZINA VRTINJE GENERATORA {unit} [%]",
         line=dict(color="green")
         ))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
     
     fig.update_layout(
         title=f"Frekvencija, brzina vrtnje i zadana brzina vrtnje jedinice {unit}",
@@ -251,11 +501,74 @@ def graf_brzine(df, unit):
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    y1_data = df[f"{unit}_FREKVENCIJA_GENERATORA"]/50*100
+    y1_min = y1_data.min()
+    y1_max = y1_data.max()
     
+    y2_data = df[f"PB_{unit}_TR_ZADANA_BRZ"]
+    y2_min = y2_data.min()
+    y2_max = y2_data.max()
+
+    y3_data = df[f"PB_{unit}_TR_BRZINA_VRTNJE"]
+    y3_min = y3_data.min()
+    y3_max = y3_data.max()
+
+    y_min = min([y1_min, y2_min, y3_min])
+    y_max = max([y1_max, y2_max, y3_max])
+    
+    padding = (y_max - y_min) * 0.5
+    y_range = [y_min - padding, y_max + padding]
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True, range=[80,110])
+    )
     return fig
 
 def graf_frekvencija(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
     
     fig.add_vline(
         x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
@@ -319,11 +632,52 @@ def graf_frekvencija(df, unit):
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)        
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True, range=[40,60])
+    )
+    
     return fig
 
 def graf_otvor_pk(df, unit):
     fig = go.Figure()
-    
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
+
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
         y=df[f"PB_{unit}_TR_OTVOR_PK"],
@@ -332,6 +686,20 @@ def graf_otvor_pk(df, unit):
         line=dict(color="blue"),
         yaxis="y2"
         ))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
     
     fig.update_layout(
         title=f"Otvor privodnog kola jedinice {unit}",
@@ -339,13 +707,57 @@ def graf_otvor_pk(df, unit):
         template="plotly_white",
         legend_title="Legenda",
         xaxis=dict(showgrid=True),
-        yaxis=dict(showgrid=True)
+        yaxis=dict(showgrid=True,
+                   range=[20,70])
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        title=f"Frekvencija jedinice {unit}",
+        yaxis_title="f [Hz]",
+        template="plotly_white",
+        legend_title="Legenda",
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 def graf_otvor_pk(df, unit):
     fig = go.Figure()
-    
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
+
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
         y=df[f"PB_{unit}_TR_OTVOR_PK"],
@@ -353,6 +765,27 @@ def graf_otvor_pk(df, unit):
         name=f"OTVOR PRIVODNOG KOLA {unit} [%]",
         line=dict(color="blue")
         ))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+    
+    y_data = df[f"PB_{unit}_TR_OTVOR_PK"]
+    y_min = y_data.min()
+    y_max = y_data.max()
+
+    padding = (y_max - y_min) * 0.5
+    y_range = [y_min - padding, y_max + padding]
     
     fig.update_layout(
         title=f"Otvor privodnog kola jedinice {unit}",
@@ -360,12 +793,54 @@ def graf_otvor_pk(df, unit):
         template="plotly_white",
         legend_title="Legenda",
         xaxis=dict(showgrid=True),
-        yaxis=dict(showgrid=True)
+        yaxis=dict(showgrid=True,
+                   range=y_range)
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 def graf_tlak(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
     
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -382,6 +857,20 @@ def graf_tlak(df, unit):
         name=f"{unit} TLAK U TLACNOM CJEVOVODU [bar]",
         line=dict(color="red")
         ))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
     
     fig.update_layout(
         title=f"Tlakovi za vrijeme CS jedinice {unit}",
@@ -391,10 +880,72 @@ def graf_tlak(df, unit):
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)        
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    y1_data = df[f"{unit}_TLAK_U_SPIRALI_TURBINE"]
+    y1_min = y1_data.min()
+    y1_max = y1_data.max()
+    
+    y2_data = df[f"{unit}_TLAK_U_TLACNOM_CJEVOVODU"]
+    y2_min = y2_data.min()
+    y2_max = y2_data.max()
+
+    y_min = min([y1_min, y2_min])
+    y_max = max([y1_max, y2_max])
+    
+    padding = (y_max - y_min) * 0.5
+    y_range = [y_min - padding, y_max + padding]
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True, range=y_range)
+    )
+    
     return fig
 
 def graf_protok(df, unit):
     fig = go.Figure()
+
+    start_time = pd.to_datetime(otocni_rad[unit][0]) - timedelta(minutes=10)
+    end_time = pd.to_datetime(otocni_rad[unit][2]) + timedelta(minutes=5)
     
     fig.add_trace(go.Scatter(
         x=df["Vrijeme"],
@@ -412,6 +963,35 @@ def graf_protok(df, unit):
         line=dict(color="blue"),
         yaxis="y2"
         ))
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][0]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+
+    fig.add_vline(
+        x=pd.to_datetime(otocni_rad[unit][2]).to_pydatetime(),
+        line_width=1,
+        line_dash="dash",
+        line_color="magenta"
+        )
+    
+    y1_data = df[f"ZK_Agr_{unit}_Protok_tl_cjevovod"]
+    y1_min = y1_data.min()
+    y1_max = y1_data.max()
+
+    padding1 = (y1_max - y1_min) * 0.5
+    y1_range = [y1_min - padding1, y1_max + padding1]
+    
+    y2_data = df[f"PB_{unit}_TR_OTVOR_PK"]
+    y2_min = y2_data.min()
+    y2_max = y2_data.max()
+
+    padding2 = (y2_max - y2_min) * 0.5
+    y2_range = [y2_min - padding2, y2_max + padding2]
+
     
     fig.update_layout(
         title=f"Protok u tlačnom cjevovodu i otvor privodnog kola {unit}",
@@ -422,14 +1002,61 @@ def graf_protok(df, unit):
                    title="protok [m<sup>3</sup>/s]",
                    titlefont=dict(color="red"),
                    tickfont=dict(color="red"),
-                   side="left"),
+                   side="left", 
+                   range=y1_range),
         yaxis2=dict(showgrid=True,
                     title="y [%]",
                     titlefont=dict(color="blue"),
                     tickfont=dict(color="blue"),
                     overlaying="y",
-                    side="right")
+                    side="right",
+                    range=y2_range)
         )
+    
+    relevant_pss = pss_df[
+        (pss_df["generator"] == unit) &
+        (pss_df["datetime"] >= start_time) &
+        (pss_df["datetime"] <= end_time)
+    ]
+
+    # Add annotations for each PSS ON/OFF event
+    for _, row in relevant_pss.iterrows():
+        fig.add_vline(
+            x=row["datetime"],
+            line_width=1,
+            line_dash="dot",
+            line_color="blue" if row["status"] == "PSS ON" else "red"
+        )
+        fig.add_annotation(
+            x=row["datetime"],
+            y=0.85,
+            xref="x",
+            yref="paper",
+            text=row["status"],
+            showarrow=True,
+            arrowhead=2,
+            ax=0,
+            ay=-30,
+            font=dict(color="blue" if row["status"] == "PSS ON" else "red", size=11),
+            bordercolor="black",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.8)"
+        )
+
+    fig.update_layout(
+        template="plotly_white",
+        legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        xaxis=dict(showgrid=True, range=[start_time, end_time]),
+        yaxis=dict(showgrid=True)
+    )
+    
     return fig
 
 
@@ -460,6 +1087,40 @@ crni_start_D_df["Vrijeme"] = pd.to_datetime(crni_start_D_df["Vrijeme"], format="
 dfs.append(crni_start_D_df)
 
 units=["A", "B", "C", "D"]
+
+# =============================================================================
+#                   PSS ANNOTATIONS - PRORADE
+# =============================================================================
+
+pss_path = "C:/Users/larab/Documents/GitHub/cs-or/cs-or/ket-or/pss-on-off.txt"
+
+# Load and parse the file
+with open(pss_path, "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+# Extract and structure the data
+parsed_data = []
+for line in lines:
+    parts = line.strip().split('\t')
+    if len(parts) == 3:
+        timestamp, generator, message = parts
+        status = "PSS ON" if "Uključen" in message and "NESTANAK" not in message else "PSS OFF"
+        parsed_data.append({
+            "datetime": pd.to_datetime(timestamp, format="%d-%m-%Y %H:%M:%S:%f"),
+            "generator": generator,
+            "status": status
+        })
+
+
+pss_df = pd.DataFrame(parsed_data)
+
+# Convert datetime to pandas datetime
+pss_df['datetime'] = pd.to_datetime(pss_df['datetime'], format="%Y-%m-%d %H:%M:%S:%f")
+
+
+# =============================================================================
+#                       SLIKE
+# =============================================================================
 
 for unit, df in zip(units, dfs):
     # GENERATOR A - RADNA I JALOVA SNAGA
