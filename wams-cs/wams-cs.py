@@ -16,7 +16,7 @@ from os.path import isfile, join
 import pandas as pd
 import numpy as np
 
-def naponi_graf(unit, df, pmu, annotations):
+def naponi_graf(unit, df, pmu, annotations, filtered):
     # Debug: Check initial data
     # print(df.head())
     # print(df["PhasorDatetime"].head())
@@ -78,89 +78,34 @@ def naponi_graf(unit, df, pmu, annotations):
         name="U phase 3 [kV]",
         line=dict(color="green"),
     ))
-
-    fig.add_vline(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[0],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[2],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-60,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[4],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-
-    if unit == "B": 
+    if filtered == False:
         fig.add_vline(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             line_width=1,
             line_dash="dash",
             line_color="#754FC5"
             )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
         fig.add_annotation(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             y=0.9,  # Set a relevant y-axis value
             xref="x",
             yref="paper",
-            text=annotations[6],
+            text=annotations[0],
             showarrow=True,
             arrowhead=2,
             ax=20,  # Arrow shift in x direction
@@ -170,17 +115,79 @@ def naponi_graf(unit, df, pmu, annotations):
             borderwidth=1,
             bgcolor="rgba(255,255,255,0.7)"
             )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[2],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-60,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[4],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-40,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    else:
+        if unit == "B": 
+            fig.add_vline(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                line_width=1,
+                line_dash="dash",
+                line_color="#754FC5"
+                )
+            fig.add_annotation(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                y=0.9,  # Set a relevant y-axis value
+                xref="x",
+                yref="paper",
+                text=annotations[6],
+                showarrow=True,
+                arrowhead=2,
+                ax=20,  # Arrow shift in x direction
+                ay=-40,  # Arrow shift in y direction
+                font=dict(color="#754FC5", size=12),
+                bordercolor="#754FC5",
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.7)"
+                )
 
     fig.update_layout(
         title=f"Fazni naponi tijekom CS agregata {unit} - mjerenje na PMU#{pmu}",
         template="plotly",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True, title="U [kV]")
     )
     return fig    
     
-def struje_graf(unit, df, pmu, annotations):
+def struje_graf(unit, df, pmu, annotations, filtered):
     # Ensure datetime is parsed correctly
     df["PhasorDatetime"] = pd.to_datetime(df["PhasorDatetime"], errors="coerce")
     if df["PhasorDatetime"].isnull().sum() > 0:
@@ -245,89 +252,34 @@ def struje_graf(unit, df, pmu, annotations):
         name="I phase 3 [A]",
         line=dict(color="green"),
     ))
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[0],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[2],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-60,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[4],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    if unit == "B": 
+    if filtered == False:
         fig.add_vline(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             line_width=1,
             line_dash="dash",
             line_color="#754FC5"
             )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
         fig.add_annotation(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             y=0.9,  # Set a relevant y-axis value
             xref="x",
             yref="paper",
-            text=annotations[6],
+            text=annotations[0],
             showarrow=True,
             arrowhead=2,
             ax=20,  # Arrow shift in x direction
@@ -338,16 +290,78 @@ def struje_graf(unit, df, pmu, annotations):
             bgcolor="rgba(255,255,255,0.7)"
             )
         
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[2],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-60,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[4],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-40,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    else:
+        if unit == "B": 
+            fig.add_vline(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                line_width=1,
+                line_dash="dash",
+                line_color="#754FC5"
+                )
+            fig.add_annotation(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                y=0.9,  # Set a relevant y-axis value
+                xref="x",
+                yref="paper",
+                text=annotations[6],
+                showarrow=True,
+                arrowhead=2,
+                ax=20,  # Arrow shift in x direction
+                ay=-40,  # Arrow shift in y direction
+                font=dict(color="#754FC5", size=12),
+                bordercolor="#754FC5",
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.7)"
+                )
+        
     fig.update_layout(
         title=f"Struje tijekom CS agregata {unit} - mjerenje na PMU#{pmu}",
         template="plotly",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True, title="I [A]")
     )
     return fig    
 
-def frekvencija_graf(unit, df, pmu, annotations):
+def frekvencija_graf(unit, df, pmu, annotations, filtered):
     df["PhasorDatetime"] = pd.to_datetime(df["PhasorDatetime"], errors="coerce")
     if df["PhasorDatetime"].isnull().sum() > 0:
         print("Error: Invalid datetime values found.")
@@ -375,88 +389,34 @@ def frekvencija_graf(unit, df, pmu, annotations):
         yaxis="y2",
         ))
     
-    fig.add_vline(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[0],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[2],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-60,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[4],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    if unit == "B": 
+    if filtered == False:
         fig.add_vline(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             line_width=1,
             line_dash="dash",
             line_color="#754FC5"
             )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
         fig.add_annotation(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             y=0.9,  # Set a relevant y-axis value
             xref="x",
             yref="paper",
-            text=annotations[6],
+            text=annotations[0],
             showarrow=True,
             arrowhead=2,
             ax=20,  # Arrow shift in x direction
@@ -466,11 +426,73 @@ def frekvencija_graf(unit, df, pmu, annotations):
             borderwidth=1,
             bgcolor="rgba(255,255,255,0.7)"
             )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[2],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-60,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[4],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-40,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    else:
+        if unit == "B": 
+            fig.add_vline(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                line_width=1,
+                line_dash="dash",
+                line_color="#754FC5"
+                )
+            fig.add_annotation(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                y=0.9,  # Set a relevant y-axis value
+                xref="x",
+                yref="paper",
+                text=annotations[6],
+                showarrow=True,
+                arrowhead=2,
+                ax=20,  # Arrow shift in x direction
+                ay=-40,  # Arrow shift in y direction
+                font=dict(color="#754FC5", size=12),
+                bordercolor="#754FC5",
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.7)"
+                )
     
     fig.update_layout(
         title=f"Frekvencija tijekom CS agregata {unit} - mjerenje na PMU#{pmu}",
         template="plotly",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True,
                    title="f [Hz]",
@@ -485,7 +507,7 @@ def frekvencija_graf(unit, df, pmu, annotations):
         )
     return fig 
 
-def radna_jalova_graf(unit, df, pmu, annotations):
+def radna_jalova_graf(unit, df, pmu, annotations, filtered):
     df["PhasorDatetime"] = pd.to_datetime(df["PhasorDatetime"], errors="coerce")
     if df["PhasorDatetime"].isnull().sum() > 0:
         print("Error: Invalid datetime values found.")
@@ -509,89 +531,34 @@ def radna_jalova_graf(unit, df, pmu, annotations):
         line=dict(color="blue"),
         yaxis="y2"
         ))
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_vline(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        line_width=1,
-        line_dash="dash",
-        line_color="#754FC5"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[1]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[0],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[3]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[2],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-60,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    fig.add_annotation(
-        x=pd.to_datetime(annotations[5]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
-        xref="x",
-        yref="paper",
-        text=annotations[4],
-        showarrow=True,
-        arrowhead=2,
-        ax=20,  # Arrow shift in x direction
-        ay=-40,  # Arrow shift in y direction
-        font=dict(color="#754FC5", size=12),
-        bordercolor="#754FC5",
-        borderwidth=1,
-        bgcolor="rgba(255,255,255,0.7)"
-        )
-    
-    if unit == "B": 
+    if filtered == False:
         fig.add_vline(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             line_width=1,
             line_dash="dash",
             line_color="#754FC5"
             )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
+        fig.add_vline(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            line_width=1,
+            line_dash="dash",
+            line_color="#754FC5"
+            )
+        
         fig.add_annotation(
-            x=pd.to_datetime(annotations[7]).to_pydatetime(),
+            x=pd.to_datetime(annotations[1]).to_pydatetime(),
             y=0.9,  # Set a relevant y-axis value
             xref="x",
             yref="paper",
-            text=annotations[6],
+            text=annotations[0],
             showarrow=True,
             arrowhead=2,
             ax=20,  # Arrow shift in x direction
@@ -601,11 +568,73 @@ def radna_jalova_graf(unit, df, pmu, annotations):
             borderwidth=1,
             bgcolor="rgba(255,255,255,0.7)"
             )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[3]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[2],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-60,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+        
+        fig.add_annotation(
+            x=pd.to_datetime(annotations[5]).to_pydatetime(),
+            y=0.9,  # Set a relevant y-axis value
+            xref="x",
+            yref="paper",
+            text=annotations[4],
+            showarrow=True,
+            arrowhead=2,
+            ax=20,  # Arrow shift in x direction
+            ay=-40,  # Arrow shift in y direction
+            font=dict(color="#754FC5", size=12),
+            bordercolor="#754FC5",
+            borderwidth=1,
+            bgcolor="rgba(255,255,255,0.7)"
+            )
+    else:
+        if unit == "B": 
+            fig.add_vline(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                line_width=1,
+                line_dash="dash",
+                line_color="#754FC5"
+                )
+            fig.add_annotation(
+                x=pd.to_datetime(annotations[7]).to_pydatetime(),
+                y=0.9,  # Set a relevant y-axis value
+                xref="x",
+                yref="paper",
+                text=annotations[6],
+                showarrow=True,
+                arrowhead=2,
+                ax=20,  # Arrow shift in x direction
+                ay=-40,  # Arrow shift in y direction
+                font=dict(color="#754FC5", size=12),
+                bordercolor="#754FC5",
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.7)"
+                )
     
     fig.update_layout(
         title=f"Radna i jalova snaga tijekom CS agregata {unit} - izračunate vrijednosti",
         template="plotly",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.3,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True,
                    title="P [MW]",
@@ -642,7 +671,7 @@ files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 #for file in files:
 #    print(file)
     
-savepath = r"""C:\Users\larab\Documents\GitHub\admilara.github.io\wams-cs"""
+savepath = r"""C:\Users\larab\Documents\GitHub\cs-or\cs-or\wams-cs"""
 
 dfs = {}
 
@@ -701,7 +730,7 @@ for key, value in dfs.items():
         off_dt = datetime.strptime(off_dt_str, '%Y-%m-%d %H:%M:%S')  
         
         at3_txt = "Energizacija AT3"
-        at3_dt_str = "2024-12-03 14:20:25.394"
+        at3_dt_str = "2024-12-03 14:20:24.560"
         at3_dt = datetime.strptime(at3_dt_str, '%Y-%m-%d %H:%M:%S.%f')
         
         if pmu=="318":
@@ -709,15 +738,57 @@ for key, value in dfs.items():
         
         annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, 
                        off_txt, off_dt, at3_txt, at3_dt]
+        
+        annotations_filtered = [at3_txt, at3_dt]
+        filter_start = datetime.strptime("2024-12-03 14:20:10", "%Y-%m-%d %H:%M:%S")
+        filter_end = datetime.strptime("2024-12-03 14:20:50", "%Y-%m-%d %H:%M:%S")
+        
+        filtered_value = value[
+            (value["PhasorDatetime"] >= filter_start) &
+            (value["PhasorDatetime"] <= filter_end)
+            ].copy()
+        
+        if not filtered_value.empty:
+            radna_jalova(filtered_value, pmu)
+            fig1_f = naponi_graf(unit, filtered_value, pmu, annotations, filtered=True)
+            fig2_f = struje_graf(unit, filtered_value, pmu, annotations, filtered=True)
+            fig3_f = frekvencija_graf(unit, filtered_value, pmu, annotations, filtered=True)
+            fig4_f = radna_jalova_graf(unit, filtered_value, pmu, annotations, filtered=True)
+            
+            html1_f = pio.to_html(fig1_f, full_html=False, include_plotlyjs="cdn")
+            html2_f = pio.to_html(fig2_f, full_html=False, include_plotlyjs=False)
+            html3_f = pio.to_html(fig3_f, full_html=False, include_plotlyjs=False)
+            html4_f = pio.to_html(fig4_f, full_html=False, include_plotlyjs=False)
+            
+            html_filtered = f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Filtered View: Agregat {unit} - PMU#{pmu}</title>
+                <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+            </head>
+            <body>
+                <h1>Agregat {unit} - PMU#{pmu} (14:20:10 – 14:20:50)</h1>
+                <div>{html1_f}</div>
+                <div>{html2_f}</div>
+                <div>{html3_f}</div>
+                <div>{html4_f}</div>
+            </body>
+            </html>
+            """
+            filtered_path = f"{savepath}\\cs-agregata-{unit}-pmu-{pmu}-filtered.html"
+            with open(filtered_path, "w") as f:
+                f.write(html_filtered)
+            print(f"Filtered HTML saved for agregat {unit}, PMU {pmu}")
+        
     
-    
-    fig1 = naponi_graf(unit, value, pmu, annotations)
-    fig2 = struje_graf(unit, value, pmu, annotations)     
-    fig3 = frekvencija_graf(unit, value, pmu, annotations)
+    fig1 = naponi_graf(unit, value, pmu, annotations, filtered=False)
+    fig2 = struje_graf(unit, value, pmu, annotations, filtered=False)     
+    fig3 = frekvencija_graf(unit, value, pmu, annotations, filtered=False)
     
     radna_jalova(value, pmu)
     
-    fig4 = radna_jalova_graf(unit, value, pmu, annotations)
+    fig4 = radna_jalova_graf(unit, value, pmu, annotations, filtered=False)
     
     print(value.columns)
     
