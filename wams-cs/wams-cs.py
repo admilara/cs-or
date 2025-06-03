@@ -740,8 +740,8 @@ for key, value in dfs.items():
                        off_txt, off_dt, at3_txt, at3_dt]
         
         annotations_filtered = [at3_txt, at3_dt]
-        filter_start = datetime.strptime("2024-12-03 14:20:10", "%Y-%m-%d %H:%M:%S")
-        filter_end = datetime.strptime("2024-12-03 14:20:50", "%Y-%m-%d %H:%M:%S")
+        filter_start = datetime.strptime("2024-12-03 14:20:20", "%Y-%m-%d %H:%M:%S")
+        filter_end = datetime.strptime("2024-12-03 14:20:45", "%Y-%m-%d %H:%M:%S")
         
         filtered_value = value[
             (value["PhasorDatetime"] >= filter_start) &
@@ -768,7 +768,7 @@ for key, value in dfs.items():
                 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
             </head>
             <body>
-                <h1>Agregat {unit} - PMU#{pmu} (14:20:10 – 14:20:50)</h1>
+                <h1>Agregat {unit} - PMU#{pmu} (14:20:20 – 14:20:45)</h1>
                 <div>{html1_f}</div>
                 <div>{html2_f}</div>
                 <div>{html3_f}</div>

@@ -46,6 +46,13 @@ def graf_radna_jalova(df, unit):
         xaxis_title="Vrijeme",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True,
                    title="Pg [MW]",
@@ -92,6 +99,13 @@ def graf_naponi_gen(df, unit):
         yaxis_title="Ug [V]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
@@ -128,6 +142,13 @@ def graf_struje_gen(df, unit):
         yaxis_title="Ig [V]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
@@ -159,6 +180,13 @@ def graf_uzbuda(df, unit):
         yaxis_title="Napon i struja uzbude",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True,
                    title="Uf [V]",
@@ -207,6 +235,13 @@ def graf_brzine(df, unit):
         yaxis_title="f, n, nset [%]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
@@ -252,6 +287,13 @@ def graf_otvor_pk(df, unit):
         yaxis_title="y [%]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
@@ -274,6 +316,13 @@ def graf_otvor_pk(df, unit):
         yaxis_title="y [%]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)
         )
@@ -304,6 +353,13 @@ def graf_tlak(df, unit):
         yaxis_title="p [bar]",
         template="plotly_white",
         legend_title="Legenda",
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),        
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)        
         )
@@ -336,6 +392,13 @@ def graf(gen, df, signal_dict, annotations):
             xaxis_title="Vrijeme",
             template="plotly",
             legend_title="Legenda",
+            legend=dict(
+                orientation="h",      
+                yanchor="bottom",
+                y=-0.4,               
+                xanchor="center",
+                x=0.5                 
+                ),
             xaxis=dict(showgrid=True),
             yaxis=dict(showgrid=True,
                        title=signal_dict["yaxis"][0],
@@ -364,6 +427,13 @@ def graf(gen, df, signal_dict, annotations):
             yaxis_title=signal_dict["yaxis"],
             template="plotly",
             legend_title="Legenda",
+            legend=dict(
+                orientation="h",      
+                yanchor="bottom",
+                y=-0.4,               
+                xanchor="center",
+                x=0.5                 
+                ),
             xaxis=dict(showgrid=True),
             yaxis=dict(showgrid=True)        
             )
@@ -457,7 +527,7 @@ off_dt_str = "2024-12-03 14:55:29"
 off_dt = datetime.strptime(off_dt_str, '%Y-%m-%d %H:%M:%S')  
 
 at3_txt = "Energizacija AT3"
-at3_dt_str = "2024-12-03 14:20:25.394"
+at3_dt_str = "2024-12-03 14:20:24.560"
 at3_dt = datetime.strptime(at3_dt_str, '%Y-%m-%d %H:%M:%S.%f')
 
 annotations = [line_volt_txt, line_volt_dt, switch_txt, switch_dt, 
@@ -619,3 +689,49 @@ for unit, value in units.items():
         f.write(html_page)
     
     print(f"Dashboard saved as PROCIS-CS-GEN-{unit.lower()}.html")
+    
+start_time = datetime.strptime("2024-12-03 14:20:20", "%Y-%m-%d %H:%M:%S")
+end_time = datetime.strptime("2024-12-03 14:20:45", "%Y-%m-%d %H:%M:%S")
+
+for i in range(4):
+    if "Agregat B" in cs[i]:
+        crni_start_df = pd.read_excel(mypath + "\\" + cs[i], header=1)
+        crni_start_df["Vrijeme"] = pd.to_datetime(crni_start_df["Vrijeme"], format="%d-%m-%Y %H:%M:%S", dayfirst=True)
+        units[gens[i]]["df"] = crni_start_df
+        print(f"Done - {cs[i]}")
+        
+        b_df_full = units["B"]["df"]
+        b_df_filtered = b_df_full[(b_df_full["Vrijeme"] >= start_time) & (b_df_full["Vrijeme"] <= end_time)]
+        
+        filtered_fig_list = []
+        units["B"]["annotations"] = [at3_txt, at3_dt]
+        for mjerenje_naziv, mjerenje_podatci in mjerenja.items():
+            fig = graf("B", b_df_filtered, mjerenje_podatci, units["B"]["annotations"])
+            filtered_fig_list.append(fig)
+
+        # Create HTML content
+        filtered_html_list = []
+        for fig in filtered_fig_list:
+            html = pio.to_html(fig, full_html=False, include_plotlyjs=filtered_fig_list.index(fig) == 0)
+            filtered_html_list.append(html)
+
+        divs_html_filtered = "\n".join(f"<div>{html}</div>" for html in filtered_html_list)
+
+        html_page_filtered = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>gen-b-cs-filtered</title>
+            <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        </head>
+        <body>
+            <h2>Vizualizacija podataka - PROCIS (Filtered B)</h2>
+            {divs_html_filtered}
+        </body>
+        </html>
+        """
+        
+        # Save the filtered HTML page for B
+        filtered_path = "procis-cs-gen-b-filtered.html"
+        with open(filtered_path, "w") as f:
+            f.write(html_page_filtered)
