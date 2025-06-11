@@ -41,7 +41,7 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
         y=df[value_column],
         mode="lines",
         name=name,
-        line=dict(color=colour),
+        line=dict(color=colour, shape="hv"),
         showlegend=True
         ))
     
@@ -123,6 +123,9 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
         xaxis_title="Vrijeme",
         yaxis_title=yaxis_name,
         legend_title="Legenda",
+        legend=dict(orientation="h",
+                    yref="paper",
+                    y=-0.2),
         template="plotly_white",
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)

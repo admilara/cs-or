@@ -15,11 +15,15 @@ import IPython.display
 from os import listdir
 from os.path import isfile, join
 
+from datetime import timedelta
 import pandas as pd
 import numpy as np
 
-def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
+def graf(df, name, value_column, yaxis_name, colour, otocni_rad, df_annotations):
     fig = go.Figure()
+    
+    start = pd.to_datetime(otocni_rad[0]) - timedelta(minutes=1)
+    end = pd.to_datetime(otocni_rad[2]) + timedelta(minutes=1)
     
     filtered_temp_df = df[
         (df[name]>=otocni_rad[0]) & 
@@ -35,7 +39,7 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
         y=df[value_column],
         mode="lines",
         name=name,
-        line=dict(color=colour),
+        line=dict(color=colour, shape="hv"),
         showlegend=True
         ))
     
@@ -77,11 +81,12 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
     
     fig.add_annotation(
         x=pd.to_datetime(otocni_rad[0]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
+        y=1.1,  # Set a relevant y-axis value
         xref="x",
         yref="paper",
+        xshift=40,
         text=f"ODVAJANJE: {otocni_rad[1]}",
-        showarrow=True,
+        showarrow=False,
         arrowhead=2,
         ax=20,  # Arrow shift in x direction
         ay=-40,  # Arrow shift in y direction
@@ -93,11 +98,12 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
     
     fig.add_annotation(
         x=pd.to_datetime(otocni_rad[2]).to_pydatetime(),
-        y=0.9,  # Set a relevant y-axis value
+        y=1.1,  # Set a relevant y-axis value
         xref="x",
         yref="paper",
+        xshift=-100,
         text=f"RESINKRONIZACIJA: {otocni_rad[3]}",
-        showarrow=True,
+        showarrow=False,
         arrowhead=2,
         ax=20,  # Arrow shift in x direction
         ay=-40,  # Arrow shift in y direction
@@ -113,10 +119,58 @@ def graf(df, name, value_column, yaxis_name, colour, otocni_rad):
         xaxis_title="Vrijeme",
         yaxis_title=yaxis_name,
         legend_title="Legenda",
-        template="plotly_white",
-        xaxis=dict(showgrid=True),
-        yaxis=dict(showgrid=True)
+        legend=dict(
+            orientation="h",      
+            yanchor="bottom",
+            y=-0.4,               
+            xanchor="center",
+            x=0.5                 
+            ),
+        yaxis=dict(showgrid=True),
+        xaxis=dict(
+            showgrid=True,
+            range=[start,end]),
         )
+    
+    if df_annotations is not None:
+        start_time = pd.to_datetime(otocni_rad[0])
+        end_time = pd.to_datetime(otocni_rad[2])
+        
+        filtered_annotations = df_annotations[
+            (df_annotations['timestamp'] >= start_time) & 
+            (df_annotations['timestamp'] <= end_time)
+        ]
+    
+        # Add annotations to the plot
+        for i, (_, row) in enumerate(filtered_annotations.iterrows()):
+            ts = pd.to_datetime(row['timestamp'])
+            if "(A)" in row["radnja"] or "(D)" in row["radnja"]:
+                vertical_position = 1.05 + (i * 0.05)  # stack annotations
+            else:
+                vertical_position = 0.95 - (i * 0.1)
+            
+            fig.add_vline(
+                x=ts,
+                line_width=1,
+                line_dash="dash",
+                line_color=colour
+                )
+            
+            fig.add_annotation(
+                x=ts,
+                y=vertical_position,
+                xref="x",
+                yref="paper",
+                text=row['radnja'],
+                showarrow=True,
+                arrowhead=3,
+                ax=0,
+                ay=-40,
+                font=dict(size=10, color=colour),
+                bordercolor=colour,
+                borderwidth=1,
+                bgcolor="rgba(255,255,255,0.9)"
+                )    
     return fig
 
    
@@ -131,6 +185,10 @@ column_names = zak_tr_df.columns[::2]
 values = zak_tr_df.columns[1::2]
 units = ["I [A]", "P [MW]", "Q [Mvar]", "U [kV]", "položaj reg. sklopke", "U [kV]"]
 colors = ["blue", "red", "blue", "green", "black", "green"]
+
+volt_path = r"""C:\Users\larab\Documents\GitHub\cs-or\cs-or\konzum\voltage-regulation.xlsx"""
+df_ann = pd.read_excel(volt_path)
+df_ann['timestamp'] = pd.to_datetime(df_ann['timestamp'], dayfirst=True)
 
 
 # datetime conversion
@@ -186,7 +244,7 @@ for start, end in intervals:
 html_list = [f"html_{i}" for i in range(len(values))]
 
 for i in range(len(values)):
-    fig = graf(split_dfs[0], column_names[i], values[i], units[i], colors[i], otocni_rad[0])
+    fig = graf(split_dfs[0], column_names[i], values[i], units[i], colors[i], otocni_rad[0], df_ann)
     if i == 0:
         html_list[i] = pio.to_html(fig, full_html=False, include_plotlyjs="cdn")
     else:
@@ -221,7 +279,7 @@ print("Dashboard saved as ts-zakucac-or-gen-a.html")
 html_list = [f"html_{i}" for i in range(len(values))]
 
 for i in range(len(values)):
-    fig = graf(split_dfs[1], column_names[i], values[i], units[i], colors[i], otocni_rad[1])
+    fig = graf(split_dfs[1], column_names[i], values[i], units[i], colors[i], otocni_rad[1], df_ann)
     if i == 0:
         html_list[i] = pio.to_html(fig, full_html=False, include_plotlyjs="cdn")
     else:
@@ -256,7 +314,7 @@ print("Dashboard saved as ts-zakucac-or-gen-d.html")
 html_list = [f"html_{i}" for i in range(len(values))]
 
 for i in range(len(values)):
-    fig = graf(split_dfs[2], column_names[i], values[i], units[i], colors[i], otocni_rad[2])
+    fig = graf(split_dfs[2], column_names[i], values[i], units[i], colors[i], otocni_rad[2], df_ann)
     if i == 0:
         html_list[i] = pio.to_html(fig, full_html=False, include_plotlyjs="cdn")
     else:
@@ -291,7 +349,7 @@ print("Dashboard saved as ts-zakucac-or-gen-b.html")
 html_list = [f"html_{i}" for i in range(len(values))]
 
 for i in range(len(values)):
-    fig = graf(split_dfs[3], column_names[i], values[i], units[i], colors[i], otocni_rad[3])
+    fig = graf(split_dfs[3], column_names[i], values[i], units[i], colors[i], otocni_rad[3], df_ann)
     if i == 0:
         html_list[i] = pio.to_html(fig, full_html=False, include_plotlyjs="cdn")
     else:

@@ -28,10 +28,7 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
         y=df[value_column],
         mode="lines",
         name=name,
-        line=dict(color=colour),
-        showlegend=True,
-        legendgroup="TR1",
-        legendgrouptitle_text="TR1"
+        line=dict(color=colour, shape="hv"),
         ))
     
     fig.add_trace(go.Scatter(
@@ -39,10 +36,7 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
         y=df[value_column_tr2],
         mode="lines",
         name=name_tr2,
-        line=dict(color=colour_tr2),
-        showlegend=True,
-        legendgroup="TR2",
-        legendgrouptitle_text="TR2"
+        line=dict(color=colour_tr2, shape="hv"),
         ))
     
     fig.add_vline(
@@ -108,10 +102,7 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
             y=suma["TP1"] + suma["TP2"],
             mode="lines",
             name="SUMA STRUJA U TP1 I TP2 METERIZE",
-            line=dict(color="magenta"),
-            showlegend=True,
-            legendgroup="SUMA",
-            legendgrouptitle_text="SUMA"
+            line=dict(color="magenta", shape="hv"),
             ))
         
     if "RADNA" in name:
@@ -132,9 +123,6 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
             mode="lines",
             name="SUMA RADNIH SNAGA U TP1 I TP2 METERIZE",
             line=dict(color="magenta"),
-            showlegend=True,
-            legendgroup="SUMA",
-            legendgrouptitle_text="SUMA"
             ))
         
     if "JALOVA" in name:
@@ -155,9 +143,6 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
             mode="lines",
             name="SUMA JALOVIH SNAGA U TP1 I TP2 METERIZE",
             line=dict(color="magenta"),
-            showlegend=True,
-            legendgroup="SUMA",
-            legendgrouptitle_text="SUMA"
             ))    
     
     fig.update_layout(
@@ -165,6 +150,7 @@ def graf(df, name, name_tr2, value_column, value_column_tr2, yaxis_name,
         xaxis_title="Vrijeme",
         yaxis_title=yaxis_name,
         legend_title="Legenda",
+        legend=dict(orientation='h'),
         template="plotly_white",
         xaxis=dict(showgrid=True),
         yaxis=dict(showgrid=True)       
