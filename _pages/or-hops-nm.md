@@ -135,3 +135,54 @@ Rezultati su prikazani odvojeno za sva četiri agregata:
 * [GEN D - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-d/)
 * [GEN B - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-b/)
 * [GEN C - MJESTO ODVAJANJA]({{ site.baseurl }}/mjesto-odvajanja-gen-c/)
+
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: HOPS NM - Napon u TS Konjsko</h2>
+
+Kako bi se provjerilo što je najviše utjecalo na promjene napona u 110 kV i 220 kV
+prijenosnoj mreži, dostupni su sljedeći zapisi:
+- Napon tijekom trajanja otočnog rada za sabirnice W1 i W2, naponskih razina 110 kV i 220 kV u TS Konjsko
+- Za TS Zakučac nije dostupan zapis napona na sabirnicama, pa je ovo bila najbliža točka.
+
+{% capture raw_html %}
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:center">TS Konjsko - napon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-a-naponi-konjsko/">Naponi u Konjskom - A</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-d-naponi-konjsko/">Naponi u Konjskom - D</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-b-naponi-konjsko/">Naponi u Konjskom - B</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-c-naponi-konjsko/">Naponi u Konjskom - C</a></td>
+        </tr>
+    </tbody>
+</table>
+{% endcapture %}
+{{ raw_html }}
+
+- U bilješkama s ispitivanja navedeno je da je MC Split za vrijeme trajanja OR agregata A i D radio manipulacije
+regulacijskih preklopki mrežnih transformatora AT3 u Konjskom i ATR u Zakučcu. Izdvojeni su samo zapisi o tome u tablici niže.
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">Mrežni trafo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-polozaj-konjsko/">ATR Konjsko</a></td>
+        </tr>
+        <tr>
+            <td style="text-align:center"><a href="{{ site.baseurl }}/otocni-rad-polozaj-zakucac/">AT3 Zakučac</a></td>
+        </tr>
+    </tbody>
+</table>
