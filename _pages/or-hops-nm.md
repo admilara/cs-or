@@ -146,7 +146,7 @@ prijenosnoj mreži, dostupni su sljedeći zapisi:
     - [GEN A - Naponi u Konjskom]({{ site.baseurl }}/otocni-rad-a-naponi-konjsko/)
     - [GEN D - Naponi u Konjskom]({{ site.baseurl }}/otocni-rad-d-naponi-konjsko/)
     - [GEN B - Naponi u Konjskom]({{ site.baseurl }}/otocni-rad-b-naponi-konjsko/)
-    - [GEN C - Naponi u Konjskom]({{ site.baseurl }}/otocni-rad-cS-naponi-konjsko/)
+    - [GEN C - Naponi u Konjskom]({{ site.baseurl }}/otocni-rad-c-naponi-konjsko/)
     
 
 - U bilješkama s ispitivanja navedeno je da je MC Split za vrijeme trajanja OR agregata A i D radio manipulacije
