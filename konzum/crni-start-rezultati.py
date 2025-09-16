@@ -20,6 +20,9 @@ from os.path import isfile, join
 
 import pandas as pd
 
+from PIL import Image
+import io
+
 
 def graf_radna_jalova(df, unit):
     fig = go.Figure()
@@ -63,7 +66,7 @@ def graf_radna_jalova(df, unit):
                     titlefont=dict(color="blue"),
                     tickfont=dict(color="blue"),
                     overlaying="y",
-                    side="right")
+                    side="right"),
         )
     return fig
 
@@ -367,6 +370,13 @@ def graf_tlak(df, unit):
 
 
 def graf(gen, df, signal_dict, annotations):
+    
+    start = pd.to_datetime(df["Vrijeme"].iloc[0])
+    end = pd.to_datetime(df["Vrijeme"].iloc[-1])
+    
+    #start = pd.to_datetime(annotations[1])
+    #end = pd.to_datetime(annotations[5])
+    
     print(f"U funkciji: {gen}")
     fig = go.Figure()
     
@@ -465,7 +475,7 @@ def graf(gen, df, signal_dict, annotations):
             arrowhead=2,
             ax=ax_set,  # Arrow shift in x direction
             ay=ay_set,  # Arrow shift in y direction
-            font=dict(color="#754FC5", size=12),
+            font=dict(color="#754FC5", size=10),
             bordercolor="#754FC5",
             borderwidth=1,
             bgcolor="rgba(255,255,255,0.7)"
@@ -574,6 +584,30 @@ units["C"]["annotations"] = annotations
 #                           SVI SIGNALI
 # =============================================================================
 
+mjerenja_mini = {"Naponi": {"signals": ["{unit}_NAPON_GENERATORA_UL1L2",
+                                   "{unit}_NAPON_GENERATORA_UL2L3",
+                                   "{unit}_NAPON_GENERATORA_UL3L1"],
+                       "colors": ["red", "blue", "green"],
+                       "name": ["NAPON GENERATORA {unit} - UL1L2 [V]",
+                                "NAPON GENERATORA {unit} - UL2L3 [V]",
+                                "NAPON GENERATORA {unit} - UL3L1 [V]"],
+                       "yaxis": "Ug [V]",
+                       "title": "Naponi generatora {unit}"
+                       },
+            "Snaga": {"signals": ["{unit}_RADNA_SNAGA_GENERATORA",
+                                  "{unit}_JALOVA_SNAGA_GENERATORA"],
+                      "colors": ["red", "blue"],
+                      "name": ["RADNA SNAGA GENERATORA {unit} [MW]",
+                               "JALOVA SNAGA GENERATORA {unit} [Mvar]"],
+                      "yaxis": ["P [MW]", "Q [Mvar]"],
+                      "title": "Radna i jalova snaga generatora {unit}"},
+            "Frekvencija": {"signals": ["{unit}_FREKVENCIJA_GENERATORA"],
+                            "colors": ["red"],
+                            "name": ["FREKVENCIJA GENERATORA {unit} [Hz]"],
+                            "yaxis": "f [Hz]",
+                            "title": "Frekvencija jedinice {unit}"}
+}            
+            
 mjerenja = {"Naponi": {"signals": ["{unit}_NAPON_GENERATORA_UL1L2",
                                    "{unit}_NAPON_GENERATORA_UL2L3",
                                    "{unit}_NAPON_GENERATORA_UL3L1"],
@@ -655,7 +689,8 @@ for i in range(4):
     
 for unit, value in units.items():
     fig_list = []
-    for mjerenje_naziv, mjerenje_podatci in mjerenja.items():
+    #for mjerenje_naziv, mjerenje_podatci in mjerenja.items():
+    for mjerenje_naziv, mjerenje_podatci in mjerenja_mini.items():    
         fig0 = graf(unit, value["df"], mjerenja[mjerenje_naziv], value["annotations"]) 
         fig_list.append(fig0)
     
@@ -688,10 +723,37 @@ for unit, value in units.items():
     with open(f"procis-cs-gen-{unit.lower()}.html", "w") as f:
         f.write(html_page)
     
+    width, height = 1000, 450
+    scale = 3
+    
+    # Render Plotly figures to in-memory PNGs and open them with PIL
+    images = []
+    for fig in fig_list:
+        buf = io.BytesIO()
+        fig.write_image(buf, format="png", width=width, height=height, scale=scale)
+        buf.seek(0)
+        images.append(Image.open(buf))
+    
+    # Create a final vertical canvas
+    final_height = height * scale * len(images)
+    final_img = Image.new("RGB", (width * scale, final_height))
+    
+    # Paste each image into its correct position
+    for idx, img in enumerate(images):
+        y_offset = idx * height * scale
+        final_img.paste(img, (0, y_offset))
+    
+    # Save the combined dashboard image
+    final_img.save(f"combined-dashboard-{unit.lower()}.png")
+    
     print(f"Dashboard saved as PROCIS-CS-GEN-{unit.lower()}.html")
     
 start_time = datetime.strptime("2024-12-03 14:20:20", "%Y-%m-%d %H:%M:%S")
 end_time = datetime.strptime("2024-12-03 14:20:45", "%Y-%m-%d %H:%M:%S")
+
+
+
+
 
 for i in range(4):
     if "Agregat B" in cs[i]:
