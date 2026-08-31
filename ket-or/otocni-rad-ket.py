@@ -1060,7 +1060,7 @@ def graf_protok(df, unit):
     return fig
 
 
-mypath = "D:\\3_RADNO\\_HOPS\\2_ZAKUCAC_CS_OP\\KET"
+mypath = "F:\\3_RADNO\\_HOPS\\2_ZAKUCAC_CS_OP\\KET"
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 for file in files:
