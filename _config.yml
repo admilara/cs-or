@@ -1,47 +1,57 @@
-theme: jekyll-theme-slate
 title: Obrada dostavljenih podataka - Otočni rad i crni start HE Zakučac
-description:  
-remote_theme: pages-themes/slate@v0.2.0
+short_title: HE Zakučac · Crni start i otočni rad
+description: Pregled i vizualizacija mjernih podataka s pokusa crnog starta i otočnog rada u HE Zakučac, prosinac 2024.
+lang: hr
 plugins:
-- jekyll-remote-theme
+  - jekyll-seo-tag
 include:
   - assets/css
+exclude:
+  - README.md
 collections:
   pages:
     output: true        # Makes pages render as actual output
     permalink: /:name/  # Creates clean URLs based on file names
+
+# Navigation (header) and the cards on the home page are both built from this list.
+# Set `available: false` to show an entry as not yet published instead of a link.
 header_sections:
   - label: "Crni start"
+    key: cs
+    date: "03.12.2024."
     links:
       - title: "HOPS NM"
         url: "/cs-hops-nm/"
-        class: "blue-link"
+        available: false
+        desc: "Mjerenja iz sustava nadzora i upravljanja (MC Split)"
       - title: "HOPS WAMS"
         url: "/cs-hops-wams/"
-        class: "green-link"
+        desc: "PMU mjerenja #318, #323 i #324"
       - title: "KONČAR PROCIS"
         url: "/cs-koncar-ket/"
-        class: "green-link"
+        desc: "Mjerenja generatora, uzbude i turbine"
       - title: "GEPPERT"
         url: "/cs-geppert/"
-        class: "green-link"        
+        desc: "Zapisi iz turbinskog regulatora"
       - title: "INEM"
         url: "/cs-uzbuda/"
-        class: "green-link"
+        desc: "RecEx i Watch zapisi sustava uzbude"
   - label: "Otočni rad"
+    key: or
+    date: "04.12.2024."
     links:
       - title: "HOPS NM"
         url: "/or-hops-nm/"
-        class: "green-link"
+        desc: "Konzum po trafostanicama, mjesto odvajanja, naponi"
       - title: "HOPS WAMS"
         url: "/or-hops-wams/"
-        class: "green-link"
+        desc: "PMU mjerenja po agregatima"
       - title: "KONČAR PROCIS"
         url: "/or-koncar-ket/"
-        class: "green-link"
+        desc: "Mjerenja generatora, uzbude i turbine"
       - title: "GEPPERT"
         url: "/or-geppert/"
-        class: "green-link"
+        desc: "Zapisi iz turbinskog regulatora"
       - title: "INEM"
         url: "/or-uzbuda/"
-        class: "green-link"
+        desc: "RecEx i Watch zapisi sustava uzbude"

@@ -10,8 +10,8 @@ table {
 }
 </style>
 
-<h1 style="text-align: center; font-family: Helvetica; color: red">04.12.2024. Otočni rad</h1>
-<h2 style="text-align: center; font-family: Helvetica; color: red">Podatci: Končar INEM</h2>
+<h1 style="text-align: center; font-family: Helvetica; color: blue">04.12.2024. Otočni rad</h1>
+<h2 style="text-align: center; font-family: Helvetica; color: blue">Podatci: Končar INEM</h2>
 
 Za pokuse otočnog rada agregata A, D, B i C u HE Zakučac dostupni su i zapisi 
 iz sustava uzbude, dostavljeni u obliku RecEx i Watch log datoteka. Trajanje 

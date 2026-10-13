@@ -19,5 +19,5 @@ Zapisi u datoteku pisani su s pravilnim vremenskim razmakom od 100 ms.
                                
 
 <div class="wide-graph">
-    <iframe src="{{ site.baseurl }}/turbinska/blackstart-agr-c-01.html" width="100%" height="800px" frameborder="0"></iframe>
+    <iframe src="{{ site.baseurl }}/turbinska/blackstart-agr-d-04.html" width="100%" height="800px" frameborder="0"></iframe>
 </div>

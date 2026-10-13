@@ -25,7 +25,7 @@ Veličine u zapisima se razlikuju od datoteke do datoteke - popis oznaka, mjerni
             <th style="text-align:center; font-family: Helvetica">Agregat A</th>
             <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>
             <th style="text-align:center; font-family: Helvetica">Agregat D</th>
-            <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>>            
+            <th style="text-align:center; font-family: Helvetica">Trajanje zapisa</th>            
         </tr>
     </thead>
     <tbody>
